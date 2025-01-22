@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var debug_planet: AnimatedSprite2D = $UICanvasLayer/Planet/DebugPlanet
+@onready var debug_planet = %DebugPlanet
 @onready var dialog_ui = %DialogUI
 
 var dialog_index : int = 0
