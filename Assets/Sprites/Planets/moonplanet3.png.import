@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c50s06jg4aj4f"
-path="res://.godot/imported/tw-planet1.png-092d1bd77ca7c5070e5bd0f3ff1ed41f.ctex"
+uid="uid://ctrstt00lv1ho"
+path="res://.godot/imported/moonplanet3.png-b11d1b487210d7b230cf5d41b9aa2578.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/tw-planet1.png"
-dest_files=["res://.godot/imported/tw-planet1.png-092d1bd77ca7c5070e5bd0f3ff1ed41f.ctex"]
+source_file="res://Assets/Sprites/Planets/moonplanet3.png"
+dest_files=["res://.godot/imported/moonplanet3.png-b11d1b487210d7b230cf5d41b9aa2578.ctex"]
 
 [params]
 

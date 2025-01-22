@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Scripts/DebugStage.gd" id="1_rtoc5"]
 [ext_resource type="Theme" uid="uid://btb0t5a2pv8m5" path="res://Assets/Themes/PixelText.tres" id="2_3gmsf"]
-[ext_resource type="PackedScene" uid="uid://pfwh6rcl2u3m" path="res://Scenes/Planets/TerranWet1.tscn" id="2_wh06b"]
 [ext_resource type="PackedScene" uid="uid://b4eyv5px2g5lh" path="res://Scenes/DialogUI.tscn" id="4_54a4a"]
 [ext_resource type="Texture2D" uid="uid://cv1m7taj6y5ch" path="res://Assets/Sprites/spacebg.png" id="5_1fnp3"]
+[ext_resource type="PackedScene" uid="uid://belselyb0lg60" path="res://Scenes/Planets/TerranWet2.tscn" id="5_fk75c"]
 [ext_resource type="Texture2D" uid="uid://dbm5tixdv02vc" path="res://Assets/Sprites/spacewindow.png" id="6_5v55f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_negq5"]
@@ -101,10 +101,8 @@ offset_left = 324.0
 offset_right = 324.0
 grow_vertical = 2
 
-[node name="DebugPlanet" parent="UICanvasLayer/Space/Planet" instance=ExtResource("2_wh06b")]
+[node name="DebugPlanet" parent="UICanvasLayer/Space/Planet" instance=ExtResource("5_fk75c")]
 unique_name_in_owner = true
-frame = 69
-frame_progress = 0.411734
 
 [node name="Space" type="TextureRect" parent="UICanvasLayer/Space"]
 z_index = -3
