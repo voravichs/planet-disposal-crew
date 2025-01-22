@@ -1,45 +1,41 @@
 [gd_scene load_steps=5 format=3 uid="uid://ctccidyewnghi"]
 
+[ext_resource type="Texture2D" uid="uid://cv1m7taj6y5ch" path="res://Assets/Sprites/spacebg.png" id="1_qwop0"]
+[ext_resource type="Texture2D" uid="uid://dbm5tixdv02vc" path="res://Assets/Sprites/spacewindow.png" id="2_djfyo"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_negq5"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 50
-border_width_top = 50
-border_width_right = 50
-border_width_bottom = 50
+border_width_left = 35
+border_width_top = 35
+border_width_right = 35
+border_width_bottom = 35
 border_color = Color(0.8, 0.8, 0.8, 0.588235)
 border_blend = true
-corner_radius_top_left = 25
-corner_radius_top_right = 25
-corner_radius_bottom_right = 25
-corner_radius_bottom_left = 25
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
 
 [sub_resource type="Theme" id="Theme_ugla5"]
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_negq5")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eyckx"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 30
-border_width_top = 30
-border_width_right = 30
-border_width_bottom = 30
-border_color = Color(0.176419, 0.176419, 0.176419, 1)
-corner_detail = 1
-anti_aliasing = false
-anti_aliasing_size = 0.641
-
-[sub_resource type="Theme" id="Theme_fei0a"]
-PanelContainer/styles/panel = SubResource("StyleBoxFlat_eyckx")
-
 [node name="SpaceViewCanvasLayer" type="CanvasLayer"]
 
-[node name="Window" type="PanelContainer" parent="."]
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 632.0
-offset_bottom = 628.0
+[node name="WindowGlow" type="PanelContainer" parent="."]
+z_index = -2
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 622.0
+offset_bottom = 618.0
 theme = SubResource("Theme_ugla5")
 
-[node name="WindowSides" type="PanelContainer" parent="."]
-offset_right = 652.0
-offset_bottom = 648.0
-theme = SubResource("Theme_fei0a")
+[node name="Space" type="TextureRect" parent="."]
+z_index = -3
+offset_right = 249.0
+offset_bottom = 237.0
+texture = ExtResource("1_qwop0")
+
+[node name="SpaceWindow" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_djfyo")
