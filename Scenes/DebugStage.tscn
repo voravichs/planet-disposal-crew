@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://xmd4jsiyrr3d"]
+[gd_scene load_steps=12 format=3 uid="uid://xmd4jsiyrr3d"]
 
 [ext_resource type="Script" path="res://Scripts/DebugStage.gd" id="1_rtoc5"]
 [ext_resource type="Theme" uid="uid://btb0t5a2pv8m5" path="res://Assets/Themes/PixelText.tres" id="2_3gmsf"]
+[ext_resource type="PackedScene" uid="uid://pfwh6rcl2u3m" path="res://Scenes/Planets/TerranWet1.tscn" id="2_wh06b"]
 [ext_resource type="PackedScene" uid="uid://b4eyv5px2g5lh" path="res://Scenes/DialogUI.tscn" id="4_54a4a"]
 [ext_resource type="Texture2D" uid="uid://cv1m7taj6y5ch" path="res://Assets/Sprites/spacebg.png" id="5_1fnp3"]
-[ext_resource type="PackedScene" uid="uid://belselyb0lg60" path="res://Scenes/Planets/TerranWet2.tscn" id="5_fk75c"]
 [ext_resource type="Texture2D" uid="uid://dbm5tixdv02vc" path="res://Assets/Sprites/spacewindow.png" id="6_5v55f"]
+[ext_resource type="Texture2D" uid="uid://b6tilemyik8x0" path="res://Assets/Sprites/planeticon.png" id="7_3pw2e"]
+[ext_resource type="Texture2D" uid="uid://biis52kw8ggg5" path="res://Assets/Sprites/whitedownarrow.png" id="8_01xx6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_negq5"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -22,6 +24,10 @@ corner_radius_bottom_left = 60
 
 [sub_resource type="Theme" id="Theme_fcaep"]
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_negq5")
+
+[sub_resource type="Theme" id="Theme_ok0f0"]
+GridContainer/constants/h_separation = 8
+GridContainer/constants/v_separation = 2
 
 [node name="DebugStage" type="Node2D"]
 script = ExtResource("1_rtoc5")
@@ -101,8 +107,10 @@ offset_left = 324.0
 offset_right = 324.0
 grow_vertical = 2
 
-[node name="DebugPlanet" parent="UICanvasLayer/Space/Planet" instance=ExtResource("5_fk75c")]
+[node name="DebugPlanet" parent="UICanvasLayer/Space/Planet" instance=ExtResource("2_wh06b")]
 unique_name_in_owner = true
+frame = 69
+frame_progress = 0.411734
 
 [node name="Space" type="TextureRect" parent="UICanvasLayer/Space"]
 z_index = -3
@@ -119,3 +127,63 @@ offset_bottom = 324.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_1fnp3")
+
+[node name="PlanetTracker" type="CenterContainer" parent="UICanvasLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 653.0
+offset_top = -101.0
+offset_right = -250.0
+offset_bottom = -51.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
+
+[node name="GridContainer" type="GridContainer" parent="UICanvasLayer/PlanetTracker"]
+layout_mode = 2
+theme = SubResource("Theme_ok0f0")
+columns = 4
+
+[node name="B1" type="TextureButton" parent="UICanvasLayer/PlanetTracker/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("7_3pw2e")
+
+[node name="B2" type="TextureButton" parent="UICanvasLayer/PlanetTracker/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("7_3pw2e")
+
+[node name="B3" type="TextureButton" parent="UICanvasLayer/PlanetTracker/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("7_3pw2e")
+
+[node name="B4" type="TextureButton" parent="UICanvasLayer/PlanetTracker/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("7_3pw2e")
+
+[node name="TrackerArrows" type="Node2D" parent="UICanvasLayer/PlanetTracker"]
+position = Vector2(-653, -598)
+
+[node name="ArrowB1" type="Sprite2D" parent="UICanvasLayer/PlanetTracker/TrackerArrows"]
+position = Vector2(717, 595)
+texture = ExtResource("8_01xx6")
+
+[node name="ArrowB2" type="Sprite2D" parent="UICanvasLayer/PlanetTracker/TrackerArrows"]
+visible = false
+position = Vector2(757, 595)
+texture = ExtResource("8_01xx6")
+
+[node name="ArrowB3" type="Sprite2D" parent="UICanvasLayer/PlanetTracker/TrackerArrows"]
+visible = false
+position = Vector2(797, 595)
+texture = ExtResource("8_01xx6")
+
+[node name="ArrowB4" type="Sprite2D" parent="UICanvasLayer/PlanetTracker/TrackerArrows"]
+visible = false
+position = Vector2(837, 595)
+texture = ExtResource("8_01xx6")

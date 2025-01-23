@@ -21,6 +21,7 @@ func _process(delta: float) -> void:
 		else:
 			animate_text = false
 
+# Changes line of dialogue and scrolls it
 func change_line(line: String):
 	current_visible_chars = 0
 	dialog_line.visible_characters = 0
