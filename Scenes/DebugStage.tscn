@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://xmd4jsiyrr3d"]
+[gd_scene load_steps=26 format=3 uid="uid://xmd4jsiyrr3d"]
 
 [ext_resource type="Script" path="res://Scripts/DebugStage.gd" id="1_rtoc5"]
 [ext_resource type="Theme" uid="uid://btb0t5a2pv8m5" path="res://Assets/Themes/PixelText.tres" id="2_3gmsf"]
@@ -7,8 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://cv1m7taj6y5ch" path="res://Assets/Sprites/spacebg.png" id="5_1fnp3"]
 [ext_resource type="Texture2D" uid="uid://dbm5tixdv02vc" path="res://Assets/Sprites/spacewindow.png" id="6_5v55f"]
 [ext_resource type="PackedScene" uid="uid://cxyi4vmclp0v0" path="res://Scenes/Planets/TerranWet3.tscn" id="6_7yc0c"]
-[ext_resource type="Texture2D" uid="uid://b6tilemyik8x0" path="res://Assets/Sprites/planeticon.png" id="7_3pw2e"]
-[ext_resource type="Texture2D" uid="uid://biis52kw8ggg5" path="res://Assets/Sprites/whitedownarrow.png" id="8_01xx6"]
+[ext_resource type="Texture2D" uid="uid://mokskyvl6xwl" path="res://Assets/Sprites/arrowanimsheet.png" id="8_n2xa2"]
+[ext_resource type="Texture2D" uid="uid://bai2hvh4cawxq" path="res://Assets/Sprites/planeticonnormal.png" id="9_2sqf3"]
+[ext_resource type="ButtonGroup" uid="uid://duk0imubl2eht" path="res://Assets/Themes/PlanetButtonGroup.tres" id="9_haktp"]
+[ext_resource type="Texture2D" uid="uid://cfxdi1ahkeo0r" path="res://Assets/Sprites/planeticonhover.png" id="11_xxoy7"]
+[ext_resource type="Texture2D" uid="uid://igc0jayy8eto" path="res://Assets/Sprites/planeticondisabled.png" id="13_vt21b"]
+[ext_resource type="Texture2D" uid="uid://cb61cguumbevf" path="res://Assets/Sprites/planeticonpressfocus.png" id="15_juosl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_negq5"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -26,13 +30,73 @@ corner_radius_bottom_left = 60
 [sub_resource type="Theme" id="Theme_fcaep"]
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_negq5")
 
-[sub_resource type="Theme" id="Theme_5ng7s"]
-GridContainer/constants/h_separation = 20
-GridContainer/constants/v_separation = 2
-
 [sub_resource type="Theme" id="Theme_ok0f0"]
 GridContainer/constants/h_separation = 8
 GridContainer/constants/v_separation = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nk6ub"]
+atlas = ExtResource("8_n2xa2")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxmha"]
+atlas = ExtResource("8_n2xa2")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_neg5q"]
+atlas = ExtResource("8_n2xa2")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3j5j"]
+atlas = ExtResource("8_n2xa2")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0cbo"]
+atlas = ExtResource("8_n2xa2")
+region = Rect2(96, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccqvl"]
+atlas = ExtResource("8_n2xa2")
+region = Rect2(120, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rcysk"]
+atlas = ExtResource("8_n2xa2")
+region = Rect2(144, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8j47l"]
+atlas = ExtResource("8_n2xa2")
+region = Rect2(168, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ficb4"]
+animations = [{
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_nk6ub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxmha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_neg5q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3j5j")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_r0cbo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ccqvl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rcysk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8j47l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
 
 [node name="DebugStage" type="Node2D"]
 script = ExtResource("1_rtoc5")
@@ -119,6 +183,7 @@ frame_progress = 0.411734
 
 [node name="DebugPlanet2" parent="UICanvasLayer/Space/Planet" instance=ExtResource("6_7yc0c")]
 unique_name_in_owner = true
+visible = false
 position = Vector2(-69, -86)
 scale = Vector2(2, 2)
 frame_progress = 0.380098
@@ -139,47 +204,15 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_1fnp3")
 
-[node name="CenterContainer" type="CenterContainer" parent="UICanvasLayer"]
-offset_left = 761.0
-offset_top = 521.0
-offset_right = 917.0
-offset_bottom = 545.0
-scale = Vector2(1.8, 1.8)
-
-[node name="GridContainer" type="GridContainer" parent="UICanvasLayer/CenterContainer"]
-layout_mode = 2
-theme = SubResource("Theme_5ng7s")
-columns = 4
-
-[node name="PlanetPointer1" type="TextureRect" parent="UICanvasLayer/CenterContainer/GridContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-texture = ExtResource("8_01xx6")
-
-[node name="PlanetPointer2" type="TextureRect" parent="UICanvasLayer/CenterContainer/GridContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-texture = ExtResource("8_01xx6")
-
-[node name="PlanetPointer3" type="TextureRect" parent="UICanvasLayer/CenterContainer/GridContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-texture = ExtResource("8_01xx6")
-
-[node name="PlanetPointer4" type="TextureRect" parent="UICanvasLayer/CenterContainer/GridContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-texture = ExtResource("8_01xx6")
-
 [node name="PlanetTracker" type="CenterContainer" parent="UICanvasLayer"]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 653.0
-offset_top = -101.0
+offset_top = -126.0
 offset_right = -250.0
-offset_bottom = -51.0
+offset_bottom = -63.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(2, 2)
@@ -189,45 +222,92 @@ layout_mode = 2
 theme = SubResource("Theme_ok0f0")
 columns = 4
 
+[node name="P1" type="Control" parent="UICanvasLayer/PlanetTracker/GridContainer"]
+layout_mode = 2
+
+[node name="PlanetPointer1" type="AnimatedSprite2D" parent="UICanvasLayer/PlanetTracker/GridContainer/P1"]
+unique_name_in_owner = true
+position = Vector2(16, -10)
+sprite_frames = SubResource("SpriteFrames_ficb4")
+frame_progress = 0.14575
+
+[node name="P2" type="Control" parent="UICanvasLayer/PlanetTracker/GridContainer"]
+layout_mode = 2
+
+[node name="PlanetPointer2" type="AnimatedSprite2D" parent="UICanvasLayer/PlanetTracker/GridContainer/P2"]
+unique_name_in_owner = true
+position = Vector2(16, -10)
+sprite_frames = SubResource("SpriteFrames_ficb4")
+frame_progress = 0.14575
+
+[node name="P3" type="Control" parent="UICanvasLayer/PlanetTracker/GridContainer"]
+layout_mode = 2
+
+[node name="PlanetPointer3" type="AnimatedSprite2D" parent="UICanvasLayer/PlanetTracker/GridContainer/P3"]
+unique_name_in_owner = true
+position = Vector2(16, -10)
+sprite_frames = SubResource("SpriteFrames_ficb4")
+frame_progress = 0.14575
+
+[node name="P4" type="Control" parent="UICanvasLayer/PlanetTracker/GridContainer"]
+layout_mode = 2
+
+[node name="PlanetPointer4" type="AnimatedSprite2D" parent="UICanvasLayer/PlanetTracker/GridContainer/P4"]
+unique_name_in_owner = true
+position = Vector2(16, -10)
+sprite_frames = SubResource("SpriteFrames_ficb4")
+frame_progress = 0.14575
+
 [node name="B1" type="TextureButton" parent="UICanvasLayer/PlanetTracker/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-texture_normal = ExtResource("7_3pw2e")
+toggle_mode = true
+button_pressed = true
+keep_pressed_outside = true
+button_group = ExtResource("9_haktp")
+texture_normal = ExtResource("9_2sqf3")
+texture_pressed = ExtResource("15_juosl")
+texture_hover = ExtResource("11_xxoy7")
+texture_disabled = ExtResource("13_vt21b")
+texture_focused = ExtResource("15_juosl")
 
 [node name="B2" type="TextureButton" parent="UICanvasLayer/PlanetTracker/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-texture_normal = ExtResource("7_3pw2e")
+toggle_mode = true
+keep_pressed_outside = true
+button_group = ExtResource("9_haktp")
+texture_normal = ExtResource("9_2sqf3")
+texture_pressed = ExtResource("15_juosl")
+texture_hover = ExtResource("11_xxoy7")
+texture_disabled = ExtResource("13_vt21b")
+texture_focused = ExtResource("15_juosl")
 
 [node name="B3" type="TextureButton" parent="UICanvasLayer/PlanetTracker/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-texture_normal = ExtResource("7_3pw2e")
+toggle_mode = true
+keep_pressed_outside = true
+button_group = ExtResource("9_haktp")
+texture_normal = ExtResource("9_2sqf3")
+texture_pressed = ExtResource("15_juosl")
+texture_hover = ExtResource("11_xxoy7")
+texture_disabled = ExtResource("13_vt21b")
+texture_focused = ExtResource("15_juosl")
 
 [node name="B4" type="TextureButton" parent="UICanvasLayer/PlanetTracker/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-texture_normal = ExtResource("7_3pw2e")
+toggle_mode = true
+keep_pressed_outside = true
+button_group = ExtResource("9_haktp")
+texture_normal = ExtResource("9_2sqf3")
+texture_pressed = ExtResource("15_juosl")
+texture_hover = ExtResource("11_xxoy7")
+texture_disabled = ExtResource("13_vt21b")
+texture_focused = ExtResource("15_juosl")
 
-[node name="TrackerArrows" type="Node2D" parent="UICanvasLayer/PlanetTracker"]
-position = Vector2(-653, -598)
-
-[node name="ArrowB1" type="Sprite2D" parent="UICanvasLayer/PlanetTracker/TrackerArrows"]
-visible = false
-position = Vector2(717, 595)
-texture = ExtResource("8_01xx6")
-
-[node name="ArrowB2" type="Sprite2D" parent="UICanvasLayer/PlanetTracker/TrackerArrows"]
-visible = false
-position = Vector2(757, 595)
-texture = ExtResource("8_01xx6")
-
-[node name="ArrowB3" type="Sprite2D" parent="UICanvasLayer/PlanetTracker/TrackerArrows"]
-visible = false
-position = Vector2(797, 595)
-texture = ExtResource("8_01xx6")
-
-[node name="ArrowB4" type="Sprite2D" parent="UICanvasLayer/PlanetTracker/TrackerArrows"]
-visible = false
-position = Vector2(837, 595)
-texture = ExtResource("8_01xx6")
+[connection signal="pressed" from="UICanvasLayer/PlanetTracker/GridContainer/B1" to="." method="_planet_tracker_pressed" binds= [0]]
+[connection signal="pressed" from="UICanvasLayer/PlanetTracker/GridContainer/B2" to="." method="_planet_tracker_pressed" binds= [1]]
+[connection signal="pressed" from="UICanvasLayer/PlanetTracker/GridContainer/B3" to="." method="_planet_tracker_pressed" binds= [2]]
+[connection signal="pressed" from="UICanvasLayer/PlanetTracker/GridContainer/B4" to="." method="_planet_tracker_pressed" binds= [3]]
