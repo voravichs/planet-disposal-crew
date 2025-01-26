@@ -1,6 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://3sji1k7sstnk"]
+[gd_scene load_steps=7 format=3 uid="uid://3sji1k7sstnk"]
 
 [ext_resource type="Texture2D" uid="uid://qlo26i8mxkhe" path="res://Assets/Sprites/energytrailparticle.png" id="1_y1t3p"]
+
+[sub_resource type="Gradient" id="Gradient_xqrio"]
+offsets = PackedFloat32Array(0, 0.729008, 0.751908)
+colors = PackedColorArray(1, 0.231373, 0.172549, 1, 1, 0.231373, 0.172549, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qji4n"]
+gradient = SubResource("Gradient_xqrio")
 
 [sub_resource type="Curve" id="Curve_4tp3h"]
 min_value = -1.0
@@ -12,14 +19,15 @@ curve = SubResource("Curve_4tp3h")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8ux7g"]
 particle_flag_align_y = true
+particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(300, 300, 100)
-gravity = Vector3(0, 0, 0)
 radial_accel_min = -1000.0
 radial_accel_max = -1000.0
-scale_min = 4.0
-scale_max = 4.0
+scale_min = 3.0
+scale_max = 3.0
 color = Color(1, 0.229536, 0.174185, 1)
+color_initial_ramp = SubResource("GradientTexture1D_qji4n")
 hue_variation_curve = SubResource("CurveTexture_pbl2e")
 
 [node name="GPUParticles2D" type="GPUParticles2D"]
@@ -29,3 +37,4 @@ process_material = SubResource("ParticleProcessMaterial_8ux7g")
 texture = ExtResource("1_y1t3p")
 lifetime = 0.5
 collision_base_size = 0.0
+trail_lifetime = 0.01
