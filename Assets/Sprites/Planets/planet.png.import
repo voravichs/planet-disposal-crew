@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbm5tixdv02vc"
-path="res://.godot/imported/spacewindow.png-755a4df9623e8a648d7937311742077a.ctex"
+uid="uid://cdc0ec2s80a7u"
+path="res://.godot/imported/planet.png-8f62c7310dd3dbcbfb337542c75d5ac5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/spacewindow.png"
-dest_files=["res://.godot/imported/spacewindow.png-755a4df9623e8a648d7937311742077a.ctex"]
+source_file="res://Assets/Sprites/Planets/planet.png"
+dest_files=["res://.godot/imported/planet.png-8f62c7310dd3dbcbfb337542c75d5ac5.ctex"]
 
 [params]
 

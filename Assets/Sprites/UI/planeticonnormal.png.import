@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://igc0jayy8eto"
-path="res://.godot/imported/planeticondisabled.png-a5ba27483fba9fc0c5080f15a0bf7573.ctex"
+uid="uid://bai2hvh4cawxq"
+path="res://.godot/imported/planeticonnormal.png-1cbf71f1c1bcc3f0b4aa9a425c701ffd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/planeticondisabled.png"
-dest_files=["res://.godot/imported/planeticondisabled.png-a5ba27483fba9fc0c5080f15a0bf7573.ctex"]
+source_file="res://Assets/Sprites/UI/planeticonnormal.png"
+dest_files=["res://.godot/imported/planeticonnormal.png-1cbf71f1c1bcc3f0b4aa9a425c701ffd.ctex"]
 
 [params]
 

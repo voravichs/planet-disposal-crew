@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://3sji1k7sstnk"]
+
+[ext_resource type="Texture2D" uid="uid://qlo26i8mxkhe" path="res://Assets/Sprites/energytrailparticle.png" id="1_y1t3p"]
+
+[sub_resource type="Curve" id="Curve_4tp3h"]
+min_value = -1.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.535484, -1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_pbl2e"]
+curve = SubResource("Curve_4tp3h")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8ux7g"]
+particle_flag_align_y = true
+emission_shape = 3
+emission_box_extents = Vector3(300, 300, 100)
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -1000.0
+radial_accel_max = -1000.0
+scale_min = 4.0
+scale_max = 4.0
+color = Color(1, 0.229536, 0.174185, 1)
+hue_variation_curve = SubResource("CurveTexture_pbl2e")
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+position = Vector2(556, 329)
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_8ux7g")
+texture = ExtResource("1_y1t3p")
+lifetime = 0.5
+collision_base_size = 0.0

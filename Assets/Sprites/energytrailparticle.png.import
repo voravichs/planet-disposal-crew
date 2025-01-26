@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfxdi1ahkeo0r"
-path="res://.godot/imported/planeticonhover.png-611cdb0e171906f30dce15823a22975e.ctex"
+uid="uid://qlo26i8mxkhe"
+path="res://.godot/imported/energytrailparticle.png-08fa351185d85653cf866f16d6234968.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/planeticonhover.png"
-dest_files=["res://.godot/imported/planeticonhover.png-611cdb0e171906f30dce15823a22975e.ctex"]
+source_file="res://Assets/Sprites/energytrailparticle.png"
+dest_files=["res://.godot/imported/energytrailparticle.png-08fa351185d85653cf866f16d6234968.ctex"]
 
 [params]
 

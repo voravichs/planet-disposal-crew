@@ -1,4 +1,19 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://cnbubko8gvgsv"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cnbubko8gvgsv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_anl6w"]
+bg_color = Color(0.0431373, 0.0901961, 0.411765, 1)
+border_width_bottom = 3
+border_color = Color(0, 0, 0.258824, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+shadow_size = 2
+shadow_offset = Vector2(2, 2)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ln80"]
 bg_color = Color(0.0576578, 0.111686, 0.480796, 1)
@@ -8,17 +23,25 @@ corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
 shadow_size = 2
 shadow_offset = Vector2(2, 2)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_30o4b"]
 bg_color = Color(0.0184584, 0.0468724, 0.272238, 1)
-border_width_bottom = 6
+border_width_bottom = 3
 border_color = Color(0, 0, 0.258824, 1)
 corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
 shadow_size = 2
 shadow_offset = Vector2(2, 2)
 
@@ -30,6 +53,10 @@ corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
 shadow_size = 2
 shadow_offset = Vector2(2, 2)
 
@@ -41,10 +68,15 @@ corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
 shadow_size = 2
 shadow_offset = Vector2(2, 2)
 
 [resource]
+Button/styles/focus = SubResource("StyleBoxFlat_anl6w")
 Button/styles/hover = SubResource("StyleBoxFlat_3ln80")
 Button/styles/hover_pressed = SubResource("StyleBoxFlat_30o4b")
 Button/styles/normal = SubResource("StyleBoxFlat_y0akg")

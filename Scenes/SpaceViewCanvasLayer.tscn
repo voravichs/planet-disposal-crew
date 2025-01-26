@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ctccidyewnghi"]
 
 [ext_resource type="Texture2D" uid="uid://cv1m7taj6y5ch" path="res://Assets/Sprites/spacebg.png" id="1_qwop0"]
-[ext_resource type="Texture2D" uid="uid://dbm5tixdv02vc" path="res://Assets/Sprites/spacewindow.png" id="2_djfyo"]
+[ext_resource type="Texture2D" uid="uid://dbm5tixdv02vc" path="res://Assets/Sprites/UI/spacewindow.png" id="2_djfyo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5blud"]
 bg_color = Color(0.6, 0.6, 0.6, 0)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mokskyvl6xwl"
-path="res://.godot/imported/arrowanimsheet.png-eafd64c50304e12da8ec47045bac3945.ctex"
+uid="uid://igc0jayy8eto"
+path="res://.godot/imported/planeticondisabled.png-5022811f3f487ef6df506a4883774d66.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/arrowanimsheet.png"
-dest_files=["res://.godot/imported/arrowanimsheet.png-eafd64c50304e12da8ec47045bac3945.ctex"]
+source_file="res://Assets/Sprites/UI/planeticondisabled.png"
+dest_files=["res://.godot/imported/planeticondisabled.png-5022811f3f487ef6df506a4883774d66.ctex"]
 
 [params]
 

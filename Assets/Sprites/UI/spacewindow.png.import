@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://biis52kw8ggg5"
-path="res://.godot/imported/whitedownarrow.png-3c7e1411ad23dad496819a6810684dce.ctex"
+uid="uid://dbm5tixdv02vc"
+path="res://.godot/imported/spacewindow.png-663bcd4d6f55d5b8308d1ddf74c58173.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/whitedownarrow.png"
-dest_files=["res://.godot/imported/whitedownarrow.png-3c7e1411ad23dad496819a6810684dce.ctex"]
+source_file="res://Assets/Sprites/UI/spacewindow.png"
+dest_files=["res://.godot/imported/spacewindow.png-663bcd4d6f55d5b8308d1ddf74c58173.ctex"]
 
 [params]
 

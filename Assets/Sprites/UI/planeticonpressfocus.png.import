@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cb61cguumbevf"
-path="res://.godot/imported/planeticonpressfocus.png-cbf2605a96831311d5a52962d3d96352.ctex"
+path="res://.godot/imported/planeticonpressfocus.png-6a6b74a33ed028695bd874ae15496a4c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/planeticonpressfocus.png"
-dest_files=["res://.godot/imported/planeticonpressfocus.png-cbf2605a96831311d5a52962d3d96352.ctex"]
+source_file="res://Assets/Sprites/UI/planeticonpressfocus.png"
+dest_files=["res://.godot/imported/planeticonpressfocus.png-6a6b74a33ed028695bd874ae15496a4c.ctex"]
 
 [params]
 
