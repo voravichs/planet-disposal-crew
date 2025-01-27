@@ -1,15 +1,15 @@
 [gd_scene load_steps=842 format=3 uid="uid://xmd4jsiyrr3d"]
 
-[ext_resource type="Script" path="res://Scripts/DebugStage.gd" id="1_rtoc5"]
+[ext_resource type="Script" path="res://Scripts/debug_stage.gd" id="1_rtoc5"]
 [ext_resource type="Theme" uid="uid://btb0t5a2pv8m5" path="res://Assets/Themes/PixelText.tres" id="2_3gmsf"]
 [ext_resource type="PackedScene" uid="uid://pfwh6rcl2u3m" path="res://Scenes/Planets/TerranWet1.tscn" id="2_wh06b"]
 [ext_resource type="PackedScene" uid="uid://b4eyv5px2g5lh" path="res://Scenes/DialogUI.tscn" id="4_54a4a"]
 [ext_resource type="FontFile" uid="uid://dhdsgaqa4nsy4" path="res://Assets/Fonts/nihonium113.regular.ttf" id="4_gw4j1"]
 [ext_resource type="Texture2D" uid="uid://cv1m7taj6y5ch" path="res://Assets/Sprites/spacebg.png" id="5_1fnp3"]
-[ext_resource type="PackedScene" uid="uid://3sji1k7sstnk" path="res://Scenes/ImplosionParticle.tscn" id="5_x6mie"]
+[ext_resource type="PackedScene" uid="uid://3sji1k7sstnk" path="res://Scenes/Particles/ImplosionParticle.tscn" id="5_x6mie"]
 [ext_resource type="Texture2D" uid="uid://dbm5tixdv02vc" path="res://Assets/Sprites/UI/spacewindow.png" id="6_5v55f"]
 [ext_resource type="PackedScene" uid="uid://cxyi4vmclp0v0" path="res://Scenes/Planets/TerranWet3.tscn" id="6_7yc0c"]
-[ext_resource type="PackedScene" uid="uid://13xbcka465ud" path="res://Scenes/Explosion.tscn" id="7_fottc"]
+[ext_resource type="PackedScene" uid="uid://13xbcka465ud" path="res://Scenes/Particles/Explosion.tscn" id="7_fottc"]
 [ext_resource type="Texture2D" uid="uid://mjvv860lavtk" path="res://Assets/Sprites/Planets/tdplanet1.png" id="7_nx0b8"]
 [ext_resource type="Texture2D" uid="uid://6ja122f4mo7m" path="res://Assets/Sprites/Planets/gasplanet1.png" id="8_2uskm"]
 [ext_resource type="Texture2D" uid="uid://mokskyvl6xwl" path="res://Assets/Sprites/UI/arrowanimsheet.png" id="8_n2xa2"]
@@ -5790,129 +5790,6 @@ tracks/9/keys = {
 "values": [true, true]
 }
 
-[sub_resource type="Animation" id="Animation_5p20q"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Explosion:emitting")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Explosion:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../Charging:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("%DebugPlanet2:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("%DebugPlanet2:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("%DebugPlanet3:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("%DebugPlanet3:modulate")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("%DebugPlanet4:position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("%DebugPlanet4:modulate")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("../Charging:modulate")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_s7rgj"]
 resource_name = "ExplodePlanet2"
 length = 8.0
@@ -6288,6 +6165,129 @@ tracks/9/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_5p20q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Explosion:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Explosion:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Charging:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("%DebugPlanet2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("%DebugPlanet2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("%DebugPlanet3:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("%DebugPlanet3:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("%DebugPlanet4:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("%DebugPlanet4:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../Charging:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ryun0"]
 _data = {
 "ExplodePlanet1": SubResource("Animation_7l08e"),
@@ -6396,30 +6396,30 @@ metadata/_edit_use_anchors_ = true
 unique_name_in_owner = true
 metadata/_edit_use_anchors_ = true
 
-[node name="CenterContainer" type="CenterContainer" parent="UICanvasLayer"]
+[node name="DebugExplosionButtons" type="CenterContainer" parent="UICanvasLayer"]
 offset_left = 653.0
-offset_top = 261.0
+offset_top = 391.0
 offset_right = 1151.0
 offset_bottom = 523.0
 
-[node name="Explode Buttons" type="GridContainer" parent="UICanvasLayer/CenterContainer"]
+[node name="Explode Buttons" type="GridContainer" parent="UICanvasLayer/DebugExplosionButtons"]
 layout_mode = 2
 theme = SubResource("Theme_qvmam")
 columns = 2
 
-[node name="Button1" type="Button" parent="UICanvasLayer/CenterContainer/Explode Buttons"]
+[node name="Button1" type="Button" parent="UICanvasLayer/DebugExplosionButtons/Explode Buttons"]
 layout_mode = 2
 text = "EXPLODE1"
 
-[node name="Button2" type="Button" parent="UICanvasLayer/CenterContainer/Explode Buttons"]
+[node name="Button2" type="Button" parent="UICanvasLayer/DebugExplosionButtons/Explode Buttons"]
 layout_mode = 2
 text = "EXPLODE2"
 
-[node name="Button3" type="Button" parent="UICanvasLayer/CenterContainer/Explode Buttons"]
+[node name="Button3" type="Button" parent="UICanvasLayer/DebugExplosionButtons/Explode Buttons"]
 layout_mode = 2
 text = "EXPLODE3"
 
-[node name="Button4" type="Button" parent="UICanvasLayer/CenterContainer/Explode Buttons"]
+[node name="Button4" type="Button" parent="UICanvasLayer/DebugExplosionButtons/Explode Buttons"]
 layout_mode = 2
 text = "EXPLODE4"
 
@@ -6474,7 +6474,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 284.5
-offset_bottom = -292.5
+offset_bottom = 334.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_i3wp3")
@@ -6545,7 +6545,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_1fnp3")
 
-[node name="Planets" type="CenterContainer" parent="UICanvasLayer"]
+[node name="PlanetTrackerUI" type="CenterContainer" parent="UICanvasLayer"]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -6558,48 +6558,48 @@ grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(2, 2)
 
-[node name="PlanetTracker" type="GridContainer" parent="UICanvasLayer/Planets"]
+[node name="PlanetTracker" type="GridContainer" parent="UICanvasLayer/PlanetTrackerUI"]
 layout_mode = 2
 theme = SubResource("Theme_ok0f0")
 columns = 4
 
-[node name="P1" type="Control" parent="UICanvasLayer/Planets/PlanetTracker"]
+[node name="P1" type="Control" parent="UICanvasLayer/PlanetTrackerUI/PlanetTracker"]
 layout_mode = 2
 
-[node name="PlanetPointer1" type="AnimatedSprite2D" parent="UICanvasLayer/Planets/PlanetTracker/P1"]
+[node name="PlanetPointer1" type="AnimatedSprite2D" parent="UICanvasLayer/PlanetTrackerUI/PlanetTracker/P1"]
 unique_name_in_owner = true
 position = Vector2(16, -10)
 sprite_frames = SubResource("SpriteFrames_ficb4")
 frame_progress = 0.14575
 
-[node name="P2" type="Control" parent="UICanvasLayer/Planets/PlanetTracker"]
+[node name="P2" type="Control" parent="UICanvasLayer/PlanetTrackerUI/PlanetTracker"]
 layout_mode = 2
 
-[node name="PlanetPointer2" type="AnimatedSprite2D" parent="UICanvasLayer/Planets/PlanetTracker/P2"]
+[node name="PlanetPointer2" type="AnimatedSprite2D" parent="UICanvasLayer/PlanetTrackerUI/PlanetTracker/P2"]
 unique_name_in_owner = true
 position = Vector2(16, -10)
 sprite_frames = SubResource("SpriteFrames_ficb4")
 frame_progress = 0.14575
 
-[node name="P3" type="Control" parent="UICanvasLayer/Planets/PlanetTracker"]
+[node name="P3" type="Control" parent="UICanvasLayer/PlanetTrackerUI/PlanetTracker"]
 layout_mode = 2
 
-[node name="PlanetPointer3" type="AnimatedSprite2D" parent="UICanvasLayer/Planets/PlanetTracker/P3"]
+[node name="PlanetPointer3" type="AnimatedSprite2D" parent="UICanvasLayer/PlanetTrackerUI/PlanetTracker/P3"]
 unique_name_in_owner = true
 position = Vector2(16, -10)
 sprite_frames = SubResource("SpriteFrames_ficb4")
 frame_progress = 0.14575
 
-[node name="P4" type="Control" parent="UICanvasLayer/Planets/PlanetTracker"]
+[node name="P4" type="Control" parent="UICanvasLayer/PlanetTrackerUI/PlanetTracker"]
 layout_mode = 2
 
-[node name="PlanetPointer4" type="AnimatedSprite2D" parent="UICanvasLayer/Planets/PlanetTracker/P4"]
+[node name="PlanetPointer4" type="AnimatedSprite2D" parent="UICanvasLayer/PlanetTrackerUI/PlanetTracker/P4"]
 unique_name_in_owner = true
 position = Vector2(16, -10)
 sprite_frames = SubResource("SpriteFrames_ficb4")
 frame_progress = 0.14575
 
-[node name="B1" type="TextureButton" parent="UICanvasLayer/Planets/PlanetTracker"]
+[node name="B1" type="TextureButton" parent="UICanvasLayer/PlanetTrackerUI/PlanetTracker"]
 unique_name_in_owner = true
 layout_mode = 2
 toggle_mode = true
@@ -6612,7 +6612,7 @@ texture_hover = ExtResource("11_xxoy7")
 texture_disabled = ExtResource("13_vt21b")
 texture_focused = ExtResource("15_juosl")
 
-[node name="B2" type="TextureButton" parent="UICanvasLayer/Planets/PlanetTracker"]
+[node name="B2" type="TextureButton" parent="UICanvasLayer/PlanetTrackerUI/PlanetTracker"]
 unique_name_in_owner = true
 layout_mode = 2
 toggle_mode = true
@@ -6624,7 +6624,7 @@ texture_hover = ExtResource("11_xxoy7")
 texture_disabled = ExtResource("13_vt21b")
 texture_focused = ExtResource("15_juosl")
 
-[node name="B3" type="TextureButton" parent="UICanvasLayer/Planets/PlanetTracker"]
+[node name="B3" type="TextureButton" parent="UICanvasLayer/PlanetTrackerUI/PlanetTracker"]
 unique_name_in_owner = true
 layout_mode = 2
 toggle_mode = true
@@ -6636,7 +6636,7 @@ texture_hover = ExtResource("11_xxoy7")
 texture_disabled = ExtResource("13_vt21b")
 texture_focused = ExtResource("15_juosl")
 
-[node name="B4" type="TextureButton" parent="UICanvasLayer/Planets/PlanetTracker"]
+[node name="B4" type="TextureButton" parent="UICanvasLayer/PlanetTrackerUI/PlanetTracker"]
 unique_name_in_owner = true
 layout_mode = 2
 toggle_mode = true
@@ -6648,11 +6648,11 @@ texture_hover = ExtResource("11_xxoy7")
 texture_disabled = ExtResource("13_vt21b")
 texture_focused = ExtResource("15_juosl")
 
-[connection signal="pressed" from="UICanvasLayer/CenterContainer/Explode Buttons/Button1" to="." method="_explode_button" binds= [0]]
-[connection signal="pressed" from="UICanvasLayer/CenterContainer/Explode Buttons/Button2" to="." method="_explode_button" binds= [1]]
-[connection signal="pressed" from="UICanvasLayer/CenterContainer/Explode Buttons/Button3" to="." method="_explode_button" binds= [2]]
-[connection signal="pressed" from="UICanvasLayer/CenterContainer/Explode Buttons/Button4" to="." method="_explode_button" binds= [3]]
-[connection signal="pressed" from="UICanvasLayer/Planets/PlanetTracker/B1" to="." method="_planet_tracker_pressed" binds= [0]]
-[connection signal="pressed" from="UICanvasLayer/Planets/PlanetTracker/B2" to="." method="_planet_tracker_pressed" binds= [1]]
-[connection signal="pressed" from="UICanvasLayer/Planets/PlanetTracker/B3" to="." method="_planet_tracker_pressed" binds= [2]]
-[connection signal="pressed" from="UICanvasLayer/Planets/PlanetTracker/B4" to="." method="_planet_tracker_pressed" binds= [3]]
+[connection signal="pressed" from="UICanvasLayer/DebugExplosionButtons/Explode Buttons/Button1" to="." method="_explode_button" binds= [0]]
+[connection signal="pressed" from="UICanvasLayer/DebugExplosionButtons/Explode Buttons/Button2" to="." method="_explode_button" binds= [1]]
+[connection signal="pressed" from="UICanvasLayer/DebugExplosionButtons/Explode Buttons/Button3" to="." method="_explode_button" binds= [2]]
+[connection signal="pressed" from="UICanvasLayer/DebugExplosionButtons/Explode Buttons/Button4" to="." method="_explode_button" binds= [3]]
+[connection signal="pressed" from="UICanvasLayer/PlanetTrackerUI/PlanetTracker/B1" to="." method="_planet_tracker_pressed" binds= [0]]
+[connection signal="pressed" from="UICanvasLayer/PlanetTrackerUI/PlanetTracker/B2" to="." method="_planet_tracker_pressed" binds= [1]]
+[connection signal="pressed" from="UICanvasLayer/PlanetTrackerUI/PlanetTracker/B3" to="." method="_planet_tracker_pressed" binds= [2]]
+[connection signal="pressed" from="UICanvasLayer/PlanetTrackerUI/PlanetTracker/B4" to="." method="_planet_tracker_pressed" binds= [3]]

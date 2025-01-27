@@ -15,8 +15,9 @@ extends Node2D
 @onready var w_arrow3 = %PlanetPointer3
 @onready var w_arrow4 = %PlanetPointer4
 
-var dialog_index : int = 0
+
 var rng = RandomNumberGenerator.new()
+var dialog_index : int = 0
 const dialog_lines : Array[String] = [
 	"AI: Pog pog lmao",
 	"AI: 2",
@@ -37,34 +38,34 @@ func _ready() -> void:
 	# Set initial planet pointer
 	_planet_tracker_pressed(0)
 	# Process first line of dialog
-	dialog_index = 0
-	process_current_line()
+	#dialog_index = 0
+	#process_current_line()
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("next_line"):
-		if dialog_index < len(dialog_lines) - 1:
-			dialog_index += 1
-			process_current_line()
+#func _input(event: InputEvent) -> void:
+	#if event.is_action_pressed("next_line"):
+		#if dialog_index < len(dialog_lines) - 1:
+			#dialog_index += 1
+			#process_current_line()
 
 # Randomize planet size
 func randomize_planets(planet: AnimatedSprite2D, scale_factor: float):
 	var rand = (rng.randf_range(0,1.5) + 1) * scale_factor
 	planet.scale = Vector2(rand,rand)
 
-# Splits line into speaker and dialog
-func parse_line(line: String):
-	var line_info = line.split(":")
-	assert(len(line_info) >= 2)
-	return {
-		"speaker": line_info[0],
-		"dialog_line": line_info[1]
-	}
-
-# Sets dialog in UI
-func process_current_line():
-	var line = dialog_lines[dialog_index]
-	var line_info = parse_line(line)
-	dialog_ui.change_line(line_info["speaker"] + ": " + line_info["dialog_line"])
+## Splits line into speaker and dialog
+#func parse_line(line: String):
+	#var line_info = line.split(":")
+	#assert(len(line_info) >= 2)
+	#return {
+		#"speaker": line_info[0],
+		#"dialog_line": line_info[1]
+	#}
+#
+## Sets dialog in UI
+#func process_current_line():
+	#var line = dialog_lines[dialog_index]
+	#var line_info = parse_line(line)
+	#dialog_ui.change_line(line_info["speaker"] + ": " + line_info["dialog_line"])
 
 # triggered upon clicking a planet on the tracker.
 # takes in an int index as an argument, 
