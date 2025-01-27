@@ -1,9 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4eyv5px2g5lh"]
+[gd_scene load_steps=11 format=3 uid="uid://b4eyv5px2g5lh"]
 
 [ext_resource type="Theme" uid="uid://btb0t5a2pv8m5" path="res://Assets/Themes/PixelText.tres" id="1_a30g4"]
 [ext_resource type="Script" path="res://Scripts/dialog_ui.gd" id="1_lxi2d"]
+[ext_resource type="Texture2D" uid="uid://c5ndj5oqm011b" path="res://Assets/Sprites/humanportraitsheet.png" id="2_lgktj"]
 [ext_resource type="PackedScene" uid="uid://50de8wgi414b" path="res://Scenes/ChoiceButton.tscn" id="3_jausi"]
+[ext_resource type="Script" path="res://Scenes/human_portrait.gd" id="3_nsmvk"]
 [ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_label.gd" id="3_vi61b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vq3rd"]
+atlas = ExtResource("2_lgktj")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="Theme" id="Theme_g1ysy"]
+GridContainer/constants/h_separation = 16
+GridContainer/constants/v_separation = 16
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c8xjf"]
 content_margin_left = 20.0
@@ -28,43 +38,58 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lxi2d")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Dialogue" type="VBoxContainer" parent="."]
 layout_mode = 2
 offset_left = 20.0
 offset_top = 20.0
 offset_right = 480.0
-offset_bottom = 220.0
+offset_bottom = 338.0
+theme_override_constants/separation = 32
 
-[node name="DialogueLine" type="RichTextLabel" parent="VBoxContainer"]
+[node name="Chat" type="HBoxContainer" parent="Dialogue"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Portrait" type="TextureRect" parent="Dialogue/Chat"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_vq3rd")
+expand_mode = 2
+stretch_mode = 1
+script = ExtResource("3_nsmvk")
+
+[node name="DialogueLine" type="RichTextLabel" parent="Dialogue/Chat"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_a30g4")
 bbcode_enabled = true
-text = "pog"
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec metus vitae arcu."
 script = ExtResource("3_vi61b")
 seconds_per_step = 1.0
 skip_pause_at_abbreviations = PackedStringArray("Mr", "Mrs", "Ms", "Dr", "etc", "eg", "ex")
 
-[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="Dialogue"]
 layout_mode = 2
 
-[node name="DialogueOptions" type="GridContainer" parent="VBoxContainer/CenterContainer"]
+[node name="DialogueOptions" type="GridContainer" parent="Dialogue/CenterContainer"]
 unique_name_in_owner = true
 z_index = 1
 layout_mode = 2
+theme = SubResource("Theme_g1ysy")
 columns = 2
 
-[node name="ChoiceButton" parent="VBoxContainer/CenterContainer/DialogueOptions" instance=ExtResource("3_jausi")]
+[node name="ChoiceButton" parent="Dialogue/CenterContainer/DialogueOptions" instance=ExtResource("3_jausi")]
 layout_mode = 2
 
-[node name="ChoiceButton2" parent="VBoxContainer/CenterContainer/DialogueOptions" instance=ExtResource("3_jausi")]
+[node name="ChoiceButton2" parent="Dialogue/CenterContainer/DialogueOptions" instance=ExtResource("3_jausi")]
 layout_mode = 2
 
-[node name="ChoiceButton3" parent="VBoxContainer/CenterContainer/DialogueOptions" instance=ExtResource("3_jausi")]
+[node name="ChoiceButton3" parent="Dialogue/CenterContainer/DialogueOptions" instance=ExtResource("3_jausi")]
 layout_mode = 2
 
-[node name="ChoiceButton4" parent="VBoxContainer/CenterContainer/DialogueOptions" instance=ExtResource("3_jausi")]
+[node name="ChoiceButton4" parent="Dialogue/CenterContainer/DialogueOptions" instance=ExtResource("3_jausi")]
 layout_mode = 2
 
 [node name="DialogBox" type="PanelContainer" parent="."]
