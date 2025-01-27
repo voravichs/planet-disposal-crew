@@ -48,6 +48,8 @@ var dialogue_line:
 		dialogue_line = next_dialogue_line
 		custom_minimum_size = Vector2.ZERO
 		text = ""
+		if dialogue_line == null:
+			return
 		text = dialogue_line.text
 	get:
 		return dialogue_line
@@ -95,7 +97,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 ## Start typing out the text
 func type_out() -> void:
-	text = dialogue_line.text
+	text = dialogue_line.character + ": " + dialogue_line.text
 	visible_characters = 0
 	visible_ratio = 0
 	_waiting_seconds = 0
@@ -152,7 +154,7 @@ func _type_next(delta: float, seconds_needed: float) -> void:
 		if visible_characters <= get_total_character_count():
 			spoke.emit(get_parsed_text()[visible_characters - 1], visible_characters - 1, _get_speed(visible_characters))
 		# See if there's time to type out some more in this frame
-		seconds_needed += seconds_per_step * (1.0 / _get_speed(visible_characters))
+		seconds_needed += 0.04 * (1.0 / _get_speed(visible_characters))
 		if seconds_needed > delta:
 			_waiting_seconds += seconds_needed
 		else:
