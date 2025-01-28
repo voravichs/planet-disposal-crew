@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/dialog_ui.gd" id="1_lxi2d"]
 [ext_resource type="Texture2D" uid="uid://c5ndj5oqm011b" path="res://Assets/Sprites/humanportraitsheet.png" id="2_lgktj"]
 [ext_resource type="PackedScene" uid="uid://50de8wgi414b" path="res://Scenes/ChoiceButton.tscn" id="3_jausi"]
-[ext_resource type="Script" path="res://Scenes/human_portrait.gd" id="3_nsmvk"]
+[ext_resource type="Script" path="res://Scripts/human_portrait.gd" id="3_nsmvk"]
 [ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_label.gd" id="3_vi61b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vq3rd"]
@@ -52,6 +52,7 @@ layout_mode = 2
 theme_override_constants/separation = 16
 
 [node name="Portrait" type="TextureRect" parent="Dialogue/Chat"]
+unique_name_in_owner = true
 layout_mode = 2
 texture = SubResource("AtlasTexture_vq3rd")
 expand_mode = 2
