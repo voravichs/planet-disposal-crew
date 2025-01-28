@@ -5,8 +5,7 @@ extends Control
 @onready var dialogue_options: GridContainer = %DialogueOptions
 @onready var choice_button_scn = preload("res://Scenes/ChoiceButton.tscn")
 
-var animate_text : bool = false
-var current_visible_chars : int = 0
+var waiting_on_decision: bool = false
 var debug_dialogue_resource = load("res://Dialogues/Debug.dialogue")
 var portrait_database_reference
 var line : DialogueLine
@@ -23,16 +22,29 @@ func _ready() -> void:
 	clear_options()
 
 func _input(event: InputEvent) -> void:
+	# Prevent input if next line is null
 	if (line == null):
 		return
 	if event.is_action_pressed("next_line"):
+		# Skip typing out if input detected while typing
+		if dialogue_line.is_typing:
+			dialogue_line.skip_typing()
+			return
+		# Prevent input if still waiting on a decision
+		if waiting_on_decision:
+			return
+		# Get the next line
 		line = await debug_dialogue_resource.get_next_dialogue_line(line.next_id)
+		# If end of dialogue, stop input
 		if (line == null):
 			dialogue_line.dialogue_line = line
 			clear_options()
 			return
+		# Process dialogue into DialogueLine and Portrait
 		process_dialogue()
+		# Show responses after typing complete if they exist
 		if line.responses.size() > 0:
+			waiting_on_decision = true
 			dialogue_line.finished_typing.connect(_show_responses)
 
 # Clear all previous options from the options container
@@ -48,8 +60,7 @@ func process_dialogue():
 	if !portrait_database_reference.PORTRAITS.has(line.character):
 		printerr("Bad portrait_db key")
 		return
-	var portrait_index = portrait_database_reference.PORTRAITS[line.character]
-	portrait.set_portrait(portrait_index)
+	portrait.set_portrait(portrait_database_reference.PORTRAITS[line.character])
 
 # Changes the line and shows the responses in a formatted way
 func _show_responses():
@@ -62,6 +73,7 @@ func _show_responses():
 
 # Called when a dialogue choice is selected
 func _on_choice_selected(choice_index: int):
+	waiting_on_decision = false
 	line = await debug_dialogue_resource.get_next_dialogue_line(line.responses[choice_index].next_id)
 	if (line == null):
 		dialogue_line.dialogue_line = line

@@ -6397,7 +6397,6 @@ unique_name_in_owner = true
 metadata/_edit_use_anchors_ = true
 
 [node name="DebugExplosionButtons" type="CenterContainer" parent="UICanvasLayer"]
-visible = false
 offset_left = 653.0
 offset_top = 391.0
 offset_right = 1151.0
