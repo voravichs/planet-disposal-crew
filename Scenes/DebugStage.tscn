@@ -1,9 +1,7 @@
-[gd_scene load_steps=842 format=3 uid="uid://xmd4jsiyrr3d"]
+[gd_scene load_steps=845 format=3 uid="uid://xmd4jsiyrr3d"]
 
 [ext_resource type="Script" path="res://Scripts/debug_stage.gd" id="1_rtoc5"]
-[ext_resource type="Theme" uid="uid://btb0t5a2pv8m5" path="res://Assets/Themes/PixelText.tres" id="2_3gmsf"]
 [ext_resource type="PackedScene" uid="uid://pfwh6rcl2u3m" path="res://Scenes/Planets/TerranWet1.tscn" id="2_wh06b"]
-[ext_resource type="PackedScene" uid="uid://b4eyv5px2g5lh" path="res://Scenes/DialogUI.tscn" id="4_54a4a"]
 [ext_resource type="FontFile" uid="uid://dhdsgaqa4nsy4" path="res://Assets/Fonts/nihonium113.regular.ttf" id="4_gw4j1"]
 [ext_resource type="Texture2D" uid="uid://cv1m7taj6y5ch" path="res://Assets/Sprites/spacebg.png" id="5_1fnp3"]
 [ext_resource type="PackedScene" uid="uid://3sji1k7sstnk" path="res://Scenes/Particles/ImplosionParticle.tscn" id="5_x6mie"]
@@ -15,13 +13,90 @@
 [ext_resource type="Texture2D" uid="uid://mokskyvl6xwl" path="res://Assets/Sprites/UI/arrowanimsheet.png" id="8_n2xa2"]
 [ext_resource type="Texture2D" uid="uid://bai2hvh4cawxq" path="res://Assets/Sprites/UI/planeticonnormal.png" id="9_2sqf3"]
 [ext_resource type="ButtonGroup" uid="uid://duk0imubl2eht" path="res://Assets/Themes/PlanetButtonGroup.tres" id="9_haktp"]
+[ext_resource type="Shader" path="res://Assets/Shaders/gameboy.gdshader" id="9_hup0o"]
+[ext_resource type="Texture2D" uid="uid://c50s06jg4aj4f" path="res://Assets/Sprites/Planets/twplanet1.png" id="10_3ur38"]
 [ext_resource type="Texture2D" uid="uid://cfxdi1ahkeo0r" path="res://Assets/Sprites/UI/planeticonhover.png" id="11_xxoy7"]
 [ext_resource type="Texture2D" uid="uid://igc0jayy8eto" path="res://Assets/Sprites/UI/planeticondisabled.png" id="13_vt21b"]
 [ext_resource type="Texture2D" uid="uid://cb61cguumbevf" path="res://Assets/Sprites/UI/planeticonpressfocus.png" id="15_juosl"]
 
+[sub_resource type="Theme" id="Theme_ok0f0"]
+GridContainer/constants/h_separation = 8
+GridContainer/constants/v_separation = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nk6ub"]
+atlas = ExtResource("8_n2xa2")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxmha"]
+atlas = ExtResource("8_n2xa2")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_neg5q"]
+atlas = ExtResource("8_n2xa2")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3j5j"]
+atlas = ExtResource("8_n2xa2")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0cbo"]
+atlas = ExtResource("8_n2xa2")
+region = Rect2(96, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccqvl"]
+atlas = ExtResource("8_n2xa2")
+region = Rect2(120, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rcysk"]
+atlas = ExtResource("8_n2xa2")
+region = Rect2(144, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8j47l"]
+atlas = ExtResource("8_n2xa2")
+region = Rect2(168, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ficb4"]
+animations = [{
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_nk6ub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxmha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_neg5q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3j5j")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_r0cbo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ccqvl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rcysk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8j47l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
 [sub_resource type="Theme" id="Theme_qvmam"]
 default_font = ExtResource("4_gw4j1")
 default_font_size = 48
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f6eni"]
+shader = ExtResource("9_hup0o")
+shader_parameter/lightest = null
+shader_parameter/light = null
+shader_parameter/dark = null
+shader_parameter/darkest = null
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_negq5"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -6297,73 +6372,18 @@ _data = {
 "RESET": SubResource("Animation_5p20q")
 }
 
-[sub_resource type="Theme" id="Theme_ok0f0"]
-GridContainer/constants/h_separation = 8
-GridContainer/constants/v_separation = 2
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c8xjf"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0, 0, 0, 0.588235)
+border_width_left = 3
+border_color = Color(0.8, 0.8, 0.8, 0.392157)
+corner_detail = 1
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nk6ub"]
-atlas = ExtResource("8_n2xa2")
-region = Rect2(0, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uxmha"]
-atlas = ExtResource("8_n2xa2")
-region = Rect2(24, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_neg5q"]
-atlas = ExtResource("8_n2xa2")
-region = Rect2(48, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p3j5j"]
-atlas = ExtResource("8_n2xa2")
-region = Rect2(72, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r0cbo"]
-atlas = ExtResource("8_n2xa2")
-region = Rect2(96, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ccqvl"]
-atlas = ExtResource("8_n2xa2")
-region = Rect2(120, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rcysk"]
-atlas = ExtResource("8_n2xa2")
-region = Rect2(144, 0, 24, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8j47l"]
-atlas = ExtResource("8_n2xa2")
-region = Rect2(168, 0, 24, 24)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ficb4"]
-animations = [{
-"frames": [{
-"duration": 1.5,
-"texture": SubResource("AtlasTexture_nk6ub")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uxmha")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_neg5q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p3j5j")
-}, {
-"duration": 1.5,
-"texture": SubResource("AtlasTexture_r0cbo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ccqvl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rcysk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8j47l")
-}],
-"loop": true,
-"name": &"default",
-"speed": 8.0
-}]
+[sub_resource type="Theme" id="Theme_ga0t3"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_c8xjf")
 
 [node name="DebugStage" type="Node2D"]
 script = ExtResource("1_rtoc5")
@@ -6371,57 +6391,171 @@ script = ExtResource("1_rtoc5")
 [node name="UICanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
 
-[node name="Top UI" type="Control" parent="UICanvasLayer"]
+[node name="GameplayUI" type="Control" parent="UICanvasLayer"]
 z_index = 1
-layout_direction = 3
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 652.0
+grow_horizontal = 2
+grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="DebugMoney" type="RichTextLabel" parent="UICanvasLayer/Top UI"]
-visible = false
-layout_mode = 0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 229.0
-offset_bottom = 96.0
-tooltip_text = "Money!!!"
-theme = ExtResource("2_3gmsf")
-text = "$20000"
+[node name="PlanetTrackerUI" type="CenterContainer" parent="UICanvasLayer/GameplayUI"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -126.0
+offset_right = -250.0
+offset_bottom = -63.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
+mouse_filter = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="DialogUI" parent="UICanvasLayer" instance=ExtResource("4_54a4a")]
+[node name="PlanetTracker" type="GridContainer" parent="UICanvasLayer/GameplayUI/PlanetTrackerUI"]
+layout_mode = 2
+theme = SubResource("Theme_ok0f0")
+columns = 4
+
+[node name="P1" type="Control" parent="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker"]
+layout_mode = 2
+
+[node name="PlanetPointer1" type="AnimatedSprite2D" parent="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker/P1"]
 unique_name_in_owner = true
+position = Vector2(16, -10)
+sprite_frames = SubResource("SpriteFrames_ficb4")
+frame_progress = 0.14575
+
+[node name="P2" type="Control" parent="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker"]
+layout_mode = 2
+
+[node name="PlanetPointer2" type="AnimatedSprite2D" parent="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker/P2"]
+unique_name_in_owner = true
+position = Vector2(16, -10)
+sprite_frames = SubResource("SpriteFrames_ficb4")
+frame_progress = 0.14575
+
+[node name="P3" type="Control" parent="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker"]
+layout_mode = 2
+
+[node name="PlanetPointer3" type="AnimatedSprite2D" parent="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker/P3"]
+unique_name_in_owner = true
+position = Vector2(16, -10)
+sprite_frames = SubResource("SpriteFrames_ficb4")
+frame_progress = 0.14575
+
+[node name="P4" type="Control" parent="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker"]
+layout_mode = 2
+
+[node name="PlanetPointer4" type="AnimatedSprite2D" parent="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker/P4"]
+unique_name_in_owner = true
+position = Vector2(16, -10)
+sprite_frames = SubResource("SpriteFrames_ficb4")
+frame_progress = 0.14575
+
+[node name="B1" type="TextureButton" parent="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker"]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+keep_pressed_outside = true
+button_group = ExtResource("9_haktp")
+texture_normal = ExtResource("9_2sqf3")
+texture_pressed = ExtResource("15_juosl")
+texture_hover = ExtResource("11_xxoy7")
+texture_disabled = ExtResource("13_vt21b")
+texture_focused = ExtResource("15_juosl")
+
+[node name="B2" type="TextureButton" parent="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker"]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+keep_pressed_outside = true
+button_group = ExtResource("9_haktp")
+texture_normal = ExtResource("9_2sqf3")
+texture_pressed = ExtResource("15_juosl")
+texture_hover = ExtResource("11_xxoy7")
+texture_disabled = ExtResource("13_vt21b")
+texture_focused = ExtResource("15_juosl")
+
+[node name="B3" type="TextureButton" parent="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker"]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+keep_pressed_outside = true
+button_group = ExtResource("9_haktp")
+texture_normal = ExtResource("9_2sqf3")
+texture_pressed = ExtResource("15_juosl")
+texture_hover = ExtResource("11_xxoy7")
+texture_disabled = ExtResource("13_vt21b")
+texture_focused = ExtResource("15_juosl")
+
+[node name="B4" type="TextureButton" parent="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker"]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+keep_pressed_outside = true
+button_group = ExtResource("9_haktp")
+texture_normal = ExtResource("9_2sqf3")
+texture_pressed = ExtResource("15_juosl")
+texture_hover = ExtResource("11_xxoy7")
+texture_disabled = ExtResource("13_vt21b")
+texture_focused = ExtResource("15_juosl")
+
+[node name="DebugExplosionButtons" type="CenterContainer" parent="UICanvasLayer/GameplayUI"]
+offset_left = 1.0
+offset_top = 391.0
+offset_right = 499.0
+offset_bottom = 523.0
 metadata/_edit_use_anchors_ = true
 
-[node name="DebugExplosionButtons" type="CenterContainer" parent="UICanvasLayer"]
-offset_left = 653.0
-offset_top = 391.0
-offset_right = 1151.0
-offset_bottom = 523.0
-
-[node name="Explode Buttons" type="GridContainer" parent="UICanvasLayer/DebugExplosionButtons"]
+[node name="Explode Buttons" type="GridContainer" parent="UICanvasLayer/GameplayUI/DebugExplosionButtons"]
 layout_mode = 2
 theme = SubResource("Theme_qvmam")
 columns = 2
 
-[node name="Button1" type="Button" parent="UICanvasLayer/DebugExplosionButtons/Explode Buttons"]
+[node name="Button1" type="Button" parent="UICanvasLayer/GameplayUI/DebugExplosionButtons/Explode Buttons"]
 layout_mode = 2
 text = "EXPLODE1"
 
-[node name="Button2" type="Button" parent="UICanvasLayer/DebugExplosionButtons/Explode Buttons"]
+[node name="Button2" type="Button" parent="UICanvasLayer/GameplayUI/DebugExplosionButtons/Explode Buttons"]
 layout_mode = 2
 text = "EXPLODE2"
 
-[node name="Button3" type="Button" parent="UICanvasLayer/DebugExplosionButtons/Explode Buttons"]
+[node name="Button3" type="Button" parent="UICanvasLayer/GameplayUI/DebugExplosionButtons/Explode Buttons"]
 layout_mode = 2
 text = "EXPLODE3"
 
-[node name="Button4" type="Button" parent="UICanvasLayer/DebugExplosionButtons/Explode Buttons"]
+[node name="Button4" type="Button" parent="UICanvasLayer/GameplayUI/DebugExplosionButtons/Explode Buttons"]
 layout_mode = 2
 text = "EXPLODE4"
+
+[node name="ConsolePlanetView" type="CenterContainer" parent="UICanvasLayer/GameplayUI"]
+layout_mode = 0
+offset_right = 499.0
+offset_bottom = 282.0
+
+[node name="Control" type="Control" parent="UICanvasLayer/GameplayUI/ConsolePlanetView"]
+layout_mode = 2
+
+[node name="ConsolePlanet" type="Sprite2D" parent="UICanvasLayer/GameplayUI/ConsolePlanetView/Control"]
+texture = ExtResource("10_3ur38")
+hframes = 100
+vframes = 4
+
+[node name="GBShader" type="ColorRect" parent="UICanvasLayer/GameplayUI/ConsolePlanetView/Control"]
+material = SubResource("ShaderMaterial_f6eni")
+layout_mode = 0
+offset_left = -67.0
+offset_top = -55.0
+offset_right = 79.0
+offset_bottom = 94.0
 
 [node name="Space" type="Control" parent="UICanvasLayer"]
 layout_mode = 3
@@ -6545,114 +6679,23 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_1fnp3")
 
-[node name="PlanetTrackerUI" type="CenterContainer" parent="UICanvasLayer"]
-anchors_preset = 12
-anchor_top = 1.0
+[node name="ComputerScreenUIBG" type="PanelContainer" parent="UICanvasLayer"]
+z_index = -1
+custom_minimum_size = Vector2(500, 0)
+anchors_preset = 11
+anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 653.0
-offset_top = -126.0
-offset_right = -250.0
-offset_bottom = -63.0
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(2, 2)
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+theme = SubResource("Theme_ga0t3")
 
-[node name="PlanetTracker" type="GridContainer" parent="UICanvasLayer/PlanetTrackerUI"]
-layout_mode = 2
-theme = SubResource("Theme_ok0f0")
-columns = 4
-
-[node name="P1" type="Control" parent="UICanvasLayer/PlanetTrackerUI/PlanetTracker"]
-layout_mode = 2
-
-[node name="PlanetPointer1" type="AnimatedSprite2D" parent="UICanvasLayer/PlanetTrackerUI/PlanetTracker/P1"]
-unique_name_in_owner = true
-position = Vector2(16, -10)
-sprite_frames = SubResource("SpriteFrames_ficb4")
-frame_progress = 0.14575
-
-[node name="P2" type="Control" parent="UICanvasLayer/PlanetTrackerUI/PlanetTracker"]
-layout_mode = 2
-
-[node name="PlanetPointer2" type="AnimatedSprite2D" parent="UICanvasLayer/PlanetTrackerUI/PlanetTracker/P2"]
-unique_name_in_owner = true
-position = Vector2(16, -10)
-sprite_frames = SubResource("SpriteFrames_ficb4")
-frame_progress = 0.14575
-
-[node name="P3" type="Control" parent="UICanvasLayer/PlanetTrackerUI/PlanetTracker"]
-layout_mode = 2
-
-[node name="PlanetPointer3" type="AnimatedSprite2D" parent="UICanvasLayer/PlanetTrackerUI/PlanetTracker/P3"]
-unique_name_in_owner = true
-position = Vector2(16, -10)
-sprite_frames = SubResource("SpriteFrames_ficb4")
-frame_progress = 0.14575
-
-[node name="P4" type="Control" parent="UICanvasLayer/PlanetTrackerUI/PlanetTracker"]
-layout_mode = 2
-
-[node name="PlanetPointer4" type="AnimatedSprite2D" parent="UICanvasLayer/PlanetTrackerUI/PlanetTracker/P4"]
-unique_name_in_owner = true
-position = Vector2(16, -10)
-sprite_frames = SubResource("SpriteFrames_ficb4")
-frame_progress = 0.14575
-
-[node name="B1" type="TextureButton" parent="UICanvasLayer/PlanetTrackerUI/PlanetTracker"]
-unique_name_in_owner = true
-layout_mode = 2
-toggle_mode = true
-button_pressed = true
-keep_pressed_outside = true
-button_group = ExtResource("9_haktp")
-texture_normal = ExtResource("9_2sqf3")
-texture_pressed = ExtResource("15_juosl")
-texture_hover = ExtResource("11_xxoy7")
-texture_disabled = ExtResource("13_vt21b")
-texture_focused = ExtResource("15_juosl")
-
-[node name="B2" type="TextureButton" parent="UICanvasLayer/PlanetTrackerUI/PlanetTracker"]
-unique_name_in_owner = true
-layout_mode = 2
-toggle_mode = true
-keep_pressed_outside = true
-button_group = ExtResource("9_haktp")
-texture_normal = ExtResource("9_2sqf3")
-texture_pressed = ExtResource("15_juosl")
-texture_hover = ExtResource("11_xxoy7")
-texture_disabled = ExtResource("13_vt21b")
-texture_focused = ExtResource("15_juosl")
-
-[node name="B3" type="TextureButton" parent="UICanvasLayer/PlanetTrackerUI/PlanetTracker"]
-unique_name_in_owner = true
-layout_mode = 2
-toggle_mode = true
-keep_pressed_outside = true
-button_group = ExtResource("9_haktp")
-texture_normal = ExtResource("9_2sqf3")
-texture_pressed = ExtResource("15_juosl")
-texture_hover = ExtResource("11_xxoy7")
-texture_disabled = ExtResource("13_vt21b")
-texture_focused = ExtResource("15_juosl")
-
-[node name="B4" type="TextureButton" parent="UICanvasLayer/PlanetTrackerUI/PlanetTracker"]
-unique_name_in_owner = true
-layout_mode = 2
-toggle_mode = true
-keep_pressed_outside = true
-button_group = ExtResource("9_haktp")
-texture_normal = ExtResource("9_2sqf3")
-texture_pressed = ExtResource("15_juosl")
-texture_hover = ExtResource("11_xxoy7")
-texture_disabled = ExtResource("13_vt21b")
-texture_focused = ExtResource("15_juosl")
-
-[connection signal="pressed" from="UICanvasLayer/DebugExplosionButtons/Explode Buttons/Button1" to="." method="_explode_button" binds= [0]]
-[connection signal="pressed" from="UICanvasLayer/DebugExplosionButtons/Explode Buttons/Button2" to="." method="_explode_button" binds= [1]]
-[connection signal="pressed" from="UICanvasLayer/DebugExplosionButtons/Explode Buttons/Button3" to="." method="_explode_button" binds= [2]]
-[connection signal="pressed" from="UICanvasLayer/DebugExplosionButtons/Explode Buttons/Button4" to="." method="_explode_button" binds= [3]]
-[connection signal="pressed" from="UICanvasLayer/PlanetTrackerUI/PlanetTracker/B1" to="." method="_planet_tracker_pressed" binds= [0]]
-[connection signal="pressed" from="UICanvasLayer/PlanetTrackerUI/PlanetTracker/B2" to="." method="_planet_tracker_pressed" binds= [1]]
-[connection signal="pressed" from="UICanvasLayer/PlanetTrackerUI/PlanetTracker/B3" to="." method="_planet_tracker_pressed" binds= [2]]
-[connection signal="pressed" from="UICanvasLayer/PlanetTrackerUI/PlanetTracker/B4" to="." method="_planet_tracker_pressed" binds= [3]]
+[connection signal="pressed" from="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker/B1" to="." method="_planet_tracker_pressed" binds= [0]]
+[connection signal="pressed" from="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker/B2" to="." method="_planet_tracker_pressed" binds= [1]]
+[connection signal="pressed" from="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker/B3" to="." method="_planet_tracker_pressed" binds= [2]]
+[connection signal="pressed" from="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker/B4" to="." method="_planet_tracker_pressed" binds= [3]]
+[connection signal="pressed" from="UICanvasLayer/GameplayUI/DebugExplosionButtons/Explode Buttons/Button1" to="." method="_explode_button" binds= [0]]
+[connection signal="pressed" from="UICanvasLayer/GameplayUI/DebugExplosionButtons/Explode Buttons/Button2" to="." method="_explode_button" binds= [1]]
+[connection signal="pressed" from="UICanvasLayer/GameplayUI/DebugExplosionButtons/Explode Buttons/Button3" to="." method="_explode_button" binds= [2]]
+[connection signal="pressed" from="UICanvasLayer/GameplayUI/DebugExplosionButtons/Explode Buttons/Button4" to="." method="_explode_button" binds= [3]]

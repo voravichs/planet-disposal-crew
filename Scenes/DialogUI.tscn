@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b4eyv5px2g5lh"]
+[gd_scene load_steps=9 format=3 uid="uid://b4eyv5px2g5lh"]
 
 [ext_resource type="Theme" uid="uid://btb0t5a2pv8m5" path="res://Assets/Themes/PixelText.tres" id="1_a30g4"]
 [ext_resource type="Script" path="res://Scripts/dialog_ui.gd" id="1_lxi2d"]
@@ -15,19 +15,6 @@ region = Rect2(0, 0, 64, 64)
 GridContainer/constants/h_separation = 16
 GridContainer/constants/v_separation = 16
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c8xjf"]
-content_margin_left = 20.0
-content_margin_top = 20.0
-content_margin_right = 20.0
-content_margin_bottom = 20.0
-bg_color = Color(0, 0, 0, 0.588235)
-border_width_left = 3
-border_color = Color(0.8, 0.8, 0.8, 0.392157)
-corner_detail = 1
-
-[sub_resource type="Theme" id="Theme_y3l1m"]
-PanelContainer/styles/panel = SubResource("StyleBoxFlat_c8xjf")
-
 [node name="DialogUI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -36,6 +23,7 @@ anchor_bottom = 1.0
 offset_left = 652.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_lxi2d")
 
 [node name="Dialogue" type="VBoxContainer" parent="."]
@@ -44,6 +32,7 @@ offset_left = 20.0
 offset_top = 20.0
 offset_right = 480.0
 offset_bottom = 338.0
+mouse_filter = 2
 theme_override_constants/separation = 64
 
 [node name="Chat" type="HBoxContainer" parent="Dialogue"]
@@ -102,16 +91,3 @@ layout_mode = 2
 
 [node name="ChoiceButton4" parent="Dialogue/CenterContainer/DialogueOptions" instance=ExtResource("3_jausi")]
 layout_mode = 2
-
-[node name="DialogBox" type="PanelContainer" parent="."]
-z_index = -1
-custom_minimum_size = Vector2(500, 0)
-layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 0
-grow_vertical = 2
-mouse_filter = 2
-theme = SubResource("Theme_y3l1m")

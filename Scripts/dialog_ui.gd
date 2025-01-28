@@ -1,4 +1,4 @@
-extends Control
+class_name DialogUI extends Control
 
 @onready var portrait: TextureRect = %Portrait
 @onready var dialogue_line: DialogueLabel = %DialogueLine
@@ -6,16 +6,22 @@ extends Control
 @onready var choice_button_scn = preload("res://Scenes/ChoiceButton.tscn")
 
 var waiting_on_decision: bool = false
-var debug_dialogue_resource = load("res://Dialogues/Debug.dialogue")
 var portrait_database_reference
 var line : DialogueLine
+var dialogue_resource
 
-# Called when the node enters the scene tree for the first time.
+# Emitted when dialogue is complete
+signal finished_dialogue()
+
+func with_data(input_dialogue_resource) -> DialogUI:
+	# Get the first line in the starting dialogue
+	dialogue_resource = input_dialogue_resource
+	line = await input_dialogue_resource.get_next_dialogue_line("start")
+	return self
+
 func _ready() -> void:
 	# Preload portrait database
 	portrait_database_reference = preload("res://Scripts/portraits_db.gd")
-	# Get the first line in the starting dialogue
-	line = await debug_dialogue_resource.get_next_dialogue_line("start")
 	# Set that line to the dialogue box and type it out
 	process_dialogue()
 	# clear any previous options
@@ -24,6 +30,7 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	# Prevent input if next line is null
 	if (line == null):
+		finished_dialogue.emit()
 		return
 	if event.is_action_pressed("next_line"):
 		# Skip typing out if input detected while typing
@@ -34,11 +41,12 @@ func _input(event: InputEvent) -> void:
 		if waiting_on_decision:
 			return
 		# Get the next line
-		line = await debug_dialogue_resource.get_next_dialogue_line(line.next_id)
+		line = await dialogue_resource.get_next_dialogue_line(line.next_id)
 		# If end of dialogue, stop input
 		if (line == null):
 			dialogue_line.dialogue_line = line
 			clear_options()
+			finished_dialogue.emit()
 			return
 		# Process dialogue into DialogueLine and Portrait
 		process_dialogue()
@@ -74,7 +82,7 @@ func _show_responses():
 # Called when a dialogue choice is selected
 func _on_choice_selected(choice_index: int):
 	waiting_on_decision = false
-	line = await debug_dialogue_resource.get_next_dialogue_line(line.responses[choice_index].next_id)
+	line = await dialogue_resource.get_next_dialogue_line(line.responses[choice_index].next_id)
 	if (line == null):
 		dialogue_line.dialogue_line = line
 		clear_options()

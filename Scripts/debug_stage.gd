@@ -1,11 +1,11 @@
 extends Node2D
 
+@onready var ui_canvas_layer: CanvasLayer = $UICanvasLayer
 @onready var debug_planet: AnimatedSprite2D = %DebugPlanet1
 @onready var debug_planet2: AnimatedSprite2D = %DebugPlanet2
 @onready var debug_planet3: AnimatedSprite2D = %DebugPlanet3
 @onready var debug_planet4: AnimatedSprite2D = %DebugPlanet4
 @onready var debug_anim: AnimationPlayer = %DebugAnim
-@onready var dialog_ui = %DialogUI
 @onready var b1 = %B1
 @onready var b2 = %B2
 @onready var b3 = %B3
@@ -14,16 +14,13 @@ extends Node2D
 @onready var w_arrow2 = %PlanetPointer2
 @onready var w_arrow3 = %PlanetPointer3
 @onready var w_arrow4 = %PlanetPointer4
-
+@onready var dialog_ui = preload("res://Scenes/DialogUI.tscn")
 
 var rng = RandomNumberGenerator.new()
 var dialog_index : int = 0
-const dialog_lines : Array[String] = [
-	"AI: Pog pog lmao",
-	"AI: 2",
-	"AI: 3",
-	"AI: 4"
-]
+var dialog_ui_reference
+
+const DIALOGUE_FILE = "res://Dialogues/Debug2.dialogue"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -37,6 +34,10 @@ func _ready() -> void:
 	debug_planet.play()
 	# Set initial planet pointer
 	_planet_tracker_pressed(0)
+	# Init a debug DialogUI
+	var debug_dialogue_resource = load(DIALOGUE_FILE)
+	dialog_ui_reference = dialog_ui.instantiate().with_data(debug_dialogue_resource)
+	ui_canvas_layer.add_child(dialog_ui_reference)
 
 # Randomize planet size
 func randomize_planets(planet: AnimatedSprite2D, scale_factor: float):

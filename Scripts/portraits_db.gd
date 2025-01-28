@@ -1,4 +1,4 @@
-const PORTRAITS = { # Min, Max, Spritesheet Frame
+const PORTRAITS = { # Name -> Spritesheet Index
 	"Soren": 0,
 	"Miya": 1,
 	"Endersson": 2,
