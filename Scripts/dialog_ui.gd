@@ -6,7 +6,7 @@ class_name DialogUI extends Control
 @onready var choice_button_scn = preload("res://Scenes/ChoiceButton.tscn")
 
 var waiting_on_decision: bool = false
-var portrait_database_reference
+var portrait_db_ref
 var line : DialogueLine
 var dialogue_resource
 
@@ -21,7 +21,7 @@ func with_data(input_dialogue_resource) -> DialogUI:
 
 func _ready() -> void:
 	# Preload portrait database
-	portrait_database_reference = preload("res://Scripts/portraits_db.gd")
+	portrait_db_ref = preload("res://Scripts/portraits_db.gd")
 	# Set that line to the dialogue box and type it out
 	process_dialogue()
 	# clear any previous options
@@ -65,10 +65,10 @@ func clear_options():
 func process_dialogue():
 	dialogue_line.dialogue_line = line
 	dialogue_line.type_out()
-	if !portrait_database_reference.PORTRAITS.has(line.character):
+	if !portrait_db_ref.PORTRAITS.has(line.character):
 		printerr("Bad portrait_db key")
 		return
-	portrait.set_portrait(portrait_database_reference.PORTRAITS[line.character])
+	portrait.set_portrait(portrait_db_ref.PORTRAITS[line.character])
 
 # Changes the line and shows the responses in a formatted way
 func _show_responses():
