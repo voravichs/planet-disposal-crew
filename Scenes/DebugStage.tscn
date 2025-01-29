@@ -1,7 +1,8 @@
-[gd_scene load_steps=1646 format=3 uid="uid://xmd4jsiyrr3d"]
+[gd_scene load_steps=1655 format=3 uid="uid://xmd4jsiyrr3d"]
 
 [ext_resource type="Script" path="res://Scripts/debug_stage.gd" id="1_rtoc5"]
 [ext_resource type="PackedScene" uid="uid://pfwh6rcl2u3m" path="res://Scenes/Planets/TerranWet1.tscn" id="2_wh06b"]
+[ext_resource type="Texture2D" uid="uid://crhe31hdfsjr2" path="res://Assets/Sprites/UI/x_anim_sheet.png" id="3_jpv1o"]
 [ext_resource type="FontFile" uid="uid://dhdsgaqa4nsy4" path="res://Assets/Fonts/nihonium113.regular.ttf" id="4_gw4j1"]
 [ext_resource type="Texture2D" uid="uid://cv1m7taj6y5ch" path="res://Assets/Sprites/spacebg.png" id="5_1fnp3"]
 [ext_resource type="PackedScene" uid="uid://3sji1k7sstnk" path="res://Scenes/Particles/ImplosionParticle.tscn" id="5_x6mie"]
@@ -60,6 +61,38 @@ region = Rect2(144, 0, 24, 24)
 atlas = ExtResource("8_n2xa2")
 region = Rect2(168, 0, 24, 24)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubxqq"]
+atlas = ExtResource("3_jpv1o")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2tnyr"]
+atlas = ExtResource("3_jpv1o")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ds3v7"]
+atlas = ExtResource("3_jpv1o")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1h7b"]
+atlas = ExtResource("3_jpv1o")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rtq8"]
+atlas = ExtResource("3_jpv1o")
+region = Rect2(96, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_csgvv"]
+atlas = ExtResource("3_jpv1o")
+region = Rect2(120, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_383t6"]
+atlas = ExtResource("3_jpv1o")
+region = Rect2(144, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24soc"]
+atlas = ExtResource("3_jpv1o")
+region = Rect2(168, 0, 24, 24)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ficb4"]
 animations = [{
 "frames": [{
@@ -88,7 +121,36 @@ animations = [{
 "texture": SubResource("AtlasTexture_8j47l")
 }],
 "loop": true,
-"name": &"default",
+"name": &"pointer",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubxqq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2tnyr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ds3v7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1h7b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5rtq8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_csgvv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_383t6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24soc")
+}],
+"loop": true,
+"name": &"x",
 "speed": 8.0
 }]
 
@@ -11402,10 +11464,22 @@ tracks/3/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("%DebugPlanet:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_7l08e"]
 resource_name = "ExplodePlanet1"
-length = 8.0
+length = 7.0
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -11498,10 +11572,10 @@ tracks/7/path = NodePath("DebugPlanet:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(3, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4, 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 5, 8, 8.1, 8.2, 8.3, 8.4, 8.5, 8.6, 8.7, 8.8, 8.9, 9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(3, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4, 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, -1), Vector2(5, -1), Vector2(-5, -1), Vector2(5, -1), Vector2(-5, -1), Vector2(5, -1), Vector2(-5, -1), Vector2(5, -1), Vector2(-5, -1), Vector2(5, -1), Vector2(-10, -1), Vector2(10, -1), Vector2(-10, -1), Vector2(10, -1), Vector2(-10, -1), Vector2(10, -1), Vector2(-10, -1), Vector2(10, -1), Vector2(-10, -1), Vector2(10, -1), Vector2(-10, -1), Vector2(0, -1), Vector2(5, -1), Vector2(-5, -1), Vector2(5, -1), Vector2(-5, -1), Vector2(5, -1), Vector2(-5, -1), Vector2(5, -1), Vector2(-5, -1), Vector2(5, -1), Vector2(-5, -1)]
+"values": [Vector2(0, -1), Vector2(5, -1), Vector2(-5, -1), Vector2(5, -1), Vector2(-5, -1), Vector2(5, -1), Vector2(-5, -1), Vector2(5, -1), Vector2(-5, -1), Vector2(5, -1), Vector2(-10, -1), Vector2(10, -1), Vector2(-10, -1), Vector2(10, -1), Vector2(-10, -1), Vector2(10, -1), Vector2(-10, -1), Vector2(10, -1), Vector2(-10, -1), Vector2(10, -1), Vector2(-10, -1)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -11522,7 +11596,7 @@ tracks/9/path = NodePath("../Explosion:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(5, 8),
+"times": PackedFloat32Array(5, 7),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, true]
@@ -11593,7 +11667,7 @@ layout_mode = 2
 unique_name_in_owner = true
 position = Vector2(16, -10)
 sprite_frames = SubResource("SpriteFrames_ficb4")
-frame_progress = 0.14575
+animation = &"pointer"
 
 [node name="P2" type="Control" parent="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker"]
 layout_mode = 2
@@ -11602,7 +11676,7 @@ layout_mode = 2
 unique_name_in_owner = true
 position = Vector2(16, -10)
 sprite_frames = SubResource("SpriteFrames_ficb4")
-frame_progress = 0.14575
+animation = &"pointer"
 
 [node name="P3" type="Control" parent="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker"]
 layout_mode = 2
@@ -11611,7 +11685,7 @@ layout_mode = 2
 unique_name_in_owner = true
 position = Vector2(16, -10)
 sprite_frames = SubResource("SpriteFrames_ficb4")
-frame_progress = 0.14575
+animation = &"pointer"
 
 [node name="P4" type="Control" parent="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker"]
 layout_mode = 2
@@ -11620,7 +11694,7 @@ layout_mode = 2
 unique_name_in_owner = true
 position = Vector2(16, -10)
 sprite_frames = SubResource("SpriteFrames_ficb4")
-frame_progress = 0.14575
+animation = &"pointer"
 
 [node name="B1" type="TextureButton" parent="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker"]
 unique_name_in_owner = true

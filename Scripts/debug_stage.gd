@@ -7,6 +7,10 @@ extends Node2D
 @onready var w_arrow2 = %PlanetPointer2
 @onready var w_arrow3 = %PlanetPointer3
 @onready var w_arrow4 = %PlanetPointer4
+@onready var b1: TextureButton = %B1
+@onready var b2: TextureButton = %B2
+@onready var b3: TextureButton = %B3
+@onready var b4: TextureButton = %B4
 @onready var console_planet: Sprite2D = %ConsolePlanet
 @onready var gameplay_ui: Control = %GameplayUI
 @onready var dialog_ui = preload("res://Scenes/DialogUI.tscn")
@@ -48,6 +52,7 @@ func set_planet():
 	# Space
 	current_planet = debug_stage_db_ref.PLANET_PARAMS[current_planet_index]
 	debug_planet.play(current_planet.game_vars.anim_name)
+	debug_planet.modulate = Color(1, 1, 1, 1) 
 	# Console
 	console_planet.texture = load(current_planet.game_vars.spritesheet)
 
@@ -56,16 +61,20 @@ func set_planet():
 # and moves the pointer to that index and plays the animation
 # Additionally also sets the planet
 func _planet_tracker_pressed(index: int) -> void:
+	# stops the AnimationPlayer if it is still playing
+	if debug_anim.is_playing():
+		return
 	# Set the planet in the space UI
 	current_planet_index = index
 	set_planet()
 	# Set the pointer in the gameplay UI
+	var planet_tracker = [b1, b2, b3, b4]
 	var pointer_array = [w_arrow1, w_arrow2, w_arrow3, w_arrow4]
 	for i in pointer_array.size():
 		if index == i:
 			pointer_array[i].modulate = Color(1, 1, 1, 1) 
-			pointer_array[i].play()
-		else:
+			pointer_array[i].play("pointer")
+		elif planet_tracker[i].disabled == false:
 			pointer_array[i].modulate = Color(1, 1, 1, 0) 
 			pointer_array[i].stop()
 
@@ -74,5 +83,12 @@ func _show_gameplay_ui():
 	ui_canvas_layer.remove_child(dialog_ui_reference)
 	gameplay_ui.visible = true
 
+# explode the planet visually, then disable planet in tracker
 func _explode_button() -> void:
 	debug_anim.play("ExplodePlanet")
+	var planet_tracker = [b1, b2, b3, b4]
+	var pointer_array = [w_arrow1, w_arrow2, w_arrow3, w_arrow4]
+	for i in planet_tracker.size():
+		if current_planet_index == i:
+			planet_tracker[i].disabled = true
+			pointer_array[i].play("x")
