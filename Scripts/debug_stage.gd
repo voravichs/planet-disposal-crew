@@ -13,10 +13,11 @@ extends Node2D
 @onready var b4: TextureButton = %B4
 @onready var console_planet: Sprite2D = %ConsolePlanet
 @onready var gameplay_ui: Control = %GameplayUI
+@onready var console_info: Control = %ConsoleInfo
 @onready var dialog_ui = preload("res://Scenes/DialogUI.tscn")
 
 var rng = RandomNumberGenerator.new()
-var current_planet_index: int = 0
+var current_planet_index: int = 1
 var current_planet: Dictionary
 var dialog_ui_reference: DialogUI
 const debug_stage_db_ref = preload("res://Scripts/stage_parameter_db/debug_stage_db.gd")
@@ -54,7 +55,7 @@ func set_planet():
 	debug_planet.play(current_planet.game_vars.anim_name)
 	debug_planet.modulate = Color(1, 1, 1, 1) 
 	# Console
-	console_planet.texture = load(current_planet.game_vars.spritesheet)
+	console_info.set_console_info(current_planet)
 
 # triggered upon clicking a planet on the tracker.
 # takes in an int index as an argument, 
@@ -74,6 +75,7 @@ func _planet_tracker_pressed(index: int) -> void:
 		if index == i:
 			pointer_array[i].modulate = Color(1, 1, 1, 1) 
 			pointer_array[i].play("pointer")
+			planet_tracker[i].button_pressed = true
 		elif planet_tracker[i].disabled == false:
 			pointer_array[i].modulate = Color(1, 1, 1, 0) 
 			pointer_array[i].stop()
