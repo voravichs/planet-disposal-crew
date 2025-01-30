@@ -1,8 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://b4eyv5px2g5lh"]
+[gd_scene load_steps=13 format=3 uid="uid://b4eyv5px2g5lh"]
 
 [ext_resource type="Script" path="res://Scripts/dialog_ui.gd" id="1_lxi2d"]
 [ext_resource type="Texture2D" uid="uid://c5ndj5oqm011b" path="res://Assets/Sprites/humanportraitsheet.png" id="2_lgktj"]
-[ext_resource type="PackedScene" uid="uid://50de8wgi414b" path="res://Scenes/ChoiceButton.tscn" id="3_jausi"]
 [ext_resource type="Script" path="res://Scripts/human_portrait.gd" id="3_nsmvk"]
 [ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_label.gd" id="3_vi61b"]
 [ext_resource type="StyleBox" uid="uid://5i5aidrwwauy" path="res://Assets/Themes/Buttons/focus_btn.tres" id="4_wx3ed"]
@@ -10,7 +9,7 @@
 [ext_resource type="StyleBox" uid="uid://ctr62n3co4v06" path="res://Assets/Themes/Buttons/normal_btn.tres" id="6_8r2hu"]
 [ext_resource type="StyleBox" uid="uid://u32qb1gknpi7" path="res://Assets/Themes/Buttons/pressed_btn.tres" id="7_qa4g7"]
 [ext_resource type="FontFile" uid="uid://dhdsgaqa4nsy4" path="res://Assets/Fonts/nihonium113.regular.ttf" id="8_q0srp"]
-[ext_resource type="Texture2D" uid="uid://dgmki6rphhhr6" path="res://Assets/Sprites/UI/console_screen.png" id="11_3ov51"]
+[ext_resource type="Theme" uid="uid://d0orvyo1tbee3" path="res://Assets/Themes/PixelButtonWide.tres" id="10_ee5g8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vq3rd"]
 atlas = ExtResource("2_lgktj")
@@ -23,30 +22,6 @@ Button/styles/focus = ExtResource("4_wx3ed")
 Button/styles/hover = ExtResource("5_sgly8")
 Button/styles/normal = ExtResource("6_8r2hu")
 Button/styles/pressed = ExtResource("7_qa4g7")
-
-[sub_resource type="Theme" id="Theme_g1ysy"]
-GridContainer/constants/h_separation = 16
-GridContainer/constants/v_separation = 16
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c8xjf"]
-content_margin_left = 20.0
-content_margin_top = 20.0
-content_margin_right = 20.0
-content_margin_bottom = 20.0
-bg_color = Color(0.145098, 0.168627, 0.203922, 1)
-border_color = Color(0.8, 0.8, 0.8, 0.392157)
-corner_detail = 1
-
-[sub_resource type="Theme" id="Theme_s5l3k"]
-PanelContainer/styles/panel = SubResource("StyleBoxFlat_c8xjf")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xkwb5"]
-bg_color = Color(0.113725, 0.133333, 0.160784, 1)
-border_width_bottom = 2
-border_color = Color(0.27451, 0.431373, 0.568627, 1)
-
-[sub_resource type="Theme" id="Theme_vf1d7"]
-PanelContainer/styles/panel = SubResource("StyleBoxFlat_xkwb5")
 
 [node name="DialogUI" type="Control"]
 layout_mode = 3
@@ -114,60 +89,6 @@ layout_mode = 2
 unique_name_in_owner = true
 z_index = 1
 layout_mode = 2
-theme = SubResource("Theme_g1ysy")
-columns = 2
-
-[node name="ChoiceButton" parent="Dialogue/CenterContainer/DialogueOptions" instance=ExtResource("3_jausi")]
-layout_mode = 2
-
-[node name="ChoiceButton2" parent="Dialogue/CenterContainer/DialogueOptions" instance=ExtResource("3_jausi")]
-layout_mode = 2
-
-[node name="ChoiceButton3" parent="Dialogue/CenterContainer/DialogueOptions" instance=ExtResource("3_jausi")]
-layout_mode = 2
-
-[node name="ChoiceButton4" parent="Dialogue/CenterContainer/DialogueOptions" instance=ExtResource("3_jausi")]
-layout_mode = 2
-
-[node name="ConsoleUI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 500.0
-offset_bottom = 648.0
-mouse_filter = 2
-
-[node name="ConsoleBG1" type="PanelContainer" parent="ConsoleUI"]
-z_index = -1
-custom_minimum_size = Vector2(500, 0)
-layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -500.0
-grow_horizontal = 0
-grow_vertical = 2
-mouse_filter = 2
-theme = SubResource("Theme_s5l3k")
-
-[node name="ConsoleBGTop" type="PanelContainer" parent="ConsoleUI"]
-z_index = -1
-custom_minimum_size = Vector2(500, 0)
-layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -500.0
-offset_bottom = -578.0
-grow_horizontal = 0
-grow_vertical = 2
-mouse_filter = 2
-theme = SubResource("Theme_vf1d7")
-
-[node name="TextureRect" type="TextureRect" parent="ConsoleUI"]
-layout_mode = 0
-offset_right = 500.0
-offset_bottom = 648.0
-mouse_filter = 2
-texture = ExtResource("11_3ov51")
+theme = ExtResource("10_ee5g8")
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16

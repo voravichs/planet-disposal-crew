@@ -11741,7 +11741,6 @@ texture_disabled = ExtResource("7_kl0n4")
 
 [node name="GameplayUI" type="Control" parent="UICanvasLayer"]
 unique_name_in_owner = true
-visible = false
 z_index = 1
 layout_mode = 3
 anchor_left = 0.000868056
@@ -11900,9 +11899,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 tooltip_text = "Ask your crewmates about this planet"
 text = "Crew Dialogue"
-
-[node name="TextureButton" type="TextureButton" parent="UICanvasLayer/GameplayUI/ActionButtons/VBoxContainer/HBoxContainer"]
-layout_mode = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="UICanvasLayer/GameplayUI/ActionButtons/VBoxContainer"]
 layout_mode = 2
