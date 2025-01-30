@@ -10,3 +10,55 @@ Miya: Here are some choices.
 - End conversation => END
 Allan: For more information see the online documentation.
 => END
+
+~ planet0
+Jessie: [[pogchamp|kekw|kappa]], this is some dialogue. This, my friend, is some good shit, 0
+Orin: [wave]Skibidi Toilet[/wave].
+Miya: Here are some choices.
+- First one
+	Roze: You picked the first one.
+- Second one
+	Gaz: You picked the second one.
+- Start again => start
+- End conversation => END
+Allan: For more information see the online documentation.
+=> END
+
+~ planet1
+Jessie: [[pogchamp|kekw|kappa]], this is some dialogue. This, my friend, is some good shit, 1
+Orin: [wave]Skibidi Toilet[/wave].
+Miya: Here are some choices.
+- First one
+	Roze: You picked the first one.
+- Second one
+	Gaz: You picked the second one.
+- Start again => start
+- End conversation => END
+Allan: For more information see the online documentation.
+=> END
+
+~ planet2
+Jessie: [[pogchamp|kekw|kappa]], this is some dialogue. This, my friend, is some good shit, 2
+Orin: [wave]Skibidi Toilet[/wave].
+Miya: Here are some choices.
+- First one
+	Roze: You picked the first one.
+- Second one
+	Gaz: You picked the second one.
+- Start again => start
+- End conversation => END
+Allan: For more information see the online documentation.
+=> END
+
+~ planet3
+Jessie: [[pogchamp|kekw|kappa]], this is some dialogue. This, my friend, is some good shit, 3
+Orin: [wave]Skibidi Toilet[/wave].
+Miya: Here are some choices.
+- First one
+	Roze: You picked the first one.
+- Second one
+	Gaz: You picked the second one.
+- Start again => start
+- End conversation => END
+Allan: For more information see the online documentation.
+=> END

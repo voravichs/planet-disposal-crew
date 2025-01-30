@@ -12150,6 +12150,7 @@ grow_vertical = 2
 texture = ExtResource("5_1fnp3")
 
 [connection signal="pressed" from="UICanvasLayer/GameplayUI/ActionButtons/VBoxContainer/HBoxContainer/ScanButton" to="." method="_on_scan_button_pressed"]
+[connection signal="pressed" from="UICanvasLayer/GameplayUI/ActionButtons/VBoxContainer/HBoxContainer/CrewDialogue" to="." method="_on_crew_dialogue_pressed"]
 [connection signal="pressed" from="UICanvasLayer/GameplayUI/DebugExplosion/ExplodeButton" to="." method="_explode_button"]
 [connection signal="pressed" from="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker/B1" to="." method="_planet_tracker_pressed" binds= [0]]
 [connection signal="pressed" from="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker/B2" to="." method="_planet_tracker_pressed" binds= [1]]

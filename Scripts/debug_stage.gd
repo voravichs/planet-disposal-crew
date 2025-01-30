@@ -35,10 +35,10 @@ func _ready() -> void:
 	money_label.text = str(GameVariables.money)
 	# Init a debug DialogUI
 	var debug_dialogue_resource = load(DIALOGUE_FILE)
-	dialog_ui_reference = dialog_ui.instantiate().with_data(debug_dialogue_resource)
+	dialog_ui_reference = dialog_ui.instantiate().with_data(debug_dialogue_resource, "start")
 	ui_canvas_layer.add_child(dialog_ui_reference)
 	dialog_ui_reference.finished_dialogue.connect(_show_gameplay_ui)
-	# DEBUG LINE TO LOOK AT GAMEPLAY UI
+	#DEBUG
 	_show_gameplay_ui()
 
 # Sets the planet in space and in the console view
@@ -103,3 +103,11 @@ func _on_scan_button_pressed() -> void:
 		planets_scanned[current_planet_index] = true
 		GameVariables.money -= current_planet.game_vars.scan_cost
 		money_label.text = str(GameVariables.money)
+
+# Change to dialogue mode
+func _on_crew_dialogue_pressed() -> void:
+	gameplay_ui.visible = false
+	var debug_dialogue_resource = load(DIALOGUE_FILE)
+	dialog_ui_reference = dialog_ui.instantiate().with_data(debug_dialogue_resource, current_planet.game_vars.dialogue)
+	ui_canvas_layer.add_child(dialog_ui_reference)
+	dialog_ui_reference.finished_dialogue.connect(_show_gameplay_ui)

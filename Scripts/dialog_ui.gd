@@ -13,10 +13,10 @@ var dialogue_resource
 # Emitted when dialogue is complete
 signal finished_dialogue()
 
-func with_data(input_dialogue_resource) -> DialogUI:
+func with_data(input_dialogue_resource, dialog_title) -> DialogUI:
 	# Get the first line in the starting dialogue
 	dialogue_resource = input_dialogue_resource
-	line = await input_dialogue_resource.get_next_dialogue_line("start")
+	line = await input_dialogue_resource.get_next_dialogue_line(dialog_title)
 	return self
 
 func _ready() -> void:
