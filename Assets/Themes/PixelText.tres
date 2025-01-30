@@ -1,7 +1,6 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://btb0t5a2pv8m5"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://btb0t5a2pv8m5"]
 
 [ext_resource type="FontFile" uid="uid://dhdsgaqa4nsy4" path="res://Assets/Fonts/nihonium113.regular.ttf" id="1_2be0f"]
-[ext_resource type="StyleBox" uid="uid://5i5aidrwwauy" path="res://Assets/Themes/Buttons/focus_btn.tres" id="1_khj7p"]
 [ext_resource type="StyleBox" uid="uid://dcmyup1awfksf" path="res://Assets/Themes/Buttons/hover_btn.tres" id="2_f437j"]
 [ext_resource type="StyleBox" uid="uid://ctr62n3co4v06" path="res://Assets/Themes/Buttons/normal_btn.tres" id="3_c1ttp"]
 [ext_resource type="StyleBox" uid="uid://u32qb1gknpi7" path="res://Assets/Themes/Buttons/pressed_btn.tres" id="4_wsqd8"]
@@ -9,7 +8,6 @@
 [resource]
 default_font = ExtResource("1_2be0f")
 default_font_size = 32
-Button/styles/focus = ExtResource("1_khj7p")
 Button/styles/hover = ExtResource("2_f437j")
 Button/styles/normal = ExtResource("3_c1ttp")
 Button/styles/pressed = ExtResource("4_wsqd8")

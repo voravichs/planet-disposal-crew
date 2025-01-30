@@ -1,9 +1,11 @@
-[gd_scene load_steps=1664 format=3 uid="uid://xmd4jsiyrr3d"]
+[gd_scene load_steps=1662 format=3 uid="uid://xmd4jsiyrr3d"]
 
 [ext_resource type="Script" path="res://Scripts/debug_stage.gd" id="1_rtoc5"]
+[ext_resource type="Theme" uid="uid://cbyntf3b68cco" path="res://Assets/Themes/PanelContainer/bg_plain.tres" id="2_nyxfc"]
 [ext_resource type="PackedScene" uid="uid://pfwh6rcl2u3m" path="res://Scenes/Planets/TerranWet1.tscn" id="2_wh06b"]
 [ext_resource type="Theme" uid="uid://btb0t5a2pv8m5" path="res://Assets/Themes/PixelText.tres" id="3_bops1"]
 [ext_resource type="Texture2D" uid="uid://crhe31hdfsjr2" path="res://Assets/Sprites/UI/x_anim_sheet.png" id="3_jpv1o"]
+[ext_resource type="Theme" uid="uid://nclcj5wk4rf4" path="res://Assets/Themes/PanelContainer/top_bg_plain.tres" id="3_ov17m"]
 [ext_resource type="FontFile" uid="uid://dhdsgaqa4nsy4" path="res://Assets/Fonts/nihonium113.regular.ttf" id="4_gw4j1"]
 [ext_resource type="Texture2D" uid="uid://b8fxdjc21wauk" path="res://Assets/Sprites/UI/whitegearhover.png" id="4_i3m4s"]
 [ext_resource type="Texture2D" uid="uid://bxg2ub3017fce" path="res://Assets/Sprites/UI/whitegearnormal.png" id="4_ud7e2"]
@@ -30,26 +32,6 @@
 [ext_resource type="Texture2D" uid="uid://cffsuas68qab1" path="res://Assets/Sprites/Planets/twplanet3.png" id="16_g1lld"]
 [ext_resource type="Texture2D" uid="uid://dgmki6rphhhr6" path="res://Assets/Sprites/UI/console_screen.png" id="24_wi0cr"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4xi8s"]
-content_margin_left = 20.0
-content_margin_top = 20.0
-content_margin_right = 20.0
-content_margin_bottom = 20.0
-bg_color = Color(0.145098, 0.168627, 0.203922, 1)
-border_color = Color(0.8, 0.8, 0.8, 0.392157)
-corner_detail = 1
-
-[sub_resource type="Theme" id="Theme_ga0t3"]
-PanelContainer/styles/panel = SubResource("StyleBoxFlat_4xi8s")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jd5dr"]
-bg_color = Color(0.113725, 0.133333, 0.160784, 1)
-border_width_bottom = 2
-border_color = Color(0.27451, 0.431373, 0.568627, 1)
-
-[sub_resource type="Theme" id="Theme_oak3x"]
-PanelContainer/styles/panel = SubResource("StyleBoxFlat_jd5dr")
-
 [sub_resource type="Theme" id="Theme_v1vj0"]
 default_font = ExtResource("4_gw4j1")
 default_font_size = 48
@@ -63,14 +45,6 @@ Button/styles/pressed = ExtResource("11_4u651")
 [sub_resource type="Theme" id="Theme_6uibm"]
 default_font = ExtResource("4_gw4j1")
 default_font_size = 32
-Button/styles/focus = ExtResource("8_gj57i")
-Button/styles/hover = ExtResource("9_hdml7")
-Button/styles/normal = ExtResource("10_7m7e7")
-Button/styles/pressed = ExtResource("11_4u651")
-
-[sub_resource type="Theme" id="Theme_vhgh7"]
-default_font = ExtResource("4_gw4j1")
-default_font_size = 48
 Button/styles/focus = ExtResource("8_gj57i")
 Button/styles/hover = ExtResource("9_hdml7")
 Button/styles/normal = ExtResource("10_7m7e7")
@@ -204,6 +178,14 @@ animations = [{
 "name": &"x",
 "speed": 8.0
 }]
+
+[sub_resource type="Theme" id="Theme_qhcng"]
+default_font = ExtResource("4_gw4j1")
+default_font_size = 64
+Button/styles/focus = ExtResource("8_gj57i")
+Button/styles/hover = ExtResource("9_hdml7")
+Button/styles/normal = ExtResource("10_7m7e7")
+Button/styles/pressed = ExtResource("11_4u651")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_negq5"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -11654,7 +11636,7 @@ script = ExtResource("1_rtoc5")
 [node name="UICanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
 
-[node name="ConsoleUI" type="Control" parent="UICanvasLayer"]
+[node name="ConsoleBGs" type="Control" parent="UICanvasLayer"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 652.0
@@ -11662,7 +11644,8 @@ offset_right = 1152.0
 offset_bottom = 648.0
 mouse_filter = 2
 
-[node name="ConsoleBG1" type="PanelContainer" parent="UICanvasLayer/ConsoleUI"]
+[node name="ConsoleBG" type="PanelContainer" parent="UICanvasLayer/ConsoleBGs"]
+unique_name_in_owner = true
 z_index = -1
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 1
@@ -11674,9 +11657,10 @@ offset_left = -500.0
 grow_horizontal = 0
 grow_vertical = 2
 mouse_filter = 2
-theme = SubResource("Theme_ga0t3")
+theme = ExtResource("2_nyxfc")
 
-[node name="ConsoleBGTop" type="PanelContainer" parent="UICanvasLayer/ConsoleUI"]
+[node name="ConsoleBGTop" type="PanelContainer" parent="UICanvasLayer/ConsoleBGs"]
+unique_name_in_owner = true
 z_index = -1
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 1
@@ -11689,51 +11673,38 @@ offset_bottom = -578.0
 grow_horizontal = 0
 grow_vertical = 2
 mouse_filter = 2
-theme = SubResource("Theme_oak3x")
+theme = ExtResource("3_ov17m")
 
-[node name="TextureRect" type="TextureRect" parent="UICanvasLayer/ConsoleUI"]
+[node name="TextureRect" type="TextureRect" parent="UICanvasLayer/ConsoleBGs"]
 layout_mode = 0
 offset_right = 500.0
 offset_bottom = 648.0
 mouse_filter = 2
 texture = ExtResource("24_wi0cr")
 
-[node name="GameplayUI" type="Control" parent="UICanvasLayer"]
-unique_name_in_owner = true
-z_index = 1
-layout_mode = 3
-anchor_left = 0.000868056
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 652.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="TopBarInfo" type="MarginContainer" parent="UICanvasLayer/GameplayUI"]
-layout_mode = 1
+[node name="TopBarInfo" type="MarginContainer" parent="UICanvasLayer"]
 anchors_preset = -1
 anchor_left = 0.499
 anchor_top = 0.031
 anchor_right = 0.499
 anchor_bottom = 0.031
-offset_left = -230.001
+offset_left = 97.152
 offset_top = -0.0880013
-offset_right = 229.999
+offset_right = 557.152
 offset_bottom = 49.912
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 8
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UICanvasLayer/GameplayUI/TopBarInfo"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UICanvasLayer/TopBarInfo"]
 layout_mode = 2
 
-[node name="Money" type="Control" parent="UICanvasLayer/GameplayUI/TopBarInfo/HBoxContainer"]
+[node name="Money" type="Control" parent="UICanvasLayer/TopBarInfo/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="$" type="RichTextLabel" parent="UICanvasLayer/GameplayUI/TopBarInfo/HBoxContainer/Money"]
+[node name="$" type="RichTextLabel" parent="UICanvasLayer/TopBarInfo/HBoxContainer/Money"]
 layout_mode = 0
 offset_right = 110.0
 offset_bottom = 34.0
@@ -11741,7 +11712,7 @@ theme = ExtResource("3_bops1")
 bbcode_enabled = true
 text = "[center][color=gold]Budget: [/color][/center]$"
 
-[node name="MoneyLabel" type="RichTextLabel" parent="UICanvasLayer/GameplayUI/TopBarInfo/HBoxContainer/Money"]
+[node name="MoneyLabel" type="RichTextLabel" parent="UICanvasLayer/TopBarInfo/HBoxContainer/Money"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 110.0
@@ -11750,11 +11721,11 @@ offset_bottom = 34.0
 theme = ExtResource("3_bops1")
 text = "broke :("
 
-[node name="Settings" type="Control" parent="UICanvasLayer/GameplayUI/TopBarInfo/HBoxContainer"]
+[node name="Settings" type="Control" parent="UICanvasLayer/TopBarInfo/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="SettingsButton" type="TextureButton" parent="UICanvasLayer/GameplayUI/TopBarInfo/HBoxContainer/Settings"]
+[node name="SettingsButton" type="TextureButton" parent="UICanvasLayer/TopBarInfo/HBoxContainer/Settings"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -11768,6 +11739,18 @@ texture_normal = ExtResource("4_ud7e2")
 texture_pressed = ExtResource("5_xoipb")
 texture_hover = ExtResource("4_i3m4s")
 texture_disabled = ExtResource("7_kl0n4")
+
+[node name="GameplayUI" type="Control" parent="UICanvasLayer"]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 3
+anchor_left = 0.000868056
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 652.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="ConsoleInfo" type="Control" parent="UICanvasLayer/GameplayUI"]
 unique_name_in_owner = true
@@ -11921,26 +11904,12 @@ text = "Crew Dialogue"
 [node name="CenterContainer" type="CenterContainer" parent="UICanvasLayer/GameplayUI/ActionButtons/VBoxContainer"]
 layout_mode = 2
 
-[node name="Decision" type="Button" parent="UICanvasLayer/GameplayUI/ActionButtons/VBoxContainer/CenterContainer"]
+[node name="DecisionButton" type="Button" parent="UICanvasLayer/GameplayUI/ActionButtons/VBoxContainer/CenterContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 tooltip_text = "Make a decision on this planet"
 text = "DECISION"
-
-[node name="DebugExplosion" type="CenterContainer" parent="UICanvasLayer/GameplayUI"]
-visible = false
-layout_mode = 0
-offset_left = 1.0
-offset_top = 391.0
-offset_right = 499.0
-offset_bottom = 523.0
-metadata/_edit_use_anchors_ = true
-
-[node name="ExplodeButton" type="Button" parent="UICanvasLayer/GameplayUI/DebugExplosion"]
-layout_mode = 2
-theme = SubResource("Theme_vhgh7")
-text = "EXPLODE"
 
 [node name="PlanetTrackerUI" type="CenterContainer" parent="UICanvasLayer/GameplayUI"]
 layout_mode = 1
@@ -12043,6 +12012,54 @@ texture_normal = ExtResource("9_2sqf3")
 texture_pressed = ExtResource("15_juosl")
 texture_hover = ExtResource("11_xxoy7")
 texture_disabled = ExtResource("13_vt21b")
+
+[node name="DecisionUI" type="Control" parent="UICanvasLayer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DebugExplosion" type="CenterContainer" parent="UICanvasLayer/DecisionUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -8.0
+anchor_bottom = 3.1
+offset_left = 654.0
+offset_top = 391.0
+offset_right = 1152.0
+offset_bottom = 523.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ExplodeButton" type="Button" parent="UICanvasLayer/DecisionUI/DebugExplosion"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme = SubResource("Theme_qhcng")
+text = "EXPLODE"
+
+[node name="Control" type="Control" parent="UICanvasLayer/DecisionUI"]
+layout_mode = 1
+anchor_left = 28.3
+anchor_top = 15.7
+anchor_right = 28.3
+anchor_bottom = 15.7
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Return" type="Button" parent="UICanvasLayer/DecisionUI/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.65
+anchor_top = 0.675
+anchor_right = 0.65
+anchor_bottom = 0.675
+offset_left = -78.0
+offset_top = -34.0
+theme = ExtResource("3_bops1")
+text = "Return"
 
 [node name="Space" type="Control" parent="UICanvasLayer"]
 layout_mode = 3
@@ -12151,8 +12168,10 @@ texture = ExtResource("5_1fnp3")
 
 [connection signal="pressed" from="UICanvasLayer/GameplayUI/ActionButtons/VBoxContainer/HBoxContainer/ScanButton" to="." method="_on_scan_button_pressed"]
 [connection signal="pressed" from="UICanvasLayer/GameplayUI/ActionButtons/VBoxContainer/HBoxContainer/CrewDialogue" to="." method="_on_crew_dialogue_pressed"]
-[connection signal="pressed" from="UICanvasLayer/GameplayUI/DebugExplosion/ExplodeButton" to="." method="_explode_button"]
+[connection signal="pressed" from="UICanvasLayer/GameplayUI/ActionButtons/VBoxContainer/CenterContainer/DecisionButton" to="." method="_on_decision_pressed"]
 [connection signal="pressed" from="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker/B1" to="." method="_planet_tracker_pressed" binds= [0]]
 [connection signal="pressed" from="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker/B2" to="." method="_planet_tracker_pressed" binds= [1]]
 [connection signal="pressed" from="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker/B3" to="." method="_planet_tracker_pressed" binds= [2]]
 [connection signal="pressed" from="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker/B4" to="." method="_planet_tracker_pressed" binds= [3]]
+[connection signal="pressed" from="UICanvasLayer/DecisionUI/DebugExplosion/ExplodeButton" to="." method="_explode_button"]
+[connection signal="pressed" from="UICanvasLayer/DecisionUI/Control/Return" to="." method="_return"]
