@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://igc0jayy8eto"
-path="res://.godot/imported/planeticondisabled.png-5022811f3f487ef6df506a4883774d66.ctex"
+uid="uid://b8fxdjc21wauk"
+path="res://.godot/imported/whitegearhover.png-70da76fb8500739b3482117ac9fb6e48.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/UI/planeticondisabled.png"
-dest_files=["res://.godot/imported/planeticondisabled.png-5022811f3f487ef6df506a4883774d66.ctex"]
+source_file="res://Assets/Sprites/UI/Gears/whitegearhover.png"
+dest_files=["res://.godot/imported/whitegearhover.png-70da76fb8500739b3482117ac9fb6e48.ctex"]
 
 [params]
 

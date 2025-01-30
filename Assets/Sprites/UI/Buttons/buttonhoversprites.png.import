@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cb61cguumbevf"
-path="res://.godot/imported/planeticonpressfocus.png-6a6b74a33ed028695bd874ae15496a4c.ctex"
+uid="uid://cma0muswomgfg"
+path="res://.godot/imported/buttonhoversprites.png-2d5bee521f63d9c80f20b00aef029382.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/UI/planeticonpressfocus.png"
-dest_files=["res://.godot/imported/planeticonpressfocus.png-6a6b74a33ed028695bd874ae15496a4c.ctex"]
+source_file="res://Assets/Sprites/UI/Buttons/buttonhoversprites.png"
+dest_files=["res://.godot/imported/buttonhoversprites.png-2d5bee521f63d9c80f20b00aef029382.ctex"]
 
 [params]
 

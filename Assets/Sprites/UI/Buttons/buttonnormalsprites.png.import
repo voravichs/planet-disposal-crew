@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxg2ub3017fce"
-path="res://.godot/imported/whitegearnormal.png-47bbdfedf819c39c24030ce677acd78f.ctex"
+uid="uid://bgjif2rahso8p"
+path="res://.godot/imported/buttonnormalsprites.png-ed9ec98f4d7dc3495b8e360dea94b236.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/UI/whitegearnormal.png"
-dest_files=["res://.godot/imported/whitegearnormal.png-47bbdfedf819c39c24030ce677acd78f.ctex"]
+source_file="res://Assets/Sprites/UI/Buttons/buttonnormalsprites.png"
+dest_files=["res://.godot/imported/buttonnormalsprites.png-ed9ec98f4d7dc3495b8e360dea94b236.ctex"]
 
 [params]
 

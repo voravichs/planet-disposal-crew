@@ -131,13 +131,9 @@ func _on_crew_dialogue_pressed() -> void:
 func _on_decision_pressed() -> void:
 	var planet_tracker = [b1, b2, b3, b4]
 	if planet_tracker[current_planet_index].disabled == false:
-		console_bg.theme = BG_DANGER
-		console_bg_top.theme = TOP_BG_DANGER
 		gameplay_ui.visible = false
 		decision_ui.visible = true
 
 func _return() -> void:
-	console_bg.theme = BG_PLAIN
-	console_bg_top.theme = TOP_BG_PLAIN
 	gameplay_ui.visible = true
 	decision_ui.visible = false

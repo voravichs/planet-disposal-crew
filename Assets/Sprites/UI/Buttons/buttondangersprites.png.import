@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4g1y4bpvnum3"
-path="res://.godot/imported/whitegearpressfocus.png-baa7583a072460fcba70863479731083.ctex"
+uid="uid://dxcarfph3dskr"
+path="res://.godot/imported/buttondangersprites.png-f9ec0f805438712a754efd4adc7df2bf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/UI/whitegearpressfocus.png"
-dest_files=["res://.godot/imported/whitegearpressfocus.png-baa7583a072460fcba70863479731083.ctex"]
+source_file="res://Assets/Sprites/UI/Buttons/buttondangersprites.png"
+dest_files=["res://.godot/imported/buttondangersprites.png-f9ec0f805438712a754efd4adc7df2bf.ctex"]
 
 [params]
 

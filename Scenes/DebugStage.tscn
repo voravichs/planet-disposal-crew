@@ -1,4 +1,4 @@
-[gd_scene load_steps=1662 format=3 uid="uid://xmd4jsiyrr3d"]
+[gd_scene load_steps=1665 format=3 uid="uid://xmd4jsiyrr3d"]
 
 [ext_resource type="Script" path="res://Scripts/debug_stage.gd" id="1_rtoc5"]
 [ext_resource type="Theme" uid="uid://cbyntf3b68cco" path="res://Assets/Themes/PanelContainer/bg_plain.tres" id="2_nyxfc"]
@@ -7,30 +7,34 @@
 [ext_resource type="Texture2D" uid="uid://crhe31hdfsjr2" path="res://Assets/Sprites/UI/x_anim_sheet.png" id="3_jpv1o"]
 [ext_resource type="Theme" uid="uid://nclcj5wk4rf4" path="res://Assets/Themes/PanelContainer/top_bg_plain.tres" id="3_ov17m"]
 [ext_resource type="FontFile" uid="uid://dhdsgaqa4nsy4" path="res://Assets/Fonts/nihonium113.regular.ttf" id="4_gw4j1"]
-[ext_resource type="Texture2D" uid="uid://b8fxdjc21wauk" path="res://Assets/Sprites/UI/whitegearhover.png" id="4_i3m4s"]
-[ext_resource type="Texture2D" uid="uid://bxg2ub3017fce" path="res://Assets/Sprites/UI/whitegearnormal.png" id="4_ud7e2"]
+[ext_resource type="Texture2D" uid="uid://b8fxdjc21wauk" path="res://Assets/Sprites/UI/Gears/whitegearhover.png" id="4_i3m4s"]
+[ext_resource type="Texture2D" uid="uid://bxg2ub3017fce" path="res://Assets/Sprites/UI/Gears/whitegearnormal.png" id="4_ud7e2"]
 [ext_resource type="Texture2D" uid="uid://cv1m7taj6y5ch" path="res://Assets/Sprites/spacebg.png" id="5_1fnp3"]
 [ext_resource type="PackedScene" uid="uid://3sji1k7sstnk" path="res://Scenes/Particles/ImplosionParticle.tscn" id="5_x6mie"]
-[ext_resource type="Texture2D" uid="uid://4g1y4bpvnum3" path="res://Assets/Sprites/UI/whitegearpressfocus.png" id="5_xoipb"]
+[ext_resource type="Texture2D" uid="uid://4g1y4bpvnum3" path="res://Assets/Sprites/UI/Gears/whitegearpressfocus.png" id="5_xoipb"]
 [ext_resource type="Texture2D" uid="uid://dbm5tixdv02vc" path="res://Assets/Sprites/UI/spacewindow.png" id="6_5v55f"]
 [ext_resource type="PackedScene" uid="uid://13xbcka465ud" path="res://Scenes/Particles/Explosion.tscn" id="7_fottc"]
-[ext_resource type="Texture2D" uid="uid://cdvuj5sbc6wc2" path="res://Assets/Sprites/UI/whitegeardisabled.png" id="7_kl0n4"]
+[ext_resource type="Texture2D" uid="uid://cdvuj5sbc6wc2" path="res://Assets/Sprites/UI/Gears/whitegeardisabled.png" id="7_kl0n4"]
 [ext_resource type="Texture2D" uid="uid://mjvv860lavtk" path="res://Assets/Sprites/Planets/tdplanet1.png" id="7_nx0b8"]
 [ext_resource type="Texture2D" uid="uid://6ja122f4mo7m" path="res://Assets/Sprites/Planets/gasplanet1.png" id="8_2uskm"]
 [ext_resource type="StyleBox" uid="uid://5i5aidrwwauy" path="res://Assets/Themes/Buttons/focus_btn.tres" id="8_gj57i"]
 [ext_resource type="Texture2D" uid="uid://mokskyvl6xwl" path="res://Assets/Sprites/UI/arrowanimsheet.png" id="8_n2xa2"]
-[ext_resource type="Texture2D" uid="uid://bai2hvh4cawxq" path="res://Assets/Sprites/UI/planeticonnormal.png" id="9_2sqf3"]
+[ext_resource type="Texture2D" uid="uid://bai2hvh4cawxq" path="res://Assets/Sprites/UI/Planet/planeticonnormal.png" id="9_2sqf3"]
 [ext_resource type="ButtonGroup" uid="uid://duk0imubl2eht" path="res://Assets/Themes/PlanetButtonGroup.tres" id="9_haktp"]
 [ext_resource type="StyleBox" uid="uid://dcmyup1awfksf" path="res://Assets/Themes/Buttons/hover_btn.tres" id="9_hdml7"]
 [ext_resource type="Texture2D" uid="uid://c50s06jg4aj4f" path="res://Assets/Sprites/Planets/twplanet1.png" id="10_3ur38"]
 [ext_resource type="StyleBox" uid="uid://ctr62n3co4v06" path="res://Assets/Themes/Buttons/normal_btn.tres" id="10_7m7e7"]
 [ext_resource type="StyleBox" uid="uid://u32qb1gknpi7" path="res://Assets/Themes/Buttons/pressed_btn.tres" id="11_4u651"]
-[ext_resource type="Texture2D" uid="uid://cfxdi1ahkeo0r" path="res://Assets/Sprites/UI/planeticonhover.png" id="11_xxoy7"]
-[ext_resource type="Texture2D" uid="uid://igc0jayy8eto" path="res://Assets/Sprites/UI/planeticondisabled.png" id="13_vt21b"]
+[ext_resource type="Texture2D" uid="uid://cfxdi1ahkeo0r" path="res://Assets/Sprites/UI/Planet/planeticonhover.png" id="11_xxoy7"]
+[ext_resource type="Texture2D" uid="uid://igc0jayy8eto" path="res://Assets/Sprites/UI/Planet/planeticondisabled.png" id="13_vt21b"]
 [ext_resource type="Script" path="res://Scripts/console_info.gd" id="14_rucir"]
-[ext_resource type="Texture2D" uid="uid://cb61cguumbevf" path="res://Assets/Sprites/UI/planeticonpressfocus.png" id="15_juosl"]
+[ext_resource type="Texture2D" uid="uid://cb61cguumbevf" path="res://Assets/Sprites/UI/Planet/planeticonpressfocus.png" id="15_juosl"]
 [ext_resource type="Texture2D" uid="uid://cffsuas68qab1" path="res://Assets/Sprites/Planets/twplanet3.png" id="16_g1lld"]
+[ext_resource type="Shader" path="res://Assets/Shaders/outline2dinner.gdshader" id="16_iqhxv"]
+[ext_resource type="Theme" uid="uid://gwj5sroh12e2" path="res://Assets/Themes/PixelButtonMD.tres" id="20_gk0wp"]
 [ext_resource type="Texture2D" uid="uid://dgmki6rphhhr6" path="res://Assets/Sprites/UI/console_screen.png" id="24_wi0cr"]
+[ext_resource type="Theme" uid="uid://2yebev0mx80o" path="res://Assets/Themes/PixelButtonSmall.tres" id="25_imiub"]
+[ext_resource type="Theme" uid="uid://bngckj73xoakm" path="res://Assets/Themes/PixelButtonLGDanger.tres" id="25_tw4bt"]
 
 [sub_resource type="Theme" id="Theme_v1vj0"]
 default_font = ExtResource("4_gw4j1")
@@ -40,7 +44,10 @@ Button/styles/hover = ExtResource("9_hdml7")
 Button/styles/normal = ExtResource("10_7m7e7")
 Button/styles/pressed = ExtResource("11_4u651")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ylmr8"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6kmmu"]
+shader = ExtResource("16_iqhxv")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
 
 [sub_resource type="Theme" id="Theme_6uibm"]
 default_font = ExtResource("4_gw4j1")
@@ -178,14 +185,6 @@ animations = [{
 "name": &"x",
 "speed": 8.0
 }]
-
-[sub_resource type="Theme" id="Theme_qhcng"]
-default_font = ExtResource("4_gw4j1")
-default_font_size = 64
-Button/styles/focus = ExtResource("8_gj57i")
-Button/styles/hover = ExtResource("9_hdml7")
-Button/styles/normal = ExtResource("10_7m7e7")
-Button/styles/pressed = ExtResource("11_4u651")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_negq5"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -11742,6 +11741,7 @@ texture_disabled = ExtResource("7_kl0n4")
 
 [node name="GameplayUI" type="Control" parent="UICanvasLayer"]
 unique_name_in_owner = true
+visible = false
 z_index = 1
 layout_mode = 3
 anchor_left = 0.000868056
@@ -11784,7 +11784,7 @@ layout_mode = 2
 
 [node name="ConsolePlanet" type="Sprite2D" parent="UICanvasLayer/GameplayUI/ConsoleInfo/ConsolePlanetView/ControlPlanetControl"]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_ylmr8")
+material = SubResource("ShaderMaterial_6kmmu")
 texture = ExtResource("10_3ur38")
 hframes = 100
 vframes = 4
@@ -11877,7 +11877,7 @@ offset_bottom = 500.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UICanvasLayer/GameplayUI/ActionButtons"]
 layout_mode = 2
-theme = ExtResource("3_bops1")
+theme = ExtResource("20_gk0wp")
 theme_override_constants/separation = 32
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UICanvasLayer/GameplayUI/ActionButtons/VBoxContainer"]
@@ -11887,7 +11887,7 @@ theme_override_constants/separation = 16
 
 [node name="ScanButton" type="Button" parent="UICanvasLayer/GameplayUI/ActionButtons/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 3
 tooltip_text = "Scan this planet for details"
@@ -11901,12 +11901,15 @@ size_flags_horizontal = 3
 tooltip_text = "Ask your crewmates about this planet"
 text = "Crew Dialogue"
 
+[node name="TextureButton" type="TextureButton" parent="UICanvasLayer/GameplayUI/ActionButtons/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
 [node name="CenterContainer" type="CenterContainer" parent="UICanvasLayer/GameplayUI/ActionButtons/VBoxContainer"]
 layout_mode = 2
 
 [node name="DecisionButton" type="Button" parent="UICanvasLayer/GameplayUI/ActionButtons/VBoxContainer/CenterContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 tooltip_text = "Make a decision on this planet"
 text = "DECISION"
@@ -12033,9 +12036,9 @@ offset_bottom = 523.0
 metadata/_edit_use_anchors_ = true
 
 [node name="ExplodeButton" type="Button" parent="UICanvasLayer/DecisionUI/DebugExplosion"]
-custom_minimum_size = Vector2(250, 0)
+custom_minimum_size = Vector2(250, 75)
 layout_mode = 2
-theme = SubResource("Theme_qhcng")
+theme = ExtResource("25_tw4bt")
 text = "EXPLODE"
 
 [node name="Control" type="Control" parent="UICanvasLayer/DecisionUI"]
@@ -12056,9 +12059,11 @@ anchor_left = 0.65
 anchor_top = 0.675
 anchor_right = 0.65
 anchor_bottom = 0.675
-offset_left = -78.0
-offset_top = -34.0
-theme = ExtResource("3_bops1")
+offset_left = -92.0
+offset_top = -44.0
+offset_right = 8.0
+offset_bottom = 6.0
+theme = ExtResource("25_imiub")
 text = "Return"
 
 [node name="Space" type="Control" parent="UICanvasLayer"]

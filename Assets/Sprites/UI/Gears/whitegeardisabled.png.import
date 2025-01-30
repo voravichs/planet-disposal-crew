@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bai2hvh4cawxq"
-path="res://.godot/imported/planeticonnormal.png-1cbf71f1c1bcc3f0b4aa9a425c701ffd.ctex"
+uid="uid://cdvuj5sbc6wc2"
+path="res://.godot/imported/whitegeardisabled.png-5cc84f2a1e6299a258ada1e93112d222.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/UI/planeticonnormal.png"
-dest_files=["res://.godot/imported/planeticonnormal.png-1cbf71f1c1bcc3f0b4aa9a425c701ffd.ctex"]
+source_file="res://Assets/Sprites/UI/Gears/whitegeardisabled.png"
+dest_files=["res://.godot/imported/whitegeardisabled.png-5cc84f2a1e6299a258ada1e93112d222.ctex"]
 
 [params]
 

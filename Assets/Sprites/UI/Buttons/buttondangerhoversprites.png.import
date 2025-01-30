@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8fxdjc21wauk"
-path="res://.godot/imported/whitegearhover.png-e5393b2f24848eced37dafdde63cea67.ctex"
+uid="uid://8lnwut4paeay"
+path="res://.godot/imported/buttondangerhoversprites.png-68f8fc2e43c52d29b8b3024778fd2b16.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/UI/whitegearhover.png"
-dest_files=["res://.godot/imported/whitegearhover.png-e5393b2f24848eced37dafdde63cea67.ctex"]
+source_file="res://Assets/Sprites/UI/Buttons/buttondangerhoversprites.png"
+dest_files=["res://.godot/imported/buttondangerhoversprites.png-68f8fc2e43c52d29b8b3024778fd2b16.ctex"]
 
 [params]
 
