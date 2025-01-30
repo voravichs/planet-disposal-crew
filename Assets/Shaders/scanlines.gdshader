@@ -10,18 +10,18 @@ uniform bool use_texture_alpha = false;
 group_uniforms ScanLines;
 /** Color to use for the scanning lines. */
 uniform vec4 line_color : source_color = vec4(0.0, 1.0, 0.0, 1.0);
-/** Scanning lines thickness. */ 
+/** Scanning lines thickness. */
 uniform float line_thickness : hint_range(0.0, 1.0) = 0.01;
 group_uniforms ScanLinesMovement;
 /** Scan lines speed. */
 uniform float speed : hint_range(0.0, 20.0) = 1.0;
 /** Restrict scan lines in X and Y to the bounds specified by their vectors.
 Texture goes from 0.0 to 1.0, so the default value does not restrict. */
-uniform vec2 x_line_bounds = vec2(0.0, 1.0); 
+uniform vec2 x_line_bounds = vec2(0.0, 1.0);
 uniform vec2 y_line_bounds = vec2(0.0, 1.0);
 
 float highlight(float point, float progress) {
-	return smoothstep(progress - line_thickness, progress, point) - 
+	return smoothstep(progress - line_thickness, progress, point) -
 			smoothstep(progress, progress + line_thickness, point);
 }
 
@@ -60,7 +60,7 @@ void fragment() {
 	// will serve as a nice interpolation variable. This will always be from
 	// 0.0 to 1.0.
 	float fract_time = fract(time);
-	
+
 	// Generate a random point between vec2(lower_bound) and vec2(upper_bound). This
 	// will be the start vector from where the scan lines should start.
 	vec2 rand_vector = vec2(
@@ -76,7 +76,7 @@ void fragment() {
 	// Generate the actual point to draw now. This is a simple interpolation between
 	// the start vector and the end vector.
 	vec2 moving_point = mix(rand_vector, next_rand_vector, fract_time);
-	// Get the color multiplier, this will tell us if we need to draw a line or not. 
+	// Get the color multiplier, this will tell us if we need to draw a line or not.
 	float color_mult = point_to_color(UV, moving_point);
 	// Get the sprite's texture, mapped to its UV.
 	vec4 texture_color = texture(TEXTURE, UV);

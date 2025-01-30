@@ -15,23 +15,24 @@ extends Node2D
 @onready var gameplay_ui: Control = %GameplayUI
 @onready var console_info: Control = %ConsoleInfo
 @onready var dialog_ui = preload("res://Scenes/DialogUI.tscn")
+@onready var debug_stage_db_ref = preload("res://Scripts/state_parameter_db/debug_stage_db.gd")
+@onready var money_label: RichTextLabel = %MoneyLabel
+@onready var scan_button: Button = %ScanButton
 
 var rng = RandomNumberGenerator.new()
-var current_planet_index: int = 1
+var current_planet_index: int = 0
 var current_planet: Dictionary
 var dialog_ui_reference: DialogUI
-const debug_stage_db_ref = preload("res://Scripts/stage_parameter_db/debug_stage_db.gd")
+var planets_scanned = [false, false, false, false]
 
 const DIALOGUE_FILE = "res://Dialogues/Debug.dialogue"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	# Randomize Planets
-	#rng.randomize()
-	#randomize_planets(debug_planet, current_planet.game_vars.scale_factor)
-
 	# Set initial planet pointer and set the planet
 	_planet_tracker_pressed(current_planet_index)
+	# Set initial money
+	money_label.text = str(GameVariables.money)
 	# Init a debug DialogUI
 	var debug_dialogue_resource = load(DIALOGUE_FILE)
 	dialog_ui_reference = dialog_ui.instantiate().with_data(debug_dialogue_resource)
@@ -40,14 +41,6 @@ func _ready() -> void:
 	# DEBUG LINE TO LOOK AT GAMEPLAY UI
 	_show_gameplay_ui()
 
-# Randomize planet size
-func randomize_planets(planet: AnimatedSprite2D, scale_factor: float):
-	# Reset Scale first
-	planet.scale = Vector2(1,1)
-	# Randomize Scale and apply
-	var rand = (rng.randf_range(0,1.5) + 1) * scale_factor
-	planet.scale = Vector2(rand,rand)
-
 # Sets the planet in space and in the console view
 func set_planet():
 	# Space
@@ -55,6 +48,10 @@ func set_planet():
 	debug_planet.play(current_planet.game_vars.anim_name)
 	debug_planet.modulate = Color(1, 1, 1, 1) 
 	# Console
+	console_planet.texture = load(current_planet.game_vars.spritesheet)
+	scan_button.text = "Scan ($" + str(current_planet.game_vars.scan_cost) + ")"
+
+func scan_planet():
 	console_info.set_console_info(current_planet)
 
 # triggered upon clicking a planet on the tracker.
@@ -76,6 +73,10 @@ func _planet_tracker_pressed(index: int) -> void:
 			pointer_array[i].modulate = Color(1, 1, 1, 1) 
 			pointer_array[i].play("pointer")
 			planet_tracker[i].button_pressed = true
+			if planets_scanned[i]:
+				scan_planet()
+			else:
+				console_info.hide_console_info()
 		elif planet_tracker[i].disabled == false:
 			pointer_array[i].modulate = Color(1, 1, 1, 0) 
 			pointer_array[i].stop()
@@ -94,3 +95,11 @@ func _explode_button() -> void:
 		if current_planet_index == i:
 			planet_tracker[i].disabled = true
 			pointer_array[i].play("x")
+
+# Scans the planet, then takes money out of the budget
+func _on_scan_button_pressed() -> void:
+	if !planets_scanned[current_planet_index]:
+		scan_planet()
+		planets_scanned[current_planet_index] = true
+		GameVariables.money -= current_planet.game_vars.scan_cost
+		money_label.text = str(GameVariables.money)
