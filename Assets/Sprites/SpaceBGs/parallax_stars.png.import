@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cv1m7taj6y5ch"
-path="res://.godot/imported/spacebg.png-95dc727345ba8fd44399f60d72dc9cd1.ctex"
+uid="uid://umm6r2fmrai1"
+path="res://.godot/imported/parallax_stars.png-a5342ccc84be26138c97a826c244cc22.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/spacebg.png"
-dest_files=["res://.godot/imported/spacebg.png-95dc727345ba8fd44399f60d72dc9cd1.ctex"]
+source_file="res://Assets/Sprites/SpaceBGs/parallax_stars.png"
+dest_files=["res://.godot/imported/parallax_stars.png-a5342ccc84be26138c97a826c244cc22.ctex"]
 
 [params]
 

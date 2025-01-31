@@ -1,4 +1,4 @@
-[gd_scene load_steps=1670 format=3 uid="uid://xmd4jsiyrr3d"]
+[gd_scene load_steps=1673 format=3 uid="uid://xmd4jsiyrr3d"]
 
 [ext_resource type="Script" path="res://Scripts/debug_stage.gd" id="1_rtoc5"]
 [ext_resource type="Theme" uid="uid://cbyntf3b68cco" path="res://Assets/Themes/PanelContainer/bg_plain.tres" id="2_nyxfc"]
@@ -9,7 +9,6 @@
 [ext_resource type="FontFile" uid="uid://dhdsgaqa4nsy4" path="res://Assets/Fonts/nihonium113.regular.ttf" id="4_gw4j1"]
 [ext_resource type="Texture2D" uid="uid://b8fxdjc21wauk" path="res://Assets/Sprites/UI/Gears/whitegearhover.png" id="4_i3m4s"]
 [ext_resource type="Texture2D" uid="uid://bxg2ub3017fce" path="res://Assets/Sprites/UI/Gears/whitegearnormal.png" id="4_ud7e2"]
-[ext_resource type="Texture2D" uid="uid://cv1m7taj6y5ch" path="res://Assets/Sprites/spacebg.png" id="5_1fnp3"]
 [ext_resource type="PackedScene" uid="uid://3sji1k7sstnk" path="res://Scenes/Particles/ImplosionParticle.tscn" id="5_x6mie"]
 [ext_resource type="Texture2D" uid="uid://4g1y4bpvnum3" path="res://Assets/Sprites/UI/Gears/whitegearpressfocus.png" id="5_xoipb"]
 [ext_resource type="Texture2D" uid="uid://dbm5tixdv02vc" path="res://Assets/Sprites/UI/spacewindow.png" id="6_5v55f"]
@@ -37,6 +36,10 @@
 [ext_resource type="Theme" uid="uid://bngckj73xoakm" path="res://Assets/Themes/PixelButtonLGDanger.tres" id="25_tw4bt"]
 [ext_resource type="Script" path="res://Scenes/firing_ui.gd" id="28_g5m56"]
 [ext_resource type="Theme" uid="uid://6vfakykk6ugs" path="res://Assets/Themes/PanelContainer/bg_danger.tres" id="28_yvt2x"]
+[ext_resource type="Texture2D" uid="uid://vcye0vbkq5x5" path="res://Assets/Sprites/SpaceBGs/spacebg1.png" id="37_d75yf"]
+[ext_resource type="Script" path="res://Scenes/parallax_space.gd" id="38_u1gwf"]
+[ext_resource type="Texture2D" uid="uid://c13yegfsji486" path="res://Assets/Sprites/SpaceBGs/parallax_nebulae.png" id="39_cu7tb"]
+[ext_resource type="Texture2D" uid="uid://umm6r2fmrai1" path="res://Assets/Sprites/SpaceBGs/parallax_stars.png" id="39_mqb36"]
 
 [sub_resource type="Theme" id="Theme_v1vj0"]
 default_font = ExtResource("4_gw4j1")
@@ -188,6 +191,33 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="Animation" id="Animation_rhrix"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%ConsoleBGDanger:theme:PanelContainer/styles/panel:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.145098, 0.168627, 0.203922, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Firing:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["[center]FIRING[/center]"]
+}
+
 [sub_resource type="Animation" id="Animation_xbqd7"]
 resource_name = "danger"
 length = 7.0
@@ -215,33 +245,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": ["[center]FIRING[/center]", "[center]FIRING.[/center]", "[center]FIRING..[/center]", "[center]FIRING...[/center]", "[center]FIRING[/center]", "[center]FIRING.[/center]", "[center]FIRING..[/center]", "[center]FIRING...[/center]", "[center]FIRING[/center]", "[center]FIRING.[/center]", "[center]FIRING..[/center]", "[center]FIRING...[/center]", "[center]S[/center]", "[center]SA[/center]", "[center]SAY[/center]", "[center]SAYO[/center]", "[center]SAYON[/center]", "[center]SAYONA[/center]", "[center]SAYONAR[/center]", "[center]SAYONARA[/center]"]
-}
-
-[sub_resource type="Animation" id="Animation_rhrix"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("%ConsoleBGDanger:theme:PanelContainer/styles/panel:bg_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.145098, 0.168627, 0.203922, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Firing:text")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["[center]FIRING[/center]"]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ud7fk"]
@@ -12281,7 +12284,51 @@ offset_right = 325.0
 offset_bottom = 324.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_1fnp3")
+texture = ExtResource("37_d75yf")
+
+[node name="ParallaxSpace" type="ParallaxBackground" parent="UICanvasLayer/Space"]
+visible = false
+script = ExtResource("38_u1gwf")
+
+[node name="ColorRect" type="ColorRect" parent="UICanvasLayer/Space/ParallaxSpace"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0431373, 0.0901961, 0.137255, 1)
+
+[node name="Nebulae" type="ParallaxLayer" parent="UICanvasLayer/Space/ParallaxSpace"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(2000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="UICanvasLayer/Space/ParallaxSpace/Nebulae"]
+modulate = Color(1, 1, 1, 0.568627)
+scale = Vector2(2, 2)
+texture = ExtResource("39_cu7tb")
+centered = false
+flip_h = true
+flip_v = true
+
+[node name="StarsFar" type="ParallaxLayer" parent="UICanvasLayer/Space/ParallaxSpace"]
+motion_mirroring = Vector2(2000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="UICanvasLayer/Space/ParallaxSpace/StarsFar"]
+modulate = Color(0.560955, 0.560955, 0.560955, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("39_mqb36")
+centered = false
+
+[node name="StarsNear" type="ParallaxLayer" parent="UICanvasLayer/Space/ParallaxSpace"]
+motion_scale = Vector2(1.25, 1.25)
+motion_mirroring = Vector2(4000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="UICanvasLayer/Space/ParallaxSpace/StarsNear"]
+scale = Vector2(4, 4)
+texture = ExtResource("39_mqb36")
+centered = false
+flip_h = true
+flip_v = true
 
 [connection signal="pressed" from="UICanvasLayer/GameplayUI/ActionButtons/VBoxContainer/HBoxContainer/ScanButton" to="." method="_on_scan_button_pressed"]
 [connection signal="pressed" from="UICanvasLayer/GameplayUI/ActionButtons/VBoxContainer/HBoxContainer/CrewDialogue" to="." method="_on_crew_dialogue_pressed"]
