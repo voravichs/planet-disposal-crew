@@ -145,7 +145,6 @@ func _explode_button() -> void:
 	set_planet()
 
 func _on_explode_finished(_anim):
-	print("pog")
 	firing_ui.visible = false
 	gameplay_ui.visible = true
 
