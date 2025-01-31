@@ -22,8 +22,10 @@ extends Node2D
 @onready var console_bg_top: PanelContainer = %ConsoleBGTop
 @onready var decision_ui: Control = %DecisionUI
 @onready var firing_ui: Control = %FiringUI
+@onready var space: Control = %Space
+@onready var planet_tracker = [b1, b2, b3, b4]
+@onready var pointer_array = [w_arrow1, w_arrow2, w_arrow3, w_arrow4]
 
-var rng = RandomNumberGenerator.new()
 var current_planet_index: int = -1
 var current_planet: Dictionary
 var dialog_ui_reference: DialogUI
@@ -35,12 +37,14 @@ const BG_PLAIN = preload("res://Assets/Themes/PanelContainer/bg_plain.tres")
 const TOP_BG_DANGER = preload("res://Assets/Themes/PanelContainer/top_bg_danger.tres")
 const TOP_BG_PLAIN = preload("res://Assets/Themes/PanelContainer/top_bg_plain.tres")
 const DIALOG_UI = preload("res://Scenes/DialogUI.tscn")
-const DEBUG_STAGE_DB_REF = preload("res://Scripts/state_parameter_db/debug_stage_db.gd")
+const DEBUG_STAGE_DB_REF = preload("res://Scripts/StageParameters/debug_stage_db.gd")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Set initial planet pointer and set the planet
 	_planet_tracker_pressed(current_planet_index)
+	# Prevent button input
+	disable_all_actions()
 	# Set initial money
 	money_label.text = str(GameVariables.money)
 	# Init a debug DialogUI
@@ -51,15 +55,17 @@ func _ready() -> void:
 	#DEBUG
 	_show_gameplay_ui()
 	debug_anim.animation_finished.connect(_on_explode_finished)
+	space.ftl_finished.connect(set_planet)
 
+# Called upon finishing FTL animation
 # Sets the planet in space and in the console view
 func set_planet():
+	# Returns index to -1 after planet decision
 	if (current_planet_index == -1):
+		# hide all console info and disable actions
 		console_info.hide_console_info()
 		console_planet.visible = false
-		scan_button.disabled = true
-		decision_button.disabled = true
-		crew_dialogue.disabled = true
+		disable_all_actions()
 		return
 	else:
 		# Space
@@ -71,44 +77,60 @@ func set_planet():
 		console_planet.texture = load(current_planet.game_vars.spritesheet)
 		console_planet.visible = true
 		scan_button.text = "Scan ($" + str(current_planet.game_vars.scan_cost) + ")"
+		# Enable actions
+		enable_all_actions()
+		# Sets console info and disables scans if already scanned
+		if planets_scanned[current_planet_index]:
+			scan_planet()
 
+# Displays console info and disables the scan button
 func scan_planet():
 	console_info.set_console_info(current_planet)
 	scan_button.disabled = true
+
+# Enable all action buttons
+func enable_all_actions():
+	scan_button.disabled = false
+	crew_dialogue.disabled = false
+	decision_button.disabled = false
+
+# Disable all action buttons
+func disable_all_actions():
+	scan_button.disabled = true
+	crew_dialogue.disabled = true
+	decision_button.disabled = true
 
 # triggered upon clicking a planet on the tracker.
 # takes in an int index as an argument, 
 # and moves the pointer to that index and plays the animation
 # Additionally also sets the planet
 func _planet_tracker_pressed(index: int) -> void:
-	current_planet_index = index
-	# Prevents clicking when animation is playing
-	if debug_anim.is_playing():
-		set_planet()
+	# Prevent the same planet being pressed twice
+	if (index >=0 && index < planets_scanned.size()) && (index == current_planet_index):
+		print("unpog")
 		return
-	# Set the planet in the space UI
-	set_planet()
+	# Hide previous planet
+	debug_planet.modulate = Color(1, 1, 1, 0)
+	debug_planet.visible = false
+	# hide console info
+	console_info.hide_console_info()
+	console_planet.visible = false
+	# Set new planet index
+	current_planet_index = index
 	# Set the pointer in the gameplay UI
-	var planet_tracker = [b1, b2, b3, b4]
-	var pointer_array = [w_arrow1, w_arrow2, w_arrow3, w_arrow4]
 	for i in pointer_array.size():
+		# Tracker index matches current index
 		if index == i:
+			# Show pointer animation and press the tracker button
 			pointer_array[i].modulate = Color(1, 1, 1, 1) 
 			pointer_array[i].play("pointer")
 			planet_tracker[i].button_pressed = true
-			if planets_scanned[i]:
-				scan_planet()
-			else:
-				console_info.hide_console_info()
-				scan_button.disabled = false
-		elif index == -1:
+			# play FTL animation, prevent input during the process
+			space.show_ftl()
+			disable_all_actions()
+		elif index == -1 || planet_tracker[i].disabled == false:
 			pointer_array[i].modulate = Color(1, 1, 1, 0) 
 			pointer_array[i].stop()
-		elif planet_tracker[i].disabled == false:
-			pointer_array[i].modulate = Color(1, 1, 1, 0) 
-			pointer_array[i].stop()
-			decision_button.disabled = false
-			crew_dialogue.disabled = false
 
 # sets the gameplay UI to visible, then removes the dialog UI from the tree
 func _show_gameplay_ui():
@@ -118,8 +140,6 @@ func _show_gameplay_ui():
 # explode the planet visually, then disable planet in tracker
 func _explode_button() -> void:
 	debug_anim.play("ExplodePlanet")
-	var planet_tracker = [b1, b2, b3, b4]
-	var pointer_array = [w_arrow1, w_arrow2, w_arrow3, w_arrow4]
 	for i in planet_tracker.size():
 		if current_planet_index == i:
 			planet_tracker[i].disabled = true
@@ -129,7 +149,8 @@ func _explode_button() -> void:
 	decision_ui.visible = false
 	firing_ui.visible = true
 	firing_ui.play_anim()
-	_planet_tracker_pressed(-1)
+	current_planet_index = -1
+	set_planet()
 
 func _on_explode_finished(_anim):
 	firing_ui.visible = false
@@ -152,7 +173,6 @@ func _on_crew_dialogue_pressed() -> void:
 	dialog_ui_reference.finished_dialogue.connect(_show_gameplay_ui)
 
 func _on_decision_pressed() -> void:
-	var planet_tracker = [b1, b2, b3, b4]
 	if planet_tracker[current_planet_index].disabled == false:
 		gameplay_ui.visible = false
 		decision_ui.visible = true

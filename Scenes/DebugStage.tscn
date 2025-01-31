@@ -1,4 +1,4 @@
-[gd_scene load_steps=1673 format=3 uid="uid://xmd4jsiyrr3d"]
+[gd_scene load_steps=1675 format=3 uid="uid://xmd4jsiyrr3d"]
 
 [ext_resource type="Script" path="res://Scripts/debug_stage.gd" id="1_rtoc5"]
 [ext_resource type="Theme" uid="uid://cbyntf3b68cco" path="res://Assets/Themes/PanelContainer/bg_plain.tres" id="2_nyxfc"]
@@ -36,10 +36,12 @@
 [ext_resource type="Theme" uid="uid://bngckj73xoakm" path="res://Assets/Themes/PixelButtonLGDanger.tres" id="25_tw4bt"]
 [ext_resource type="Script" path="res://Scenes/firing_ui.gd" id="28_g5m56"]
 [ext_resource type="Theme" uid="uid://6vfakykk6ugs" path="res://Assets/Themes/PanelContainer/bg_danger.tres" id="28_yvt2x"]
-[ext_resource type="Texture2D" uid="uid://vcye0vbkq5x5" path="res://Assets/Sprites/SpaceBGs/spacebg1.png" id="37_d75yf"]
+[ext_resource type="Script" path="res://Scenes/space.gd" id="30_kui6m"]
 [ext_resource type="Script" path="res://Scenes/parallax_space.gd" id="38_u1gwf"]
 [ext_resource type="Texture2D" uid="uid://c13yegfsji486" path="res://Assets/Sprites/SpaceBGs/parallax_nebulae.png" id="39_cu7tb"]
 [ext_resource type="Texture2D" uid="uid://umm6r2fmrai1" path="res://Assets/Sprites/SpaceBGs/parallax_stars.png" id="39_mqb36"]
+[ext_resource type="Script" path="res://Scenes/parallax_FTL.gd" id="40_wa43k"]
+[ext_resource type="Texture2D" uid="uid://bc66p3o8b1fbh" path="res://Assets/Sprites/SpaceBGs/parallax_ftl.png" id="41_mnbdb"]
 
 [sub_resource type="Theme" id="Theme_v1vj0"]
 default_font = ExtResource("4_gw4j1")
@@ -12183,11 +12185,13 @@ bbcode_enabled = true
 text = "[center]FIRING[/center]"
 
 [node name="Space" type="Control" parent="UICanvasLayer"]
+unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 654.0
 grow_vertical = 2
+script = ExtResource("30_kui6m")
 
 [node name="SpaceWindow" type="TextureRect" parent="UICanvasLayer/Space"]
 layout_mode = 1
@@ -12270,24 +12274,8 @@ libraries = {
 "": SubResource("AnimationLibrary_ryun0")
 }
 
-[node name="Space" type="TextureRect" parent="UICanvasLayer/Space"]
-z_index = -5
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -327.0
-offset_top = -324.0
-offset_right = 325.0
-offset_bottom = 324.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("37_d75yf")
-
 [node name="ParallaxSpace" type="ParallaxBackground" parent="UICanvasLayer/Space"]
-visible = false
+unique_name_in_owner = true
 script = ExtResource("38_u1gwf")
 
 [node name="ColorRect" type="ColorRect" parent="UICanvasLayer/Space/ParallaxSpace"]
@@ -12302,7 +12290,8 @@ color = Color(0.0431373, 0.0901961, 0.137255, 1)
 motion_scale = Vector2(0.5, 0.5)
 motion_mirroring = Vector2(2000, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="UICanvasLayer/Space/ParallaxSpace/Nebulae"]
+[node name="NebulaeSprite" type="Sprite2D" parent="UICanvasLayer/Space/ParallaxSpace/Nebulae"]
+unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.568627)
 scale = Vector2(2, 2)
 texture = ExtResource("39_cu7tb")
@@ -12313,7 +12302,8 @@ flip_v = true
 [node name="StarsFar" type="ParallaxLayer" parent="UICanvasLayer/Space/ParallaxSpace"]
 motion_mirroring = Vector2(2000, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="UICanvasLayer/Space/ParallaxSpace/StarsFar"]
+[node name="FarStarSprite" type="Sprite2D" parent="UICanvasLayer/Space/ParallaxSpace/StarsFar"]
+unique_name_in_owner = true
 modulate = Color(0.560955, 0.560955, 0.560955, 1)
 scale = Vector2(2, 2)
 texture = ExtResource("39_mqb36")
@@ -12323,12 +12313,62 @@ centered = false
 motion_scale = Vector2(1.25, 1.25)
 motion_mirroring = Vector2(4000, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="UICanvasLayer/Space/ParallaxSpace/StarsNear"]
+[node name="NearStarSprite" type="Sprite2D" parent="UICanvasLayer/Space/ParallaxSpace/StarsNear"]
+unique_name_in_owner = true
 scale = Vector2(4, 4)
 texture = ExtResource("39_mqb36")
 centered = false
 flip_h = true
 flip_v = true
+
+[node name="ParallaxFTL" type="ParallaxBackground" parent="UICanvasLayer/Space"]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("40_wa43k")
+
+[node name="ColorRect" type="ColorRect" parent="UICanvasLayer/Space/ParallaxFTL"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0431373, 0.0901961, 0.137255, 1)
+
+[node name="StarsFar" type="ParallaxLayer" parent="UICanvasLayer/Space/ParallaxFTL"]
+motion_mirroring = Vector2(2000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="UICanvasLayer/Space/ParallaxFTL/StarsFar"]
+modulate = Color(0.560955, 0.560955, 0.560955, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("41_mnbdb")
+centered = false
+
+[node name="StarsMid" type="ParallaxLayer" parent="UICanvasLayer/Space/ParallaxFTL"]
+motion_scale = Vector2(1.25, 1.25)
+motion_mirroring = Vector2(4000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="UICanvasLayer/Space/ParallaxFTL/StarsMid"]
+modulate = Color(0.82606, 0.82606, 0.82606, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("41_mnbdb")
+centered = false
+flip_v = true
+
+[node name="StarsNear" type="ParallaxLayer" parent="UICanvasLayer/Space/ParallaxFTL"]
+motion_scale = Vector2(1.5, 1.5)
+motion_mirroring = Vector2(8000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="UICanvasLayer/Space/ParallaxFTL/StarsNear"]
+scale = Vector2(4, 4)
+texture = ExtResource("41_mnbdb")
+centered = false
+flip_h = true
+flip_v = true
+
+[node name="FTLTimer" type="Timer" parent="UICanvasLayer/Space"]
+unique_name_in_owner = true
+wait_time = 1.5
+one_shot = true
 
 [connection signal="pressed" from="UICanvasLayer/GameplayUI/ActionButtons/VBoxContainer/HBoxContainer/ScanButton" to="." method="_on_scan_button_pressed"]
 [connection signal="pressed" from="UICanvasLayer/GameplayUI/ActionButtons/VBoxContainer/HBoxContainer/CrewDialogue" to="." method="_on_crew_dialogue_pressed"]
@@ -12339,3 +12379,4 @@ flip_v = true
 [connection signal="pressed" from="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker/B4" to="." method="_planet_tracker_pressed" binds= [3]]
 [connection signal="pressed" from="UICanvasLayer/DecisionUI/DebugExplosion/ExplodeButton" to="." method="_explode_button"]
 [connection signal="pressed" from="UICanvasLayer/DecisionUI/Control/Return" to="." method="_return"]
+[connection signal="timeout" from="UICanvasLayer/Space/FTLTimer" to="UICanvasLayer/Space" method="_show_space"]
