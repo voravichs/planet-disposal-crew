@@ -1,8 +1,6 @@
 extends Node2D
 
 @onready var ui_canvas_layer: CanvasLayer = $UICanvasLayer
-@onready var debug_planet: AnimatedSprite2D = %DebugPlanet
-@onready var debug_anim: AnimationPlayer = %DebugAnim
 @onready var w_arrow1 = %PlanetPointer1
 @onready var w_arrow2 = %PlanetPointer2
 @onready var w_arrow3 = %PlanetPointer3
@@ -11,15 +9,14 @@ extends Node2D
 @onready var b2: TextureButton = %B2
 @onready var b3: TextureButton = %B3
 @onready var b4: TextureButton = %B4
+@onready var space_planet_view: Control = %SpacePlanetView
 @onready var console_planet: Sprite2D = %ConsolePlanet
 @onready var gameplay_ui: Control = %GameplayUI
+@onready var top_bar_info: MarginContainer = %TopBarInfo
 @onready var console_info: Control = %ConsoleInfo
-@onready var money_label: RichTextLabel = %MoneyLabel
 @onready var scan_button: Button = %ScanButton
 @onready var crew_dialogue: Button = %CrewDialogue
 @onready var decision_button: Button = %DecisionButton
-@onready var console_bg: PanelContainer = %ConsoleBG
-@onready var console_bg_top: PanelContainer = %ConsoleBGTop
 @onready var decision_ui: Control = %DecisionUI
 @onready var firing_ui: Control = %FiringUI
 @onready var space: Control = %Space
@@ -45,8 +42,6 @@ func _ready() -> void:
 	_planet_tracker_pressed(current_planet_index)
 	# Prevent button input
 	disable_all_actions()
-	# Set initial money
-	money_label.text = str(GameVariables.money)
 	# Init a debug DialogUI
 	var debug_dialogue_resource = load(DIALOGUE_FILE)
 	dialog_ui_reference = DIALOG_UI.instantiate().with_data(debug_dialogue_resource, "start")
@@ -54,7 +49,7 @@ func _ready() -> void:
 	dialog_ui_reference.finished_dialogue.connect(_show_gameplay_ui)
 	#DEBUG
 	_show_gameplay_ui()
-	debug_anim.animation_finished.connect(_on_explode_finished)
+	space_planet_view.explode_anim_finished.connect(_on_explode_finished)
 	space.ftl_finished.connect(set_planet)
 
 # Called upon finishing FTL animation
@@ -70,9 +65,7 @@ func set_planet():
 	else:
 		# Space
 		current_planet = DEBUG_STAGE_DB_REF.PLANET_PARAMS[current_planet_index]
-		debug_planet.play(current_planet.game_vars.anim_name)
-		debug_planet.modulate = Color(1, 1, 1, 1)
-		debug_planet.visible = true 
+		space_planet_view.show_planet(current_planet)
 		# Console
 		console_planet.texture = load(current_planet.game_vars.spritesheet)
 		console_planet.visible = true
@@ -110,9 +103,8 @@ func _planet_tracker_pressed(index: int) -> void:
 		print("unpog")
 		return
 	# Hide previous planet
-	debug_planet.modulate = Color(1, 1, 1, 0)
-	debug_planet.visible = false
-	# hide console info
+	space_planet_view.hide_planet()
+	# Hide console info
 	console_info.hide_console_info()
 	console_planet.visible = false
 	# Set new planet index
@@ -139,7 +131,7 @@ func _show_gameplay_ui():
 
 # explode the planet visually, then disable planet in tracker
 func _explode_button() -> void:
-	debug_anim.play("ExplodePlanet")
+	space_planet_view.play_explode()
 	for i in planet_tracker.size():
 		if current_planet_index == i:
 			planet_tracker[i].disabled = true
@@ -153,6 +145,7 @@ func _explode_button() -> void:
 	set_planet()
 
 func _on_explode_finished(_anim):
+	print("pog")
 	firing_ui.visible = false
 	gameplay_ui.visible = true
 
@@ -162,7 +155,7 @@ func _on_scan_button_pressed() -> void:
 		scan_planet()
 		planets_scanned[current_planet_index] = true
 		GameVariables.money -= current_planet.game_vars.scan_cost
-		money_label.text = str(GameVariables.money)
+		top_bar_info.money_label.text = str(GameVariables.money)
 
 # Change to dialogue mode
 func _on_crew_dialogue_pressed() -> void:
