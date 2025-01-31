@@ -32,7 +32,7 @@ func _input(event: InputEvent) -> void:
 	if (line == null):
 		finished_dialogue.emit()
 		return
-	if event.is_action_pressed("next_line"):
+	if event.is_action_pressed("dialogic_default_action"):
 		# Skip typing out if input detected while typing
 		if dialogue_line.is_typing:
 			dialogue_line.skip_typing()

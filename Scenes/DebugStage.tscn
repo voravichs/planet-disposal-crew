@@ -1,4 +1,4 @@
-[gd_scene load_steps=1665 format=3 uid="uid://xmd4jsiyrr3d"]
+[gd_scene load_steps=1670 format=3 uid="uid://xmd4jsiyrr3d"]
 
 [ext_resource type="Script" path="res://Scripts/debug_stage.gd" id="1_rtoc5"]
 [ext_resource type="Theme" uid="uid://cbyntf3b68cco" path="res://Assets/Themes/PanelContainer/bg_plain.tres" id="2_nyxfc"]
@@ -35,6 +35,8 @@
 [ext_resource type="Texture2D" uid="uid://dgmki6rphhhr6" path="res://Assets/Sprites/UI/console_screen.png" id="24_wi0cr"]
 [ext_resource type="Theme" uid="uid://2yebev0mx80o" path="res://Assets/Themes/PixelButtonSmall.tres" id="25_imiub"]
 [ext_resource type="Theme" uid="uid://bngckj73xoakm" path="res://Assets/Themes/PixelButtonLGDanger.tres" id="25_tw4bt"]
+[ext_resource type="Script" path="res://Scenes/firing_ui.gd" id="28_g5m56"]
+[ext_resource type="Theme" uid="uid://6vfakykk6ugs" path="res://Assets/Themes/PanelContainer/bg_danger.tres" id="28_yvt2x"]
 
 [sub_resource type="Theme" id="Theme_v1vj0"]
 default_font = ExtResource("4_gw4j1")
@@ -185,6 +187,68 @@ animations = [{
 "name": &"x",
 "speed": 8.0
 }]
+
+[sub_resource type="Animation" id="Animation_xbqd7"]
+resource_name = "danger"
+length = 7.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%ConsoleBGDanger:theme:PanelContainer/styles/panel:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.75, 1.25, 1.75, 2, 2.5, 3, 4, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.145098, 0.168627, 0.203922, 1), Color(0.862745, 0.207843, 0.270588, 1), Color(0.862745, 0.207843, 0.270588, 1), Color(0.145098, 0.168627, 0.203922, 1), Color(0.862745, 0.207843, 0.270588, 1), Color(0.862745, 0.207843, 0.270588, 1), Color(0.145098, 0.168627, 0.203922, 1), Color(0.862745, 0.207843, 0.270588, 1), Color(0.862745, 0.207843, 0.270588, 1), Color(0.145098, 0.168627, 0.203922, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Firing:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1.25, 1.5, 1.75, 2, 2.5, 3, 3.5, 4, 4.6, 4.7, 4.8, 4.9, 5, 5.1, 5.2, 5.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["[center]FIRING[/center]", "[center]FIRING.[/center]", "[center]FIRING..[/center]", "[center]FIRING...[/center]", "[center]FIRING[/center]", "[center]FIRING.[/center]", "[center]FIRING..[/center]", "[center]FIRING...[/center]", "[center]FIRING[/center]", "[center]FIRING.[/center]", "[center]FIRING..[/center]", "[center]FIRING...[/center]", "[center]S[/center]", "[center]SA[/center]", "[center]SAY[/center]", "[center]SAYO[/center]", "[center]SAYON[/center]", "[center]SAYONA[/center]", "[center]SAYONAR[/center]", "[center]SAYONARA[/center]"]
+}
+
+[sub_resource type="Animation" id="Animation_rhrix"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%ConsoleBGDanger:theme:PanelContainer/styles/panel:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.145098, 0.168627, 0.203922, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Firing:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["[center]FIRING[/center]"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ud7fk"]
+_data = {
+"RESET": SubResource("Animation_rhrix"),
+"danger": SubResource("Animation_xbqd7")
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_negq5"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -11645,7 +11709,7 @@ mouse_filter = 2
 
 [node name="ConsoleBG" type="PanelContainer" parent="UICanvasLayer/ConsoleBGs"]
 unique_name_in_owner = true
-z_index = -1
+z_index = -3
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 1
 anchors_preset = 11
@@ -11741,6 +11805,7 @@ texture_disabled = ExtResource("7_kl0n4")
 
 [node name="GameplayUI" type="Control" parent="UICanvasLayer"]
 unique_name_in_owner = true
+visible = false
 z_index = 1
 layout_mode = 3
 anchor_left = 0.000868056
@@ -11783,6 +11848,7 @@ layout_mode = 2
 
 [node name="ConsolePlanet" type="Sprite2D" parent="UICanvasLayer/GameplayUI/ConsoleInfo/ConsolePlanetView/ControlPlanetControl"]
 unique_name_in_owner = true
+visible = false
 material = SubResource("ShaderMaterial_6kmmu")
 texture = ExtResource("10_3ur38")
 hframes = 100
@@ -11907,7 +11973,7 @@ layout_mode = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
-tooltip_text = "Make a decision on this planet"
+tooltip_text = "Decide the fate of this planet"
 text = "DECISION"
 
 [node name="PlanetTrackerUI" type="CenterContainer" parent="UICanvasLayer/GameplayUI"]
@@ -11971,7 +12037,6 @@ animation = &"pointer"
 unique_name_in_owner = true
 layout_mode = 2
 toggle_mode = true
-button_pressed = true
 keep_pressed_outside = true
 button_group = ExtResource("9_haktp")
 texture_normal = ExtResource("9_2sqf3")
@@ -12034,6 +12099,7 @@ metadata/_edit_use_anchors_ = true
 [node name="ExplodeButton" type="Button" parent="UICanvasLayer/DecisionUI/DebugExplosion"]
 custom_minimum_size = Vector2(250, 75)
 layout_mode = 2
+tooltip_text = "Fire the Celestial Annihilator to scatter this planet into space dust"
 theme = ExtResource("25_tw4bt")
 text = "EXPLODE"
 
@@ -12061,6 +12127,57 @@ offset_right = 8.0
 offset_bottom = 6.0
 theme = ExtResource("25_imiub")
 text = "Return"
+
+[node name="FiringUI" type="Control" parent="UICanvasLayer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 653.0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+script = ExtResource("28_g5m56")
+
+[node name="ConsoleBGDanger" type="PanelContainer" parent="UICanvasLayer/FiringUI"]
+unique_name_in_owner = true
+z_index = -2
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -499.0
+offset_right = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("28_yvt2x")
+
+[node name="ConsoleDangerAnim" type="AnimationPlayer" parent="UICanvasLayer/FiringUI"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_ud7fk")
+}
+
+[node name="Firing" type="RichTextLabel" parent="UICanvasLayer/FiringUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -161.5
+offset_top = -30.0
+offset_right = 161.5
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_bops1")
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "[center]FIRING[/center]"
 
 [node name="Space" type="Control" parent="UICanvasLayer"]
 layout_mode = 3
@@ -12113,8 +12230,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 284.5
-offset_bottom = -292.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_i3wp3")
@@ -12139,7 +12254,8 @@ grow_vertical = 2
 
 [node name="DebugPlanet" parent="UICanvasLayer/Space/Planets" instance=ExtResource("2_wh06b")]
 unique_name_in_owner = true
-position = Vector2(0, -1)
+visible = false
+position = Vector2(-10, -1)
 sprite_frames = SubResource("SpriteFrames_jilat")
 animation = &"Planet0"
 frame = 0

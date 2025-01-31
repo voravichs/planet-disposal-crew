@@ -21,9 +21,10 @@ extends Node2D
 @onready var console_bg: PanelContainer = %ConsoleBG
 @onready var console_bg_top: PanelContainer = %ConsoleBGTop
 @onready var decision_ui: Control = %DecisionUI
+@onready var firing_ui: Control = %FiringUI
 
 var rng = RandomNumberGenerator.new()
-var current_planet_index: int = 0
+var current_planet_index: int = -1
 var current_planet: Dictionary
 var dialog_ui_reference: DialogUI
 var planets_scanned = [false, false, false, false]
@@ -49,16 +50,27 @@ func _ready() -> void:
 	dialog_ui_reference.finished_dialogue.connect(_show_gameplay_ui)
 	#DEBUG
 	_show_gameplay_ui()
+	debug_anim.animation_finished.connect(_on_explode_finished)
 
 # Sets the planet in space and in the console view
 func set_planet():
-	# Space
-	current_planet = DEBUG_STAGE_DB_REF.PLANET_PARAMS[current_planet_index]
-	debug_planet.play(current_planet.game_vars.anim_name)
-	debug_planet.modulate = Color(1, 1, 1, 1) 
-	# Console
-	console_planet.texture = load(current_planet.game_vars.spritesheet)
-	scan_button.text = "Scan ($" + str(current_planet.game_vars.scan_cost) + ")"
+	if (current_planet_index == -1):
+		console_info.hide_console_info()
+		console_planet.visible = false
+		scan_button.disabled = true
+		decision_button.disabled = true
+		crew_dialogue.disabled = true
+		return
+	else:
+		# Space
+		current_planet = DEBUG_STAGE_DB_REF.PLANET_PARAMS[current_planet_index]
+		debug_planet.play(current_planet.game_vars.anim_name)
+		debug_planet.modulate = Color(1, 1, 1, 1)
+		debug_planet.visible = true 
+		# Console
+		console_planet.texture = load(current_planet.game_vars.spritesheet)
+		console_planet.visible = true
+		scan_button.text = "Scan ($" + str(current_planet.game_vars.scan_cost) + ")"
 
 func scan_planet():
 	console_info.set_console_info(current_planet)
@@ -69,11 +81,12 @@ func scan_planet():
 # and moves the pointer to that index and plays the animation
 # Additionally also sets the planet
 func _planet_tracker_pressed(index: int) -> void:
-	# stops the AnimationPlayer if it is still playing
+	current_planet_index = index
+	# Prevents clicking when animation is playing
 	if debug_anim.is_playing():
+		set_planet()
 		return
 	# Set the planet in the space UI
-	current_planet_index = index
 	set_planet()
 	# Set the pointer in the gameplay UI
 	var planet_tracker = [b1, b2, b3, b4]
@@ -88,6 +101,9 @@ func _planet_tracker_pressed(index: int) -> void:
 			else:
 				console_info.hide_console_info()
 				scan_button.disabled = false
+		elif index == -1:
+			pointer_array[i].modulate = Color(1, 1, 1, 0) 
+			pointer_array[i].stop()
 		elif planet_tracker[i].disabled == false:
 			pointer_array[i].modulate = Color(1, 1, 1, 0) 
 			pointer_array[i].stop()
@@ -108,9 +124,16 @@ func _explode_button() -> void:
 		if current_planet_index == i:
 			planet_tracker[i].disabled = true
 			pointer_array[i].play("x")
-			decision_button.disabled = true
-			crew_dialogue.disabled = true
-			_return()
+	decision_button.disabled = true
+	crew_dialogue.disabled = true
+	decision_ui.visible = false
+	firing_ui.visible = true
+	firing_ui.play_anim()
+	_planet_tracker_pressed(-1)
+
+func _on_explode_finished(_anim):
+	firing_ui.visible = false
+	gameplay_ui.visible = true
 
 # Scans the planet, then takes money out of the budget
 func _on_scan_button_pressed() -> void:
