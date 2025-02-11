@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=3 uid="uid://bcyl7ekkf1lh2"]
+
+[ext_resource type="Theme" uid="uid://btb0t5a2pv8m5" path="res://Assets/Themes/PixelText.tres" id="1_bysu8"]
+
+[sub_resource type="Animation" id="Animation_436ss"]
+resource_name = "Pulse"
+length = 2.0
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ClickWait:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_068mo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ClickWait:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rbqtt"]
+_data = {
+"Pulse": SubResource("Animation_436ss"),
+"RESET": SubResource("Animation_068mo")
+}
+
+[node name="Click" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ClickWait" type="RichTextLabel" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 429.5
+offset_top = 555.0
+offset_right = 682.5
+offset_bottom = 595.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_bysu8")
+bbcode_enabled = true
+text = "[center][color=gold]Click to Continue...[/color][/center]"
+
+[node name="ClickWaitAnim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rbqtt")
+}
+autoplay = "Pulse"

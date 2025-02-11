@@ -11,14 +11,15 @@ config_version=5
 [application]
 
 config/name="PlanetDisposalCrew"
-run/main_scene="res://Scenes/DebugStage.tscn"
+run/main_scene="res://Scenes/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
-GameVariables="*res://Scripts/game_variables.gd"
+GameVariables="*res://Scripts/Globals/global_game_variables.gd"
+GlobalDialogue="*res://Scripts/Globals/global_dialogue.gd"
 
 [dialogic]
 
@@ -79,10 +80,15 @@ dialogic_default_action={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
+wait_click={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://Dialogues/Debug.dialogue")
+locale/translations_pot_files=PackedStringArray("res://Dialogues/Debug.dialogue", "res://Dialogues/Intro.dialogue")
 
 [rendering]
 

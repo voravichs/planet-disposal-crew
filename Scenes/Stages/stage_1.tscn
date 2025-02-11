@@ -1,0 +1,688 @@
+[gd_scene load_steps=54 format=3 uid="uid://bom1rtx2rtue3"]
+
+[ext_resource type="Script" path="res://Scripts/stage.gd" id="1_sfr3p"]
+[ext_resource type="PackedScene" uid="uid://c5s4mkxmd1muj" path="res://Scenes/console_bg.tscn" id="2_gvqwj"]
+[ext_resource type="PackedScene" uid="uid://b2y2re1ugrmni" path="res://Scenes/top_bar_info.tscn" id="3_rfd7w"]
+[ext_resource type="Script" path="res://Scripts/console_info.gd" id="4_o8228"]
+[ext_resource type="StyleBox" uid="uid://5i5aidrwwauy" path="res://Assets/Themes/Buttons/focus_btn.tres" id="5_d48j7"]
+[ext_resource type="StyleBox" uid="uid://dcmyup1awfksf" path="res://Assets/Themes/Buttons/hover_btn.tres" id="6_bvjgu"]
+[ext_resource type="StyleBox" uid="uid://ctr62n3co4v06" path="res://Assets/Themes/Buttons/normal_btn.tres" id="7_aobdn"]
+[ext_resource type="StyleBox" uid="uid://u32qb1gknpi7" path="res://Assets/Themes/Buttons/pressed_btn.tres" id="8_qpgg2"]
+[ext_resource type="FontFile" uid="uid://dhdsgaqa4nsy4" path="res://Assets/Fonts/nihonium113.regular.ttf" id="9_4t58f"]
+[ext_resource type="Shader" path="res://Assets/Shaders/outline2dinner.gdshader" id="10_551es"]
+[ext_resource type="Texture2D" uid="uid://c50s06jg4aj4f" path="res://Assets/Sprites/Planets/twplanet1.png" id="11_8ekhf"]
+[ext_resource type="Theme" uid="uid://gwj5sroh12e2" path="res://Assets/Themes/PixelButtonMD.tres" id="12_4gp2i"]
+[ext_resource type="Texture2D" uid="uid://mokskyvl6xwl" path="res://Assets/Sprites/UI/arrowanimsheet.png" id="13_6gvu3"]
+[ext_resource type="Texture2D" uid="uid://crhe31hdfsjr2" path="res://Assets/Sprites/UI/x_anim_sheet.png" id="14_xku3d"]
+[ext_resource type="ButtonGroup" uid="uid://duk0imubl2eht" path="res://Assets/Themes/PlanetButtonGroup.tres" id="15_5eugp"]
+[ext_resource type="Texture2D" uid="uid://bai2hvh4cawxq" path="res://Assets/Sprites/UI/Planet/planeticonnormal.png" id="16_8ytfl"]
+[ext_resource type="Texture2D" uid="uid://cb61cguumbevf" path="res://Assets/Sprites/UI/Planet/planeticonpressfocus.png" id="17_4dflt"]
+[ext_resource type="Texture2D" uid="uid://cfxdi1ahkeo0r" path="res://Assets/Sprites/UI/Planet/planeticonhover.png" id="18_d6ma4"]
+[ext_resource type="Texture2D" uid="uid://igc0jayy8eto" path="res://Assets/Sprites/UI/Planet/planeticondisabled.png" id="19_d16xf"]
+[ext_resource type="Theme" uid="uid://bngckj73xoakm" path="res://Assets/Themes/PixelButtonLGDanger.tres" id="20_bgwsc"]
+[ext_resource type="Theme" uid="uid://2yebev0mx80o" path="res://Assets/Themes/PixelButtonSmall.tres" id="21_dm2n0"]
+[ext_resource type="PackedScene" uid="uid://cunk84kmnpeld" path="res://Scenes/firing_ui.tscn" id="22_0atl8"]
+[ext_resource type="Script" path="res://Scripts/space.gd" id="23_cdnho"]
+[ext_resource type="Texture2D" uid="uid://dbm5tixdv02vc" path="res://Assets/Sprites/UI/spacewindow.png" id="24_f1kw0"]
+[ext_resource type="PackedScene" uid="uid://dhc10uuyttx58" path="res://Scenes/space_planet_view.tscn" id="25_w588n"]
+[ext_resource type="Script" path="res://Scripts/parallax_space.gd" id="26_17rjt"]
+[ext_resource type="Texture2D" uid="uid://c13yegfsji486" path="res://Assets/Sprites/SpaceBGs/parallax_nebulae.png" id="27_bh7dh"]
+[ext_resource type="Texture2D" uid="uid://umm6r2fmrai1" path="res://Assets/Sprites/SpaceBGs/parallax_stars.png" id="28_xa55q"]
+[ext_resource type="Script" path="res://Scripts/parallax_FTL.gd" id="29_8tlh2"]
+[ext_resource type="Texture2D" uid="uid://bc66p3o8b1fbh" path="res://Assets/Sprites/SpaceBGs/parallax_ftl.png" id="30_b4336"]
+
+[sub_resource type="Theme" id="Theme_v1vj0"]
+default_font = ExtResource("9_4t58f")
+default_font_size = 48
+Button/styles/focus = ExtResource("5_d48j7")
+Button/styles/hover = ExtResource("6_bvjgu")
+Button/styles/normal = ExtResource("7_aobdn")
+Button/styles/pressed = ExtResource("8_qpgg2")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6kmmu"]
+shader = ExtResource("10_551es")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_thickness = 1.0
+
+[sub_resource type="Theme" id="Theme_6uibm"]
+default_font = ExtResource("9_4t58f")
+default_font_size = 32
+Button/styles/focus = ExtResource("5_d48j7")
+Button/styles/hover = ExtResource("6_bvjgu")
+Button/styles/normal = ExtResource("7_aobdn")
+Button/styles/pressed = ExtResource("8_qpgg2")
+
+[sub_resource type="Theme" id="Theme_ok0f0"]
+GridContainer/constants/h_separation = 8
+GridContainer/constants/v_separation = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nk6ub"]
+atlas = ExtResource("13_6gvu3")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxmha"]
+atlas = ExtResource("13_6gvu3")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_neg5q"]
+atlas = ExtResource("13_6gvu3")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3j5j"]
+atlas = ExtResource("13_6gvu3")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0cbo"]
+atlas = ExtResource("13_6gvu3")
+region = Rect2(96, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccqvl"]
+atlas = ExtResource("13_6gvu3")
+region = Rect2(120, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rcysk"]
+atlas = ExtResource("13_6gvu3")
+region = Rect2(144, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8j47l"]
+atlas = ExtResource("13_6gvu3")
+region = Rect2(168, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubxqq"]
+atlas = ExtResource("14_xku3d")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2tnyr"]
+atlas = ExtResource("14_xku3d")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ds3v7"]
+atlas = ExtResource("14_xku3d")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1h7b"]
+atlas = ExtResource("14_xku3d")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rtq8"]
+atlas = ExtResource("14_xku3d")
+region = Rect2(96, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_csgvv"]
+atlas = ExtResource("14_xku3d")
+region = Rect2(120, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_383t6"]
+atlas = ExtResource("14_xku3d")
+region = Rect2(144, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24soc"]
+atlas = ExtResource("14_xku3d")
+region = Rect2(168, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ficb4"]
+animations = [{
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_nk6ub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxmha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_neg5q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3j5j")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_r0cbo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ccqvl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rcysk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8j47l")
+}],
+"loop": true,
+"name": &"pointer",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubxqq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2tnyr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ds3v7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1h7b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5rtq8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_csgvv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_383t6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24soc")
+}],
+"loop": true,
+"name": &"x",
+"speed": 8.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_negq5"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 35
+border_width_top = 35
+border_width_right = 35
+border_width_bottom = 35
+border_color = Color(0.8, 0.8, 0.8, 0.588235)
+border_blend = true
+corner_radius_top_left = 60
+corner_radius_top_right = 60
+corner_radius_bottom_right = 60
+corner_radius_bottom_left = 60
+
+[sub_resource type="Theme" id="Theme_fcaep"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_negq5")
+
+[node name="Stage1" type="Node2D"]
+script = ExtResource("1_sfr3p")
+
+[node name="UICanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="ConsoleBGs" parent="UICanvasLayer" instance=ExtResource("2_gvqwj")]
+
+[node name="TopBarInfo" parent="UICanvasLayer" instance=ExtResource("3_rfd7w")]
+unique_name_in_owner = true
+
+[node name="GameplayUI" type="Control" parent="UICanvasLayer"]
+unique_name_in_owner = true
+visible = false
+z_index = 1
+layout_mode = 3
+anchor_left = 0.000868056
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 652.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ConsoleInfo" type="Control" parent="UICanvasLayer/GameplayUI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_left = -0.002
+anchor_right = -0.002
+offset_left = 0.998
+offset_top = 75.0
+offset_right = 500.998
+offset_bottom = 350.0
+script = ExtResource("4_o8228")
+
+[node name="PlanetName" type="RichTextLabel" parent="UICanvasLayer/GameplayUI/ConsoleInfo"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 50.0
+grow_horizontal = 2
+theme = SubResource("Theme_v1vj0")
+bbcode_enabled = true
+text = "[center]?????[/center]"
+
+[node name="ConsolePlanetView" type="CenterContainer" parent="UICanvasLayer/GameplayUI/ConsoleInfo"]
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 300.0
+
+[node name="ControlPlanetControl" type="Control" parent="UICanvasLayer/GameplayUI/ConsoleInfo/ConsolePlanetView"]
+layout_mode = 2
+
+[node name="ConsolePlanet" type="Sprite2D" parent="UICanvasLayer/GameplayUI/ConsoleInfo/ConsolePlanetView/ControlPlanetControl"]
+unique_name_in_owner = true
+visible = false
+material = SubResource("ShaderMaterial_6kmmu")
+texture = ExtResource("11_8ekhf")
+hframes = 100
+vframes = 4
+
+[node name="ConsolePlanetInfo" type="HBoxContainer" parent="UICanvasLayer/GameplayUI/ConsoleInfo"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.214
+anchor_right = 1.0
+anchor_bottom = 1.273
+offset_top = -8.85
+offset_bottom = -50.075
+theme = SubResource("Theme_6uibm")
+theme_override_constants/separation = 64
+
+[node name="Left" type="MarginContainer" parent="UICanvasLayer/GameplayUI/ConsoleInfo/ConsolePlanetInfo"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 16
+
+[node name="Left" type="VBoxContainer" parent="UICanvasLayer/GameplayUI/ConsoleInfo/ConsolePlanetInfo/Left"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Classification" type="RichTextLabel" parent="UICanvasLayer/GameplayUI/ConsoleInfo/ConsolePlanetInfo/Left/Left"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+
+[node name="Population" type="RichTextLabel" parent="UICanvasLayer/GameplayUI/ConsoleInfo/ConsolePlanetInfo/Left/Left"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+
+[node name="Right" type="MarginContainer" parent="UICanvasLayer/GameplayUI/ConsoleInfo/ConsolePlanetInfo"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 16
+
+[node name="Right" type="VBoxContainer" parent="UICanvasLayer/GameplayUI/ConsoleInfo/ConsolePlanetInfo/Right"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DomSpecies" type="RichTextLabel" parent="UICanvasLayer/GameplayUI/ConsoleInfo/ConsolePlanetInfo/Right/Right"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text_direction = 2
+
+[node name="TechLevel" type="RichTextLabel" parent="UICanvasLayer/GameplayUI/ConsoleInfo/ConsolePlanetInfo/Right/Right"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text_direction = 2
+
+[node name="Resources" type="RichTextLabel" parent="UICanvasLayer/GameplayUI/ConsoleInfo/ConsolePlanetInfo/Right/Right"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "aaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+text_direction = 2
+
+[node name="Extra" type="RichTextLabel" parent="UICanvasLayer/GameplayUI/ConsoleInfo/ConsolePlanetInfo/Right/Right"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "aaaaaaaaaaaaaaaaaaaaaa"
+text_direction = 2
+
+[node name="ActionButtons" type="CenterContainer" parent="UICanvasLayer/GameplayUI"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 350.0
+offset_right = 478.0
+offset_bottom = 500.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UICanvasLayer/GameplayUI/ActionButtons"]
+layout_mode = 2
+theme = ExtResource("12_4gp2i")
+theme_override_constants/separation = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UICanvasLayer/GameplayUI/ActionButtons/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="ScanButton" type="Button" parent="UICanvasLayer/GameplayUI/ActionButtons/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Scan this planet for details"
+text = "Scan ($10000)"
+
+[node name="CrewDialogue" type="Button" parent="UICanvasLayer/GameplayUI/ActionButtons/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Ask your crewmates about this planet"
+text = "Crew Dialogue"
+
+[node name="CenterContainer" type="CenterContainer" parent="UICanvasLayer/GameplayUI/ActionButtons/VBoxContainer"]
+layout_mode = 2
+
+[node name="DecisionButton" type="Button" parent="UICanvasLayer/GameplayUI/ActionButtons/VBoxContainer/CenterContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+tooltip_text = "Decide the fate of this planet"
+text = "DECISION"
+
+[node name="PlanetTrackerUI" type="CenterContainer" parent="UICanvasLayer/GameplayUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.95679
+anchor_right = 1.0
+anchor_bottom = 0.978395
+offset_left = 1.0
+offset_top = -126.0
+offset_right = -250.0
+offset_bottom = -63.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
+mouse_filter = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="PlanetTracker" type="GridContainer" parent="UICanvasLayer/GameplayUI/PlanetTrackerUI"]
+layout_mode = 2
+theme = SubResource("Theme_ok0f0")
+columns = 4
+
+[node name="P1" type="Control" parent="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker"]
+layout_mode = 2
+
+[node name="PlanetPointer1" type="AnimatedSprite2D" parent="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker/P1"]
+unique_name_in_owner = true
+position = Vector2(16, -10)
+sprite_frames = SubResource("SpriteFrames_ficb4")
+animation = &"pointer"
+
+[node name="P2" type="Control" parent="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker"]
+layout_mode = 2
+
+[node name="PlanetPointer2" type="AnimatedSprite2D" parent="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker/P2"]
+unique_name_in_owner = true
+position = Vector2(16, -10)
+sprite_frames = SubResource("SpriteFrames_ficb4")
+animation = &"pointer"
+
+[node name="P3" type="Control" parent="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker"]
+layout_mode = 2
+
+[node name="PlanetPointer3" type="AnimatedSprite2D" parent="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker/P3"]
+unique_name_in_owner = true
+position = Vector2(16, -10)
+sprite_frames = SubResource("SpriteFrames_ficb4")
+animation = &"pointer"
+
+[node name="P4" type="Control" parent="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker"]
+layout_mode = 2
+
+[node name="PlanetPointer4" type="AnimatedSprite2D" parent="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker/P4"]
+unique_name_in_owner = true
+position = Vector2(16, -10)
+sprite_frames = SubResource("SpriteFrames_ficb4")
+animation = &"pointer"
+
+[node name="B1" type="TextureButton" parent="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker"]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+keep_pressed_outside = true
+button_group = ExtResource("15_5eugp")
+texture_normal = ExtResource("16_8ytfl")
+texture_pressed = ExtResource("17_4dflt")
+texture_hover = ExtResource("18_d6ma4")
+texture_disabled = ExtResource("19_d16xf")
+
+[node name="B2" type="TextureButton" parent="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker"]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+keep_pressed_outside = true
+button_group = ExtResource("15_5eugp")
+texture_normal = ExtResource("16_8ytfl")
+texture_pressed = ExtResource("17_4dflt")
+texture_hover = ExtResource("18_d6ma4")
+texture_disabled = ExtResource("19_d16xf")
+
+[node name="B3" type="TextureButton" parent="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker"]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+keep_pressed_outside = true
+button_group = ExtResource("15_5eugp")
+texture_normal = ExtResource("16_8ytfl")
+texture_pressed = ExtResource("17_4dflt")
+texture_hover = ExtResource("18_d6ma4")
+texture_disabled = ExtResource("19_d16xf")
+
+[node name="B4" type="TextureButton" parent="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker"]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+keep_pressed_outside = true
+button_group = ExtResource("15_5eugp")
+texture_normal = ExtResource("16_8ytfl")
+texture_pressed = ExtResource("17_4dflt")
+texture_hover = ExtResource("18_d6ma4")
+texture_disabled = ExtResource("19_d16xf")
+
+[node name="DecisionUI" type="Control" parent="UICanvasLayer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DebugExplosion" type="CenterContainer" parent="UICanvasLayer/DecisionUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -8.0
+anchor_bottom = 3.1
+offset_left = 654.0
+offset_top = 391.0
+offset_right = 1152.0
+offset_bottom = 523.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ExplodeButton" type="Button" parent="UICanvasLayer/DecisionUI/DebugExplosion"]
+custom_minimum_size = Vector2(250, 75)
+layout_mode = 2
+tooltip_text = "Fire the Celestial Annihilator to scatter this planet into space dust"
+theme = ExtResource("20_bgwsc")
+text = "EXPLODE"
+
+[node name="Control" type="Control" parent="UICanvasLayer/DecisionUI"]
+layout_mode = 1
+anchor_left = 28.3
+anchor_top = 15.7
+anchor_right = 28.3
+anchor_bottom = 15.7
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Return" type="Button" parent="UICanvasLayer/DecisionUI/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.65
+anchor_top = 0.675
+anchor_right = 0.65
+anchor_bottom = 0.675
+offset_left = -92.0
+offset_top = -44.0
+offset_right = 8.0
+offset_bottom = 6.0
+theme = ExtResource("21_dm2n0")
+text = "Return"
+
+[node name="FiringUI" parent="UICanvasLayer" instance=ExtResource("22_0atl8")]
+unique_name_in_owner = true
+
+[node name="Space" type="Control" parent="UICanvasLayer"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 654.0
+grow_vertical = 2
+script = ExtResource("23_cdnho")
+
+[node name="SpaceWindow" type="TextureRect" parent="UICanvasLayer/Space"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -327.0
+offset_top = -324.0
+offset_right = 326.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("24_f1kw0")
+
+[node name="WindowGlow" type="PanelContainer" parent="UICanvasLayer/Space"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -296.0
+offset_top = -294.0
+offset_right = 296.0
+offset_bottom = 294.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_fcaep")
+
+[node name="SpacePlanetView" parent="UICanvasLayer/Space" instance=ExtResource("25_w588n")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="ParallaxSpace" type="ParallaxBackground" parent="UICanvasLayer/Space"]
+unique_name_in_owner = true
+script = ExtResource("26_17rjt")
+
+[node name="ColorRect" type="ColorRect" parent="UICanvasLayer/Space/ParallaxSpace"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0431373, 0.0901961, 0.137255, 1)
+
+[node name="Nebulae" type="ParallaxLayer" parent="UICanvasLayer/Space/ParallaxSpace"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(2000, 0)
+
+[node name="NebulaeSprite" type="Sprite2D" parent="UICanvasLayer/Space/ParallaxSpace/Nebulae"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.568627)
+scale = Vector2(2, 2)
+texture = ExtResource("27_bh7dh")
+centered = false
+flip_h = true
+flip_v = true
+
+[node name="StarsFar" type="ParallaxLayer" parent="UICanvasLayer/Space/ParallaxSpace"]
+motion_mirroring = Vector2(2000, 0)
+
+[node name="FarStarSprite" type="Sprite2D" parent="UICanvasLayer/Space/ParallaxSpace/StarsFar"]
+unique_name_in_owner = true
+modulate = Color(0.560955, 0.560955, 0.560955, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("28_xa55q")
+centered = false
+
+[node name="StarsNear" type="ParallaxLayer" parent="UICanvasLayer/Space/ParallaxSpace"]
+motion_scale = Vector2(1.25, 1.25)
+motion_mirroring = Vector2(4000, 0)
+
+[node name="NearStarSprite" type="Sprite2D" parent="UICanvasLayer/Space/ParallaxSpace/StarsNear"]
+unique_name_in_owner = true
+scale = Vector2(4, 4)
+texture = ExtResource("28_xa55q")
+centered = false
+flip_h = true
+flip_v = true
+
+[node name="ParallaxFTL" type="ParallaxBackground" parent="UICanvasLayer/Space"]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("29_8tlh2")
+
+[node name="ColorRect" type="ColorRect" parent="UICanvasLayer/Space/ParallaxFTL"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0431373, 0.0901961, 0.137255, 1)
+
+[node name="StarsFar" type="ParallaxLayer" parent="UICanvasLayer/Space/ParallaxFTL"]
+motion_mirroring = Vector2(2000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="UICanvasLayer/Space/ParallaxFTL/StarsFar"]
+modulate = Color(0.560955, 0.560955, 0.560955, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("30_b4336")
+centered = false
+
+[node name="StarsMid" type="ParallaxLayer" parent="UICanvasLayer/Space/ParallaxFTL"]
+motion_scale = Vector2(1.25, 1.25)
+motion_mirroring = Vector2(4000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="UICanvasLayer/Space/ParallaxFTL/StarsMid"]
+modulate = Color(0.82606, 0.82606, 0.82606, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("30_b4336")
+centered = false
+flip_v = true
+
+[node name="StarsNear" type="ParallaxLayer" parent="UICanvasLayer/Space/ParallaxFTL"]
+motion_scale = Vector2(1.5, 1.5)
+motion_mirroring = Vector2(8000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="UICanvasLayer/Space/ParallaxFTL/StarsNear"]
+scale = Vector2(4, 4)
+texture = ExtResource("30_b4336")
+centered = false
+flip_h = true
+flip_v = true
+
+[node name="FTLTimer" type="Timer" parent="UICanvasLayer/Space"]
+unique_name_in_owner = true
+wait_time = 1.5
+one_shot = true
+
+[connection signal="pressed" from="UICanvasLayer/GameplayUI/ActionButtons/VBoxContainer/HBoxContainer/ScanButton" to="." method="_on_scan_button_pressed"]
+[connection signal="pressed" from="UICanvasLayer/GameplayUI/ActionButtons/VBoxContainer/HBoxContainer/CrewDialogue" to="." method="_on_crew_dialogue_pressed"]
+[connection signal="pressed" from="UICanvasLayer/GameplayUI/ActionButtons/VBoxContainer/CenterContainer/DecisionButton" to="." method="_on_decision_pressed"]
+[connection signal="pressed" from="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker/B1" to="." method="_planet_tracker_pressed" binds= [0]]
+[connection signal="pressed" from="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker/B2" to="." method="_planet_tracker_pressed" binds= [1]]
+[connection signal="pressed" from="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker/B3" to="." method="_planet_tracker_pressed" binds= [2]]
+[connection signal="pressed" from="UICanvasLayer/GameplayUI/PlanetTrackerUI/PlanetTracker/B4" to="." method="_planet_tracker_pressed" binds= [3]]
+[connection signal="pressed" from="UICanvasLayer/DecisionUI/DebugExplosion/ExplodeButton" to="." method="_explode_button"]
+[connection signal="pressed" from="UICanvasLayer/DecisionUI/Control/Return" to="." method="_return"]
+[connection signal="timeout" from="UICanvasLayer/Space/FTLTimer" to="UICanvasLayer/Space" method="_show_space"]

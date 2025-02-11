@@ -1,9 +1,10 @@
 class_name DialogUI extends Control
 
 @onready var portrait: TextureRect = %Portrait
+@onready var portrait_name: RichTextLabel = %PortraitName
 @onready var dialogue_line: DialogueLabel = %DialogueLine
 @onready var dialogue_options: GridContainer = %DialogueOptions
-@onready var choice_button_scn = preload("res://Scenes/ChoiceButton.tscn")
+@onready var choice_button_scn = preload("res://Scenes/choice_button.tscn")
 
 var waiting_on_decision: bool = false
 var portrait_db_ref
@@ -69,6 +70,10 @@ func process_dialogue():
 		printerr("Bad portrait_db key")
 		return
 	portrait.set_portrait(portrait_db_ref.PORTRAITS[line.character])
+	if line.character == "EMPTY":
+		portrait_name.text = ""
+	else:
+		portrait_name.text = "[center]" + line.character 
 
 # Changes the line and shows the responses in a formatted way
 func _show_responses():

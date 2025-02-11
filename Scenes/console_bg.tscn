@@ -1,6 +1,5 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5s4mkxmd1muj"]
+[gd_scene load_steps=3 format=3 uid="uid://c5s4mkxmd1muj"]
 
-[ext_resource type="Theme" uid="uid://cbyntf3b68cco" path="res://Assets/Themes/PanelContainer/bg_plain.tres" id="1_tpeip"]
 [ext_resource type="Theme" uid="uid://nclcj5wk4rf4" path="res://Assets/Themes/PanelContainer/top_bg_plain.tres" id="2_8oal6"]
 [ext_resource type="Texture2D" uid="uid://dgmki6rphhhr6" path="res://Assets/Sprites/UI/console_screen.png" id="3_aj641"]
 
@@ -12,19 +11,15 @@ offset_right = 1152.0
 offset_bottom = 648.0
 mouse_filter = 2
 
-[node name="ConsoleBG" type="PanelContainer" parent="."]
+[node name="ConsoleBG" type="ColorRect" parent="."]
 z_index = -3
-custom_minimum_size = Vector2(500, 0)
 layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -500.0
-grow_horizontal = 0
+grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
-theme = ExtResource("1_tpeip")
+color = Color(0.145098, 0.168627, 0.203922, 1)
 
 [node name="ConsoleBGTop" type="PanelContainer" parent="."]
 z_index = -1
@@ -41,7 +36,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("2_8oal6")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="ConsoleScreenEdge" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 500.0
 offset_bottom = 648.0

@@ -97,7 +97,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 ## Start typing out the text
 func type_out() -> void:
-	text = dialogue_line.character + ": " + dialogue_line.text
+	text = dialogue_line.text
 	visible_characters = 0
 	visible_ratio = 0
 	_waiting_seconds = 0

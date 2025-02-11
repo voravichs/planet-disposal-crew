@@ -1,6 +1,6 @@
 [gd_scene load_steps=1615 format=3 uid="uid://dhc10uuyttx58"]
 
-[ext_resource type="Script" path="res://Scenes/planet.gd" id="1_ry5ks"]
+[ext_resource type="Script" path="res://Scripts/planet.gd" id="1_ry5ks"]
 [ext_resource type="PackedScene" uid="uid://3sji1k7sstnk" path="res://Scenes/Particles/ImplosionParticle.tscn" id="2_sc4g0"]
 [ext_resource type="PackedScene" uid="uid://13xbcka465ud" path="res://Scenes/Particles/Explosion.tscn" id="3_ouiul"]
 [ext_resource type="PackedScene" uid="uid://pfwh6rcl2u3m" path="res://Scenes/Planets/TerranWet1.tscn" id="4_5y3et"]

@@ -9,4 +9,5 @@ const PORTRAITS = { # Name -> Spritesheet Index
 	"Allan": 7,
 	"Ruby": 8,
 	"Orin": 9,
+	"EMPTY": 10
 }

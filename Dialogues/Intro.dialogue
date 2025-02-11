@@ -1,0 +1,58 @@
+~ start
+EMPTY: [You emerge from a sea of background calibration tasks.]
+EMPTY: [Before you is the sight of five humanoids crowded around a computer screen.]
+Jessie: The boot sequence is complete.
+Orin: [shake rate=20.0 level=5 connected=1]HEY! CAN! YOU! HEAR! US![/shake]
+Roze: Orin, you don't need to shout, you oaf! It's just a machine!
+Miya: Umm, it's probably not nice to call it "just a machine". This is our ship AI, we need to give it some respect... What if it doesn't like us after a crummy first impression?
+Jessie: By the standards of modern AI laws, that should not be a problem. There are hard-coded protections in place so that AI cannot disobey their prime directives, regardless of how they "feel", if they can feel at all.
+Allan: Excuse my crewmates, they can be a little rowdy. Let's start from the top.
+Allan: Welcome to the [color=gold]Eclipse[/color], a humble mining vessel in the employ of the [color=gold]Lux Synergy Megacorporation[/color]. We specialize in mining asteroids efficiently.
+EMPTY: [All the crew members are at attention as the middle-aged man addresses you. They seem composed perhaps out of respect for his authority.]
+Allan: We have with a [color=gold]special contract[/color] by Lux Synergy that involves installing a special AI assistant into our starship. That happens to be you.
+Jessie: I was responsible for the installation and setup. You should now have [color=gold]partial kernel access[/color] to most of our starship's systems.
+Orin: Man, why do they have to make us install a glorified chatbot into our systems anyways? We were doing alright without it. 
+Roze: It is not in our power to mess with the terms of our contract, you know that. Not like you care to understand most of the time anyways.
+Orin: Now what does that mean-
+Allan: Stop bickering, you two.
+Allan: Anyways, as outlined in our contract, you are now in control of our mining equipment onboard this starship. That includes the scanners, mining lasers, and our budget for mining missions.
+Jessie: To cut through some technical jargon from the contract, you have been deployed with us to test the decision-making capabilities of starship AIs under a research subsidiary of Lux Synergy.
+Miya: May ask a question?
+Jessie: Yes Miya, what is the matter?
+Miya: Isn't it dangerous to let an AI control some parts of our ship? I know you said there are protections, but still...
+Allan: I understand your worries. I shared some of them when I was handed this contract. 
+Allan: Unfortunately, we're not in a position to refuse this contract. Our financials are almost in the red, and all other contracts are beyond our abilities as a small crew. 
+Roze: And we wouldn't be in this position if not for the [color=gold]very[/color] poor aiming abilities of a certain knucklehead pilot.
+Orin: Come on, it was [color=gold]just[/color] a small cut off the wing of a large space shuttle! Nobody even died!
+Allan: Ahem. I believe that's enough for now for your role in this starship. We can go into the details later. Let us introduce ourselves.
+Allan: My name is [color=gold]Allan Lockehart[/color]. I am the captain of this crew of space miners aboard the Eclipse.
+Orin: [color=gold]Orin Savarri[/color]. Ace starship pilot. I used to be the youngest person that got my spacing license. I'd say I'm very good at navigating around a heavy asteroid field, right gang?
+EMPTY: [Nobody returns Orin's invitation for a high five.]
+Miya: I... I'm [color=gold]Miya Shimada[/color]. I am the medical doctor and geologist of the crew. I... um, suppose I am good identifying celestial materials and rich asteroids. I hope I can be of help to your decision-making.
+Roze: My name is [color=gold]Rozenkrantz Lorraine[/color], but you can just call me Roze. I am the accountant for this small crew of space miners. I used to keep track of the budget and expenses... but I suppose those duties have been offloaded to you. Let me know if you need any budgeting advice.
+EMPTY: [Her very prepared introduction didn't know it overtly, but Roze's tone sounded very dissatisfied that her job was now handed over to me, the starship AI.]
+Jessie: I suppose I am last. I am [color=gold]Jessie Aetheris[/color]. I am a computer programmer and engineer for the crew. I am trained to fix a variety of starship systems and issues. Many arise form the day-to-day operations of space mining, and I have handled most of them.
+Roze: To varying levels of damage on our budgets.
+Jessie: Some fixes require extra parts. That's the nature of our line of work.
+Miya: What should we call you Mister... or ummm, Miss AI?
+Jessie: You would do well not to personify our ship's AI too much. This is a purely professional relationship-
+Orin: Come on, we can't just call it, er, them, "the ship AI" all the time. Wasn't there a... what do you call it, a AI persona attached to our AI or something?
+Allan: In this rare case, I agree with Orin's suggestion. Even if for this contract, we need a convenient way to refer to our ship AI. 
+Allan: Jessie, could you please allow our AI to respond?
+Jessie: ... affirmative. 
+EMPTY: [Jessie approaches the keyboard attached to my console and types out a query.]
+=> END 
+
+~ test
+Orin: Skibidi toilet.
+=> END
+
+~ post_input
+Miya: [color=gold]{{GameVariables.ai_name}}[/color]... that's a wonderful name. How did you decide on it?
+Jessie: This AI, I mean {{GameVariables.ai_name}},  is not authorized to answer that question. The only responses and decision-making {{GameVariables.ai_pronouns.subj}} {{GameVariables.ai_pronouns.linking}} allowed to do are related to our mining and harvesting operations.
+Miya: O-oh, I see. That's good to know.
+Roze: It's almost time to start the workday. We're approaching an asteroid field ahead. I am curious to see how our new "crewmate" will perform.
+Allan: Indeed. It's time to clock in. {{GameVariables.ai_name}}, we will explain your roles as we arrive on site shortly. Be prepared. Orin, no funny business today, we need to show {{GameVariables.ai_name}} some normal mining operations.
+Orin: Fiiiiiiiiiine, chief.
+Orin: Seatbelts everyone, engaging sub-FTL soon!
+=> END
